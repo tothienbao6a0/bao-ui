@@ -71,21 +71,22 @@ export function ControlledExample() {
   const [checked, setChecked] = useState(false)
 
 return (
+
 <div className="space-y-4">
-<Checkbox
-label="Controlled checkbox"
-checked={checked}
-onCheckedChange={setChecked}
-description={`Checkbox is ${checked ? 'checked' : 'unchecked'}`}
-/>
-<button
-onClick={() => setChecked(!checked)}
-className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80" >
-Toggle Checkbox
-</button>
+  <Checkbox
+    label="Controlled checkbox"
+    checked={checked}
+    onCheckedChange={setChecked}
+    description={`Checkbox is ${checked ? 'checked' : 'unchecked'}`}
+  />
+  <button
+    onClick={() => setChecked(!checked)}
+    className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+  >
+    Toggle Checkbox
+  </button>
 </div>
-)
-}
+) }
 
 ```tsx
 import { useState } from 'react'
@@ -183,32 +184,32 @@ setSelectedItems(selectedItems.filter(item => item !== value))
 }
 
 return (
+
 <div className="space-y-3">
-<h3 className="text-sm font-medium">Select your preferences:</h3>
-<Checkbox
-label="Email notifications"
-checked={selectedItems.includes('option1')}
-onCheckedChange={(checked) => handleChange('option1', checked)}
-description="Receive updates via email"
-/>
-<Checkbox
-label="SMS notifications"
-checked={selectedItems.includes('option2')}
-onCheckedChange={(checked) => handleChange('option2', checked)}
-description="Receive updates via SMS"
-/>
-<Checkbox
-label="Push notifications"
-checked={selectedItems.includes('option3')}
-onCheckedChange={(checked) => handleChange('option3', checked)}
-description="Receive push notifications"
-/>
-<div className="mt-4 text-sm text-muted-foreground">
-Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
+  <h3 className="text-sm font-medium">Select your preferences:</h3>
+  <Checkbox
+    label="Email notifications"
+    checked={selectedItems.includes('option1')}
+    onCheckedChange={checked => handleChange('option1', checked)}
+    description="Receive updates via email"
+  />
+  <Checkbox
+    label="SMS notifications"
+    checked={selectedItems.includes('option2')}
+    onCheckedChange={checked => handleChange('option2', checked)}
+    description="Receive updates via SMS"
+  />
+  <Checkbox
+    label="Push notifications"
+    checked={selectedItems.includes('option3')}
+    onCheckedChange={checked => handleChange('option3', checked)}
+    description="Receive push notifications"
+  />
+  <div className="mt-4 text-sm text-muted-foreground">
+    Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
+  </div>
 </div>
-</div>
-)
-}
+) }
 
 ```tsx
 import { useState } from 'react'
@@ -291,34 +292,34 @@ setChildStates(newChildStates)
 }
 
 return (
+
 <div className="space-y-3">
-<Checkbox
-        label="Select all features"
-        checked={parentChecked}
-        indeterminate={isIndeterminate}
-        onCheckedChange={handleParentChange}
-        description="Toggle all features on or off"
-      />
-<div className="ml-6 space-y-2">
-<Checkbox
-label="Feature A"
-checked={childStates.child1}
-onCheckedChange={(checked) => handleChildChange('child1', checked)}
-/>
-<Checkbox
-label="Feature B"
-checked={childStates.child2}
-onCheckedChange={(checked) => handleChildChange('child2', checked)}
-/>
-<Checkbox
-label="Feature C"
-checked={childStates.child3}
-onCheckedChange={(checked) => handleChildChange('child3', checked)}
-/>
+  <Checkbox
+    label="Select all features"
+    checked={parentChecked}
+    indeterminate={isIndeterminate}
+    onCheckedChange={handleParentChange}
+    description="Toggle all features on or off"
+  />
+  <div className="ml-6 space-y-2">
+    <Checkbox
+      label="Feature A"
+      checked={childStates.child1}
+      onCheckedChange={checked => handleChildChange('child1', checked)}
+    />
+    <Checkbox
+      label="Feature B"
+      checked={childStates.child2}
+      onCheckedChange={checked => handleChildChange('child2', checked)}
+    />
+    <Checkbox
+      label="Feature C"
+      checked={childStates.child3}
+      onCheckedChange={checked => handleChildChange('child3', checked)}
+    />
+  </div>
 </div>
-</div>
-)
-}
+) }
 
 ```tsx
 import { useState } from 'react'

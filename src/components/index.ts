@@ -88,3 +88,17 @@ export {
   type RadioFieldLabelProps,
   type RadioFieldDescriptionProps,
 } from './Radio'
+export {
+  Switch,
+  SwitchRoot,
+  SwitchThumb,
+  SwitchFieldRoot,
+  SwitchLabel,
+  SwitchDescription,
+  type SwitchProps,
+  type SwitchRootProps,
+  type SwitchThumbProps,
+  type SwitchFieldRootProps,
+  type SwitchLabelProps,
+  type SwitchDescriptionProps,
+} from './Switch'

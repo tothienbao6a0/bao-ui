@@ -1,0 +1,379 @@
+import { useState } from 'react'
+import {
+  Switch,
+  SwitchRoot,
+  SwitchThumb,
+  SwitchFieldRoot,
+  SwitchLabel,
+  SwitchDescription,
+} from '@bao-ui/components'
+
+# Switch
+
+A toggle switch component for binary choices, built on Base UI primitives with comprehensive accessibility and dark mode support.
+
+## Features
+
+- **Accessible**: Built with proper ARIA attributes and keyboard navigation
+- **Customizable**: Multiple sizes and composable components
+- **Form Integration**: Works seamlessly with form libraries
+- **Dark Mode**: Full support for light and dark themes
+- **TypeScript**: Fully typed with excellent IntelliSense
+
+## Installation
+
+The Switch component is included in the `@bao-ui/components` package.
+
+## Basic Usage
+
+<div className="not-prose my-6">
+  <div className="rounded-lg border border-border bg-background p-6">
+    <Switch label="Enable notifications" />
+  </div>
+</div>
+
+```tsx
+import { Switch } from '@bao-ui/components'
+
+export function BasicSwitch() {
+  return <Switch label="Enable notifications" />
+}
+```
+
+## With Description
+
+<div className="not-prose my-6">
+  <div className="rounded-lg border border-border bg-background p-6">
+    <Switch
+      label="Marketing emails"
+      description="Receive emails about new products and features."
+    />
+  </div>
+</div>
+
+```tsx
+<Switch
+  label="Marketing emails"
+  description="Receive emails about new products and features."
+/>
+```
+
+## Sizes
+
+<div className="not-prose my-6">
+  <div className="rounded-lg border border-border bg-background p-6 space-y-4">
+    <Switch size="sm" label="Small switch" />
+    <Switch size="default" label="Default switch" />
+    <Switch size="lg" label="Large switch" />
+  </div>
+</div>
+
+```tsx
+<Switch size="sm" label="Small switch" />
+<Switch size="default" label="Default switch" />
+<Switch size="lg" label="Large switch" />
+```
+
+## States
+
+<div className="not-prose my-6">
+  <div className="rounded-lg border border-border bg-background p-6 space-y-4">
+    <Switch label="Default" />
+    <Switch label="Checked" defaultChecked />
+    <Switch label="Disabled" disabled />
+    <Switch label="Disabled & Checked" disabled defaultChecked />
+  </div>
+</div>
+
+```tsx
+<Switch label="Default" />
+<Switch label="Checked" defaultChecked />
+<Switch label="Disabled" disabled />
+<Switch label="Disabled & Checked" disabled defaultChecked />
+```
+
+## Controlled
+
+export function ControlledExample() {
+  const [checked, setChecked] = useState(false)
+
+  return (
+    <div className="space-y-4">
+      <Switch
+        label="Controlled switch"
+        description="This switch is controlled by external state."
+        checked={checked}
+        onCheckedChange={setChecked}
+      />
+      <div className="text-sm text-muted-foreground">
+        Current state: {checked ? 'On' : 'Off'}
+      </div>
+      <div className="flex gap-2">
+        <button
+          onClick={() => setChecked(true)}
+          className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
+        >
+          Turn On
+        </button>
+        <button
+          onClick={() => setChecked(false)}
+          className="rounded bg-secondary px-3 py-1 text-sm text-secondary-foreground hover:bg-secondary/80"
+        >
+          Turn Off
+        </button>
+      </div>
+    </div>
+  )
+}
+
+<div className="not-prose my-6">
+  <div className="rounded-lg border border-border bg-background p-6">
+    <ControlledExample />
+  </div>
+</div>
+
+```tsx
+import { useState } from 'react'
+import { Switch } from '@bao-ui/components'
+
+export function ControlledExample() {
+  const [checked, setChecked] = useState(false)
+
+  return (
+    <div className="space-y-4">
+      <Switch
+        label="Controlled switch"
+        checked={checked}
+        onCheckedChange={setChecked}
+      />
+      <div className="text-sm text-muted-foreground">
+        Current state: {checked ? 'On' : 'Off'}
+      </div>
+    </div>
+  )
+}
+```
+
+## Settings Panel Example
+
+export function SettingsPanelExample() {
+  const [settings, setSettings] = useState({
+    notifications: true,
+    marketing: false,
+    analytics: true,
+    autoSave: false,
+  })
+
+const handleToggle = (key) => (checked) => {
+setSettings(prev => ({ ...prev, [key]: checked }))
+}
+
+return (
+<div className="w-80 space-y-4">
+<Switch
+label="Push notifications"
+description="Receive push notifications on your device."
+checked={settings.notifications}
+onCheckedChange={handleToggle('notifications')}
+/>
+<Switch
+label="Marketing emails"
+description="Receive emails about new products."
+checked={settings.marketing}
+onCheckedChange={handleToggle('marketing')}
+/>
+<Switch
+label="Analytics"
+description="Help us improve by sharing usage data."
+checked={settings.analytics}
+onCheckedChange={handleToggle('analytics')}
+/>
+<Switch
+label="Auto-save"
+description="Automatically save your work."
+checked={settings.autoSave}
+onCheckedChange={handleToggle('autoSave')}
+/>
+</div>
+)
+}
+
+<div className="not-prose my-6">
+  <div className="rounded-lg border border-border bg-background p-6">
+    <SettingsPanelExample />
+  </div>
+</div>
+
+## Custom Composition
+
+For advanced use cases, you can compose the switch using individual components:
+
+<div className="not-prose my-6">
+  <div className="rounded-lg border border-border bg-background p-6">
+    <SwitchFieldRoot>
+      <div className="flex items-center justify-between">
+        <div>
+          <SwitchLabel>Custom layout switch</SwitchLabel>
+          <SwitchDescription>
+            This uses individual components for maximum flexibility.
+          </SwitchDescription>
+        </div>
+        <SwitchRoot defaultChecked>
+          <SwitchThumb />
+        </SwitchRoot>
+      </div>
+    </SwitchFieldRoot>
+  </div>
+</div>
+
+```tsx
+import {
+  SwitchRoot,
+  SwitchThumb,
+  SwitchFieldRoot,
+  SwitchLabel,
+  SwitchDescription,
+} from '@bao-ui/components'
+
+;<SwitchFieldRoot>
+  <div className="flex items-center justify-between">
+    <div>
+      <SwitchLabel>Custom layout switch</SwitchLabel>
+      <SwitchDescription>
+        This uses individual components for maximum flexibility.
+      </SwitchDescription>
+    </div>
+    <SwitchRoot defaultChecked>
+      <SwitchThumb />
+    </SwitchRoot>
+  </div>
+</SwitchFieldRoot>
+```
+
+## API Reference
+
+### Switch
+
+The main switch component that combines all sub-components for convenience.
+
+| Prop              | Type                         | Default     | Description                         |
+| ----------------- | ---------------------------- | ----------- | ----------------------------------- |
+| `label`           | `string`                     | -           | Label text for the switch           |
+| `description`     | `string`                     | -           | Helper text below the switch        |
+| `size`            | `'sm' \| 'default' \| 'lg'`  | `'default'` | Size of the switch                  |
+| `checked`         | `boolean`                    | -           | Controlled checked state            |
+| `defaultChecked`  | `boolean`                    | `false`     | Default checked state               |
+| `onCheckedChange` | `(checked: boolean) => void` | -           | Callback when checked state changes |
+| `disabled`        | `boolean`                    | `false`     | Whether the switch is disabled      |
+| `id`              | `string`                     | -           | HTML id attribute                   |
+| `className`       | `string`                     | -           | Additional CSS classes              |
+
+### SwitchRoot
+
+The root switch element.
+
+| Prop              | Type                         | Default     | Description                         |
+| ----------------- | ---------------------------- | ----------- | ----------------------------------- |
+| `size`            | `'sm' \| 'default' \| 'lg'`  | `'default'` | Size of the switch                  |
+| `checked`         | `boolean`                    | -           | Controlled checked state            |
+| `defaultChecked`  | `boolean`                    | `false`     | Default checked state               |
+| `onCheckedChange` | `(checked: boolean) => void` | -           | Callback when checked state changes |
+| `disabled`        | `boolean`                    | `false`     | Whether the switch is disabled      |
+| `className`       | `string`                     | -           | Additional CSS classes              |
+
+### SwitchThumb
+
+The movable thumb element.
+
+| Prop        | Type                        | Default     | Description            |
+| ----------- | --------------------------- | ----------- | ---------------------- |
+| `size`      | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the thumb      |
+| `className` | `string`                    | -           | Additional CSS classes |
+
+### SwitchFieldRoot
+
+Wrapper component for field integration.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+### SwitchLabel
+
+Label component for the switch.
+
+| Prop        | Type     | Default | Description                  |
+| ----------- | -------- | ------- | ---------------------------- |
+| `htmlFor`   | `string` | -       | Associates label with switch |
+| `className` | `string` | -       | Additional CSS classes       |
+
+### SwitchDescription
+
+Description text component.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+## Accessibility
+
+The Switch component follows WAI-ARIA guidelines:
+
+- Uses proper ARIA attributes (`role="switch"`, `aria-checked`)
+- Supports keyboard navigation (Space/Enter to toggle)
+- Provides proper focus management
+- Associates labels with the switch control
+- Announces state changes to screen readers
+
+## Examples
+
+### Form Integration
+
+```tsx
+import { useState } from 'react'
+import { Switch } from '@bao-ui/components'
+
+export function SettingsForm() {
+  const [settings, setSettings] = useState({
+    notifications: false,
+    marketing: true,
+  })
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log('Settings:', settings)
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <Switch
+        label="Email Notifications"
+        description="Receive email updates"
+        checked={settings.notifications}
+        onCheckedChange={checked =>
+          setSettings(prev => ({ ...prev, notifications: checked }))
+        }
+      />
+      <Switch
+        label="Marketing Emails"
+        description="Receive promotional content"
+        checked={settings.marketing}
+        onCheckedChange={checked =>
+          setSettings(prev => ({ ...prev, marketing: checked }))
+        }
+      />
+      <button type="submit">Save Settings</button>
+    </form>
+  )
+}
+```
+
+### Without Label
+
+```tsx
+// For inline controls where context is provided elsewhere
+<div className="flex items-center space-x-2">
+  <span>Dark Mode</span>
+  <Switch />
+</div>
+```

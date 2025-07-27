@@ -300,35 +300,34 @@ export function ControlledExample() {
   ]
 
 return (
+
 <div className="space-y-4">
-<div className="w-[200px]">
-<SelectRoot
-          options={frameworks}
-          placeholder="Choose framework..."
-          value={value}
-          onValueChange={setValue}
-        >
-<SelectTrigger />
-<SelectContent>
-{frameworks.map((framework) => (
-<SelectItem key={framework.value} value={framework.value}>
-{framework.label}
-</SelectItem>
-))}
-</SelectContent>
-</SelectRoot>
+  <div className="w-[200px]">
+    <SelectRoot
+      options={frameworks}
+      placeholder="Choose framework..."
+      value={value}
+      onValueChange={setValue}
+    >
+      <SelectTrigger />
+      <SelectContent>
+        {frameworks.map(framework => (
+          <SelectItem key={framework.value} value={framework.value}>
+            {framework.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </SelectRoot>
+  </div>
+  <p className="text-sm text-muted-foreground">Selected: {value || 'None'}</p>
+  <button
+    onClick={() => setValue(null)}
+    className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+  >
+    Clear Selection
+  </button>
 </div>
-<p className="text-sm text-muted-foreground">
-Selected: {value || 'None'}
-</p>
-<button
-onClick={() => setValue(null)}
-className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80" >
-Clear Selection
-</button>
-</div>
-)
-}
+) }
 
 ```tsx
 import { useState } from 'react'

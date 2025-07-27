@@ -132,21 +132,21 @@ setLoading(false)
 }
 
 return (
+
 <div className="space-y-4">
-<div className="flex gap-2">
-<Button onClick={handleClick} disabled={loading}>
-{loading ? 'Loading...' : `Clicked ${clickCount} times`}
-</Button>
-<Button variant="outline" onClick={() => setClickCount(0)}>
-Reset
-</Button>
+  <div className="flex gap-2">
+    <Button onClick={handleClick} disabled={loading}>
+      {loading ? 'Loading...' : `Clicked ${clickCount} times`}
+    </Button>
+    <Button variant="outline" onClick={() => setClickCount(0)}>
+      Reset
+    </Button>
+  </div>
+  <p className="text-sm text-muted-foreground">
+    Try clicking the button to see state changes!
+  </p>
 </div>
-<p className="text-sm text-muted-foreground">
-Try clicking the button to see state changes!
-</p>
-</div>
-)
-}
+) }
 
 ```tsx
 import { useState } from 'react'
@@ -340,6 +340,7 @@ function Example() {
         </Button>
       </div>
     </div>
+
   </div>
 </div>
 

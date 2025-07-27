@@ -202,16 +202,16 @@ setValue(newValue)
 }
 
 return (
+
 <Input
-label="Controlled Input"
-placeholder="Type something..."
-value={value}
-onChange={handleChange}
-error={error}
-description={!error ? `Character count: ${value.length}` : undefined}
+  label="Controlled Input"
+  placeholder="Type something..."
+  value={value}
+  onChange={handleChange}
+  error={error}
+  description={!error ? `Character count: ${value.length}` : undefined}
 />
-)
-}
+) }
 
 ```tsx
 import { useState } from 'react'
