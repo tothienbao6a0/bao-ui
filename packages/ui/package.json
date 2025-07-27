@@ -33,17 +33,17 @@
   "author": "Bao To",
   "license": "MIT",
   "dependencies": {
-    "@base-ui-components/react": "^1.0.0-beta.1",
     "@bao/core": "workspace:*",
     "@bao/tokens": "workspace:*",
+    "@base-ui-components/react": "^1.0.0-beta.1",
     "clsx": "^2.1.1",
     "dompurify": "^3.0.8",
     "tailwind-variants": "^0.2.1"
   },
   "peerDependencies": {
+    "framer-motion": "^11.0.0",
     "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0",
-    "framer-motion": "^11.0.0"
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
     "framer-motion": {
@@ -55,6 +55,6 @@
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "typescript": "^5.4.2",
-    "vite": "^5.1.4"
+    "vite": "^7.0.6"
   }
 }
