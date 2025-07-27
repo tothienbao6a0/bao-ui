@@ -44,5 +44,8 @@
   "devDependencies": {
     "typescript": "^5.4.2",
     "vite": "^7.0.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
