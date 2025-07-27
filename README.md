@@ -1,6 +1,6 @@
 # bao-ui v0.1.0
 
-> Tailwind-first components powered by Base UI primitives — shadcn feel, npm-install simplicity.
+> Beautifully designed Tailwind-first components you can install in one command. Accessible. Themeable. AI-native. Powered by Base UI. Open Source
 
 ## 🚀 Value Proposition
 
