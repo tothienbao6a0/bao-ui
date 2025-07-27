@@ -56,7 +56,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}>
+  <ClientOnly
+    fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}
+  >
     <RadioGroup
       label="Notifications"
       items={[
@@ -93,7 +95,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}>
+  <ClientOnly
+    fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}
+  >
     <RadioGroup
       label="Email notifications"
       description="Choose what notifications you want to receive via email."
@@ -143,7 +147,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}>
+  <ClientOnly
+    fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}
+  >
     <RadioGroup
       label="Payment Method"
       description="Choose your preferred payment method."
@@ -234,6 +240,60 @@ function Example() {
 export function ControlledExample() {
   const [value, setValue] = useState('card')
 
+const paymentOptions = [
+{
+value: 'card',
+label: 'Credit Card',
+description: 'Pay with your credit or debit card',
+},
+{
+value: 'paypal',
+label: 'PayPal',
+description: 'Pay with your PayPal account',
+},
+{
+value: 'apple',
+label: 'Apple Pay',
+description: 'Pay with Touch ID or Face ID',
+},
+]
+
+return (
+<div className="space-y-4">
+<RadioGroup
+        label="Payment Method"
+        description="Select your preferred payment method."
+        items={paymentOptions}
+        value={value}
+        onValueChange={setValue}
+      />
+<div className="text-sm text-muted-foreground">
+Selected:{' '}
+{paymentOptions.find(option => option.value === value)?.label}
+</div>
+<div className="flex gap-2">
+<button
+onClick={() => setValue('paypal')}
+className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80" >
+Select PayPal
+</button>
+<button
+onClick={() => setValue('apple')}
+className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80" >
+Select Apple Pay
+</button>
+</div>
+</div>
+)
+}
+
+```tsx
+import { useState } from 'react'
+import { RadioGroup } from '@bao-ui/react'
+
+function Example() {
+  const [value, setValue] = useState('card')
+
   const paymentOptions = [
     {
       value: 'card',
@@ -262,62 +322,6 @@ export function ControlledExample() {
         onValueChange={setValue}
       />
       <div className="text-sm text-muted-foreground">
-        Selected:{' '}
-        {paymentOptions.find(option => option.value === value)?.label}
-      </div>
-      <div className="flex gap-2">
-        <button
-          onClick={() => setValue('paypal')}
-          className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
-        >
-          Select PayPal
-        </button>
-        <button
-          onClick={() => setValue('apple')}
-          className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
-        >
-          Select Apple Pay
-        </button>
-      </div>
-    </div>
-  )
-}
-
-```tsx
-import { useState } from 'react'
-import { RadioGroup } from '@bao-ui/react'
-
-function Example() {
-  const [value, setValue] = useState('card')
-
-  const paymentOptions = [
-    {
-      value: 'card',
-      label: 'Credit Card',
-      description: 'Pay with your credit or debit card',
-    },
-    {
-      value: 'paypal', 
-      label: 'PayPal',
-      description: 'Pay with your PayPal account',
-    },
-    {
-      value: 'apple',
-      label: 'Apple Pay', 
-      description: 'Pay with Touch ID or Face ID',
-    },
-  ]
-
-  return (
-    <div className="space-y-4">
-      <RadioGroup
-        label="Payment Method"
-        description="Select your preferred payment method."
-        items={paymentOptions}
-        value={value}
-        onValueChange={setValue}
-      />
-      <div className="text-sm text-muted-foreground">
         Selected: {paymentOptions.find(option => option.value === value)?.label}
       </div>
     </div>
@@ -326,7 +330,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}>
+  <ClientOnly
+    fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}
+  >
     <ControlledExample />
   </ClientOnly>
 </div>
@@ -451,9 +457,7 @@ function Example() {
           <label htmlFor="custom2" className="text-sm font-medium">
             Custom Option 2
           </label>
-          <p className="text-xs text-muted-foreground">
-            Another custom option
-          </p>
+          <p className="text-xs text-muted-foreground">Another custom option</p>
         </div>
       </div>
     </RadioGroupRoot>
@@ -466,16 +470,16 @@ function Example() {
 
 The main radio group component that combines all sub-components for convenience.
 
-| Prop            | Type                              | Default | Description                           |
-| --------------- | --------------------------------- | ------- | ------------------------------------- |
-| `label`         | `string`                          | -       | Label text for the radio group        |
-| `description`   | `string`                          | -       | Helper text below the radio group     |
-| `items`         | `RadioOption[]`                   | -       | Array of radio options                |
-| `value`         | `string`                          | -       | Controlled selected value             |
-| `defaultValue`  | `string`                          | -       | Default selected value                |
-| `onValueChange` | `(value: string) => void`         | -       | Callback when selected value changes  |
-| `disabled`      | `boolean`                         | `false` | Whether the entire group is disabled  |
-| `className`     | `string`                          | -       | Additional CSS classes                |
+| Prop            | Type                      | Default | Description                          |
+| --------------- | ------------------------- | ------- | ------------------------------------ |
+| `label`         | `string`                  | -       | Label text for the radio group       |
+| `description`   | `string`                  | -       | Helper text below the radio group    |
+| `items`         | `RadioOption[]`           | -       | Array of radio options               |
+| `value`         | `string`                  | -       | Controlled selected value            |
+| `defaultValue`  | `string`                  | -       | Default selected value               |
+| `onValueChange` | `(value: string) => void` | -       | Callback when selected value changes |
+| `disabled`      | `boolean`                 | `false` | Whether the entire group is disabled |
+| `className`     | `string`                  | -       | Additional CSS classes               |
 
 ### RadioGroupRoot
 
@@ -512,14 +516,14 @@ The visual indicator for the selected state.
 
 A convenient component that combines RadioRoot and RadioIndicator with a label.
 
-| Prop          | Type                        | Default     | Description                        |
-| ------------- | --------------------------- | ----------- | ---------------------------------- |
-| `value`       | `string`                    | -           | Value of this radio option         |
-| `label`       | `string`                    | -           | Label text for the radio option    |
-| `description` | `string`                    | -           | Helper text below the label        |
-| `size`        | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the radio button           |
-| `disabled`    | `boolean`                   | `false`     | Whether this option is disabled    |
-| `className`   | `string`                    | -           | Additional CSS classes             |
+| Prop          | Type                        | Default     | Description                     |
+| ------------- | --------------------------- | ----------- | ------------------------------- |
+| `value`       | `string`                    | -           | Value of this radio option      |
+| `label`       | `string`                    | -           | Label text for the radio option |
+| `description` | `string`                    | -           | Helper text below the label     |
+| `size`        | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the radio button        |
+| `disabled`    | `boolean`                   | `false`     | Whether this option is disabled |
+| `className`   | `string`                    | -           | Additional CSS classes          |
 
 ### Field Components
 
