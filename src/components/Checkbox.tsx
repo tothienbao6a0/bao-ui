@@ -6,11 +6,11 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const checkboxVariants = tv({
   base: [
-    'peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2',
+    'peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
     'disabled:cursor-not-allowed disabled:opacity-50',
-    'data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50',
-    'data-[state=indeterminate]:bg-slate-900 data-[state=indeterminate]:text-slate-50',
+    'data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
+    'data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-primary-foreground',
   ],
   variants: {
     size: {
@@ -26,7 +26,7 @@ const checkboxVariants = tv({
 
 const labelVariants = tv({
   base: [
-    'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+    'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-foreground',
   ],
 })
 
@@ -149,7 +149,7 @@ export const CheckboxDescription = forwardRef<HTMLDivElement, CheckboxDescriptio
     return (
       <Field.Description
         ref={ref}
-        className={clsx('text-sm text-slate-500', className)}
+        className={clsx('text-sm text-muted-foreground', className)}
         {...props}
       />
     )

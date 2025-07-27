@@ -3,3 +3,4 @@ export {
   type AutoAnimateOptions,
   type AutoAnimationPlugin,
 } from './useAutoAnimate'
+export { useDarkMode } from './useDarkMode'

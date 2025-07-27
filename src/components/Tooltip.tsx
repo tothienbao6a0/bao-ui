@@ -55,7 +55,7 @@ export const TooltipPopup = forwardRef<HTMLDivElement, TooltipPopupProps>(
           <Tooltip.Popup
             ref={ref}
             className={clsx(
-              'z-50 overflow-hidden rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-950 shadow-md',
+              'z-50 overflow-hidden rounded-md border border-border bg-popover px-3 py-1.5 text-xs text-popover-foreground shadow-md',
               className
             )}
             {...props}
@@ -82,7 +82,7 @@ export interface TooltipArrowProps
 export const TooltipArrow = forwardRef<HTMLDivElement, TooltipArrowProps>(
   ({ className, ...props }, _ref) => {
     return (
-      <Tooltip.Arrow className={clsx('fill-primary', className)} {...props} />
+      <Tooltip.Arrow className={clsx('fill-popover', className)} {...props} />
     )
   }
 )
