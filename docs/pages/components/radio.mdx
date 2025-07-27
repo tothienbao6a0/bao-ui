@@ -259,33 +259,34 @@ description: 'Pay with Touch ID or Face ID',
 ]
 
 return (
+
 <div className="space-y-4">
-<RadioGroup
-        label="Payment Method"
-        description="Select your preferred payment method."
-        items={paymentOptions}
-        value={value}
-        onValueChange={setValue}
-      />
-<div className="text-sm text-muted-foreground">
-Selected:{' '}
-{paymentOptions.find(option => option.value === value)?.label}
+  <RadioGroup
+    label="Payment Method"
+    description="Select your preferred payment method."
+    items={paymentOptions}
+    value={value}
+    onValueChange={setValue}
+  />
+  <div className="text-sm text-muted-foreground">
+    Selected: {paymentOptions.find(option => option.value === value)?.label}
+  </div>
+  <div className="flex gap-2">
+    <button
+      onClick={() => setValue('paypal')}
+      className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+    >
+      Select PayPal
+    </button>
+    <button
+      onClick={() => setValue('apple')}
+      className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+    >
+      Select Apple Pay
+    </button>
+  </div>
 </div>
-<div className="flex gap-2">
-<button
-onClick={() => setValue('paypal')}
-className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80" >
-Select PayPal
-</button>
-<button
-onClick={() => setValue('apple')}
-className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80" >
-Select Apple Pay
-</button>
-</div>
-</div>
-)
-}
+) }
 
 ```tsx
 import { useState } from 'react'
