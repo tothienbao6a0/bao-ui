@@ -1,0 +1,670 @@
+import { useState } from 'react'
+import {
+  RadioGroup,
+  RadioGroupField,
+  RadioGroupRoot,
+  RadioRoot,
+  RadioIndicator,
+  RadioItem,
+  RadioFieldRoot,
+  RadioFieldLabel,
+  RadioFieldDescription,
+} from '@bao-ui/react'
+
+# Radio
+
+A radio button group component for single selection from multiple options, built on Base UI primitives with comprehensive accessibility support.
+
+## Features
+
+- **Base UI Integration**: Built on Base UI Radio primitives for accessibility
+- **Multiple Sizes**: Small, default, and large sizes
+- **Field Integration**: Works with labels and descriptions
+- **Individual Item Control**: Support for disabled individual options
+- **Group Management**: Easy single-selection management
+- **Dark Mode**: Automatically adapts to light and dark themes
+
+## Installation
+
+```bash
+npm install @bao-ui/react
+```
+
+## Usage
+
+### Basic Radio Group
+
+```tsx
+import { RadioGroup } from '@bao-ui/react'
+
+const notificationOptions = [
+  { value: 'all', label: 'All notifications' },
+  { value: 'mentions', label: 'Direct messages and mentions' },
+  { value: 'none', label: 'Nothing' },
+]
+
+function Example() {
+  return (
+    <RadioGroup
+      label="Notifications"
+      items={notificationOptions}
+      defaultValue="all"
+    />
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <RadioGroup
+    label="Notifications"
+    items={[
+      { value: 'all', label: 'All notifications' },
+      { value: 'mentions', label: 'Direct messages and mentions' },
+      { value: 'none', label: 'Nothing' },
+    ]}
+    defaultValue="all"
+  />
+</div>
+
+### With Description
+
+```tsx
+import { RadioGroup } from '@bao-ui/react'
+
+const emailOptions = [
+  { value: 'all', label: 'All notifications' },
+  { value: 'mentions', label: 'Direct messages and mentions' },
+  { value: 'none', label: 'Nothing' },
+]
+
+function Example() {
+  return (
+    <RadioGroup
+      label="Email notifications"
+      description="Choose what notifications you want to receive via email."
+      items={emailOptions}
+      defaultValue="mentions"
+    />
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <RadioGroup
+    label="Email notifications"
+    description="Choose what notifications you want to receive via email."
+    items={[
+      { value: 'all', label: 'All notifications' },
+      { value: 'mentions', label: 'Direct messages and mentions' },
+      { value: 'none', label: 'Nothing' },
+    ]}
+    defaultValue="mentions"
+  />
+</div>
+
+### With Item Descriptions
+
+```tsx
+import { RadioGroup } from '@bao-ui/react'
+
+const paymentOptions = [
+  {
+    value: 'card',
+    label: 'Credit Card',
+    description: 'Pay with your credit or debit card',
+  },
+  {
+    value: 'paypal',
+    label: 'PayPal',
+    description: 'Pay with your PayPal account',
+  },
+  {
+    value: 'apple',
+    label: 'Apple Pay',
+    description: 'Pay with Touch ID or Face ID',
+  },
+]
+
+function Example() {
+  return (
+    <RadioGroup
+      label="Payment Method"
+      description="Choose your preferred payment method."
+      items={paymentOptions}
+      defaultValue="card"
+    />
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <RadioGroup
+    label="Payment Method"
+    description="Choose your preferred payment method."
+    items={[
+      {
+        value: 'card',
+        label: 'Credit Card',
+        description: 'Pay with your credit or debit card',
+      },
+      {
+        value: 'paypal',
+        label: 'PayPal',
+        description: 'Pay with your PayPal account',
+      },
+      {
+        value: 'apple',
+        label: 'Apple Pay',
+        description: 'Pay with Touch ID or Face ID',
+      },
+    ]}
+    defaultValue="card"
+  />
+</div>
+
+### Sizes
+
+```tsx
+import { RadioGroupRoot, RadioItem } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="mb-3 text-sm font-medium">Small</h3>
+        <RadioGroupRoot defaultValue="option1">
+          <RadioItem size="sm" value="option1" label="Small radio" />
+          <RadioItem size="sm" value="option2" label="Another option" />
+        </RadioGroupRoot>
+      </div>
+      <div>
+        <h3 className="mb-3 text-sm font-medium">Default</h3>
+        <RadioGroupRoot defaultValue="option1">
+          <RadioItem value="option1" label="Default radio" />
+          <RadioItem value="option2" label="Another option" />
+        </RadioGroupRoot>
+      </div>
+      <div>
+        <h3 className="mb-3 text-sm font-medium">Large</h3>
+        <RadioGroupRoot defaultValue="option1">
+          <RadioItem size="lg" value="option1" label="Large radio" />
+          <RadioItem size="lg" value="option2" label="Another option" />
+        </RadioGroupRoot>
+      </div>
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="space-y-6">
+    <div>
+      <h3 className="mb-3 text-sm font-medium">Small</h3>
+      <RadioGroupRoot defaultValue="option1">
+        <RadioItem size="sm" value="option1" label="Small radio" />
+        <RadioItem size="sm" value="option2" label="Another option" />
+      </RadioGroupRoot>
+    </div>
+    <div>
+      <h3 className="mb-3 text-sm font-medium">Default</h3>
+      <RadioGroupRoot defaultValue="option1">
+        <RadioItem value="option1" label="Default radio" />
+        <RadioItem value="option2" label="Another option" />
+      </RadioGroupRoot>
+    </div>
+    <div>
+      <h3 className="mb-3 text-sm font-medium">Large</h3>
+      <RadioGroupRoot defaultValue="option1">
+        <RadioItem size="lg" value="option1" label="Large radio" />
+        <RadioItem size="lg" value="option2" label="Another option" />
+      </RadioGroupRoot>
+    </div>
+  </div>
+</div>
+
+### Controlled Radio Group
+
+export function ControlledExample() {
+  const [value, setValue] = useState('card')
+
+  const paymentOptions = [
+    {
+      value: 'card',
+      label: 'Credit Card',
+      description: 'Pay with your credit or debit card',
+    },
+    {
+      value: 'paypal',
+      label: 'PayPal',
+      description: 'Pay with your PayPal account',
+    },
+    {
+      value: 'apple',
+      label: 'Apple Pay',
+      description: 'Pay with Touch ID or Face ID',
+    },
+  ]
+
+  return (
+    <div className="space-y-4">
+      <RadioGroup
+        label="Payment Method"
+        description="Select your preferred payment method."
+        items={paymentOptions}
+        value={value}
+        onValueChange={setValue}
+      />
+      <div className="text-sm text-muted-foreground">
+        Selected:{' '}
+        {paymentOptions.find(option => option.value === value)?.label}
+      </div>
+      <div className="flex gap-2">
+        <button
+          onClick={() => setValue('paypal')}
+          className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+        >
+          Select PayPal
+        </button>
+        <button
+          onClick={() => setValue('apple')}
+          className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+        >
+          Select Apple Pay
+        </button>
+      </div>
+    </div>
+  )
+}
+
+```tsx
+import { useState } from 'react'
+import { RadioGroup } from '@bao-ui/react'
+
+function Example() {
+  const [value, setValue] = useState('card')
+
+  const paymentOptions = [
+    {
+      value: 'card',
+      label: 'Credit Card',
+      description: 'Pay with your credit or debit card',
+    },
+    {
+      value: 'paypal', 
+      label: 'PayPal',
+      description: 'Pay with your PayPal account',
+    },
+    {
+      value: 'apple',
+      label: 'Apple Pay', 
+      description: 'Pay with Touch ID or Face ID',
+    },
+  ]
+
+  return (
+    <div className="space-y-4">
+      <RadioGroup
+        label="Payment Method"
+        description="Select your preferred payment method."
+        items={paymentOptions}
+        value={value}
+        onValueChange={setValue}
+      />
+      <div className="text-sm text-muted-foreground">
+        Selected: {paymentOptions.find(option => option.value === value)?.label}
+      </div>
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ControlledExample />
+</div>
+
+### Disabled Options
+
+```tsx
+import { RadioGroup } from '@bao-ui/react'
+
+const mixedOptions = [
+  { value: 'enabled1', label: 'Enabled option 1' },
+  { value: 'enabled2', label: 'Enabled option 2' },
+  { value: 'disabled1', label: 'Disabled option 1', disabled: true },
+  { value: 'disabled2', label: 'Disabled option 2', disabled: true },
+]
+
+function Example() {
+  return (
+    <RadioGroup
+      label="Mixed States"
+      description="Some options are disabled."
+      items={mixedOptions}
+      defaultValue="enabled1"
+    />
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <RadioGroup
+    label="Mixed States"
+    description="Some options are disabled."
+    items={[
+      { value: 'enabled1', label: 'Enabled option 1' },
+      { value: 'enabled2', label: 'Enabled option 2' },
+      { value: 'disabled1', label: 'Disabled option 1', disabled: true },
+      { value: 'disabled2', label: 'Disabled option 2', disabled: true },
+    ]}
+    defaultValue="enabled1"
+  />
+</div>
+
+### Custom Composition
+
+For advanced use cases, you can compose the radio group using individual components:
+
+```tsx
+import {
+  RadioFieldRoot,
+  RadioFieldLabel,
+  RadioFieldDescription,
+  RadioGroupRoot,
+  RadioRoot,
+  RadioIndicator,
+} from '@bao-ui/react'
+
+function Example() {
+  return (
+    <RadioFieldRoot>
+      <RadioFieldLabel>Custom Composed Radio Group</RadioFieldLabel>
+      <RadioFieldDescription>
+        This uses individual components for maximum flexibility.
+      </RadioFieldDescription>
+      <RadioGroupRoot defaultValue="custom1">
+        <div className="flex items-center space-x-2">
+          <RadioRoot value="custom1">
+            <RadioIndicator />
+          </RadioRoot>
+          <div>
+            <label htmlFor="custom1" className="text-sm font-medium">
+              Custom Option 1
+            </label>
+            <p className="text-xs text-muted-foreground">
+              With custom layout and styling
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioRoot value="custom2">
+            <RadioIndicator />
+          </RadioRoot>
+          <div>
+            <label htmlFor="custom2" className="text-sm font-medium">
+              Custom Option 2
+            </label>
+            <p className="text-xs text-muted-foreground">
+              Another custom option
+            </p>
+          </div>
+        </div>
+      </RadioGroupRoot>
+    </RadioFieldRoot>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <RadioFieldRoot>
+    <RadioFieldLabel>Custom Composed Radio Group</RadioFieldLabel>
+    <RadioFieldDescription>
+      This uses individual components for maximum flexibility.
+    </RadioFieldDescription>
+    <RadioGroupRoot defaultValue="custom1">
+      <div className="flex items-center space-x-2">
+        <RadioRoot value="custom1">
+          <RadioIndicator />
+        </RadioRoot>
+        <div>
+          <label htmlFor="custom1" className="text-sm font-medium">
+            Custom Option 1
+          </label>
+          <p className="text-xs text-muted-foreground">
+            With custom layout and styling
+          </p>
+        </div>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioRoot value="custom2">
+          <RadioIndicator />
+        </RadioRoot>
+        <div>
+          <label htmlFor="custom2" className="text-sm font-medium">
+            Custom Option 2
+          </label>
+          <p className="text-xs text-muted-foreground">
+            Another custom option
+          </p>
+        </div>
+      </div>
+    </RadioGroupRoot>
+  </RadioFieldRoot>
+</div>
+
+## API Reference
+
+### RadioGroup
+
+The main radio group component that combines all sub-components for convenience.
+
+| Prop            | Type                              | Default | Description                           |
+| --------------- | --------------------------------- | ------- | ------------------------------------- |
+| `label`         | `string`                          | -       | Label text for the radio group        |
+| `description`   | `string`                          | -       | Helper text below the radio group     |
+| `items`         | `RadioOption[]`                   | -       | Array of radio options                |
+| `value`         | `string`                          | -       | Controlled selected value             |
+| `defaultValue`  | `string`                          | -       | Default selected value                |
+| `onValueChange` | `(value: string) => void`         | -       | Callback when selected value changes  |
+| `disabled`      | `boolean`                         | `false` | Whether the entire group is disabled  |
+| `className`     | `string`                          | -       | Additional CSS classes                |
+
+### RadioGroupRoot
+
+The root container for radio group functionality.
+
+| Prop            | Type                      | Default | Description                          |
+| --------------- | ------------------------- | ------- | ------------------------------------ |
+| `value`         | `string`                  | -       | Controlled selected value            |
+| `defaultValue`  | `string`                  | -       | Default selected value               |
+| `onValueChange` | `(value: string) => void` | -       | Callback when selected value changes |
+| `disabled`      | `boolean`                 | `false` | Whether the group is disabled        |
+| `className`     | `string`                  | -       | Additional CSS classes               |
+
+### RadioRoot
+
+Individual radio button element.
+
+| Prop        | Type                        | Default     | Description                     |
+| ----------- | --------------------------- | ----------- | ------------------------------- |
+| `value`     | `string`                    | -           | Value of this radio option      |
+| `size`      | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the radio button        |
+| `disabled`  | `boolean`                   | `false`     | Whether this option is disabled |
+| `className` | `string`                    | -           | Additional CSS classes          |
+
+### RadioIndicator
+
+The visual indicator for the selected state.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+### RadioItem
+
+A convenient component that combines RadioRoot and RadioIndicator with a label.
+
+| Prop          | Type                        | Default     | Description                        |
+| ------------- | --------------------------- | ----------- | ---------------------------------- |
+| `value`       | `string`                    | -           | Value of this radio option         |
+| `label`       | `string`                    | -           | Label text for the radio option    |
+| `description` | `string`                    | -           | Helper text below the label        |
+| `size`        | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the radio button           |
+| `disabled`    | `boolean`                   | `false`     | Whether this option is disabled    |
+| `className`   | `string`                    | -           | Additional CSS classes             |
+
+### Field Components
+
+#### RadioFieldRoot
+
+Container component for field integration.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+#### RadioFieldLabel
+
+Label component for the radio group.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+#### RadioFieldDescription
+
+Description text component.
+
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
+
+### RadioOption Type
+
+```typescript
+interface RadioOption {
+  value: string
+  label: string
+  description?: string
+  disabled?: boolean
+}
+```
+
+## Accessibility
+
+The Radio component follows WAI-ARIA guidelines:
+
+- Uses proper ARIA attributes (`role="radio"`, `aria-checked`)
+- Supports keyboard navigation (arrow keys for selection, Tab for focus)
+- Provides proper focus management
+- Associates labels with radio buttons
+- Announces state changes to screen readers
+- Supports grouping with proper fieldset semantics
+
+## Keyboard Shortcuts
+
+- `Arrow Up/Down` - Navigate between options
+- `Arrow Left/Right` - Navigate between options
+- `Space` - Select current option
+- `Tab` - Move focus to/from the radio group
+
+## Dark Mode
+
+The Radio component automatically adapts to your theme:
+
+- Uses semantic color tokens
+- Supports both system preference and manual theme switching
+- Maintains proper contrast ratios in all themes
+
+## Examples
+
+### Settings Form
+
+```tsx
+import { useState } from 'react'
+import { RadioGroup } from '@bao-ui/react'
+
+export function SettingsForm() {
+  const [settings, setSettings] = useState({
+    plan: 'pro',
+    billing: 'monthly',
+    notifications: 'all',
+  })
+
+  const handleChange = (field: string) => (value: string) => {
+    setSettings(prev => ({ ...prev, [field]: value }))
+  }
+
+  return (
+    <div className="space-y-6 max-w-md">
+      <h2 className="text-lg font-semibold">Account Settings</h2>
+
+      <RadioGroup
+        label="Plan"
+        items={[
+          {
+            value: 'free',
+            label: 'Free',
+            description: '$0/month - Basic features',
+          },
+          {
+            value: 'pro',
+            label: 'Pro',
+            description: '$10/month - All features',
+          },
+          {
+            value: 'enterprise',
+            label: 'Enterprise',
+            description: 'Custom pricing',
+          },
+        ]}
+        value={settings.plan}
+        onValueChange={handleChange('plan')}
+      />
+
+      <RadioGroup
+        label="Billing Cycle"
+        items={[
+          { value: 'monthly', label: 'Monthly' },
+          { value: 'yearly', label: 'Yearly', description: 'Save 20%' },
+        ]}
+        value={settings.billing}
+        onValueChange={handleChange('billing')}
+      />
+
+      <RadioGroup
+        label="Email Notifications"
+        description="Choose what emails you want to receive."
+        items={[
+          { value: 'all', label: 'All notifications' },
+          { value: 'important', label: 'Important only' },
+          { value: 'none', label: 'None' },
+        ]}
+        value={settings.notifications}
+        onValueChange={handleChange('notifications')}
+      />
+    </div>
+  )
+}
+```
+
+### Survey Question
+
+```tsx
+import { RadioGroup } from '@bao-ui/react'
+
+function SurveyQuestion() {
+  return (
+    <RadioGroup
+      label="How satisfied are you with our service?"
+      items={[
+        { value: 'very-satisfied', label: 'Very satisfied' },
+        { value: 'satisfied', label: 'Satisfied' },
+        { value: 'neutral', label: 'Neutral' },
+        { value: 'dissatisfied', label: 'Dissatisfied' },
+        { value: 'very-dissatisfied', label: 'Very dissatisfied' },
+      ]}
+      defaultValue="neutral"
+    />
+  )
+}
+```

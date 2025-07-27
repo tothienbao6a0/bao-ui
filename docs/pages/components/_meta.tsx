@@ -4,6 +4,9 @@ export default {
   input: 'Input',
   select: 'Select',
   checkbox: 'Checkbox',
+  radio: 'Radio',
+  switch: 'Switch',
+  badge: 'Badge',
   dialog: 'Dialog',
   tooltip: 'Tooltip',
 }

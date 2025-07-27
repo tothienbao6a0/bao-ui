@@ -6,7 +6,7 @@ import {
   SwitchFieldRoot,
   SwitchLabel,
   SwitchDescription,
-} from '@bao-ui/components'
+} from '@bao-ui/react'
 
 # Switch
 
@@ -22,7 +22,7 @@ A toggle switch component for binary choices, built on Base UI primitives with c
 
 ## Installation
 
-The Switch component is included in the `@bao-ui/components` package.
+The Switch component is included in the `@bao-ui/react` package.
 
 ## Basic Usage
 
@@ -33,7 +33,7 @@ The Switch component is included in the `@bao-ui/components` package.
 </div>
 
 ```tsx
-import { Switch } from '@bao-ui/components'
+import { Switch } from '@bao-ui/react'
 
 export function BasicSwitch() {
   return <Switch label="Enable notifications" />
@@ -134,7 +134,7 @@ return (
 
 ```tsx
 import { useState } from 'react'
-import { Switch } from '@bao-ui/components'
+import { Switch } from '@bao-ui/react'
 
 export function ControlledExample() {
   const [checked, setChecked] = useState(false)
@@ -233,7 +233,7 @@ import {
   SwitchFieldRoot,
   SwitchLabel,
   SwitchDescription,
-} from '@bao-ui/components'
+} from '@bao-ui/react'
 ;<SwitchFieldRoot>
   <div className="flex items-center justify-between">
     <div>
@@ -330,7 +330,7 @@ The Switch component follows WAI-ARIA guidelines:
 
 ```tsx
 import { useState } from 'react'
-import { Switch } from '@bao-ui/components'
+import { Switch } from '@bao-ui/react'
 
 export function SettingsForm() {
   const [settings, setSettings] = useState({

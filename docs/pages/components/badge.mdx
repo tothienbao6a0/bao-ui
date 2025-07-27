@@ -4,7 +4,7 @@ import {
   StatusBadge,
   NotificationBadge,
   InteractiveBadge,
-} from '@bao-ui/components'
+} from '@bao-ui/react'
 
 # Badge
 
@@ -22,7 +22,7 @@ A versatile badge component for labels, status indicators, and notifications wit
 
 ## Installation
 
-The Badge component is included in the `@bao-ui/components` package.
+The Badge component is included in the `@bao-ui/react` package.
 
 ## Basic Usage
 
@@ -33,7 +33,7 @@ The Badge component is included in the `@bao-ui/components` package.
 </div>
 
 ```tsx
-import { Badge } from '@bao-ui/components'
+import { Badge } from '@bao-ui/react'
 
 export function BasicBadge() {
   return <Badge>Default Badge</Badge>
@@ -224,7 +224,7 @@ return (
 
 ```tsx
 import { useState } from 'react'
-import { InteractiveBadge } from '@bao-ui/components'
+import { InteractiveBadge } from '@bao-ui/react'
 
 export function TagList() {
   const [tags, setTags] = useState(['React', 'TypeScript', 'CSS'])

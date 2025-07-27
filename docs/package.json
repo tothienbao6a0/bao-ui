@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@bao-ui/react": "^1.0.3",
+    "@bao-ui/react": "^1.1.0",
     "@bao-ui/core": "^1.0.1",
     "@bao-ui/tokens": "^1.0.1",
     "next": "15.0.0",
