@@ -21,4 +21,13 @@ describe('Button', () => {
     expect(button).toBeDisabled()
     expect(button).toHaveClass('disabled:pointer-events-none', 'disabled:opacity-50')
   })
+
+  it('supports polymorphic rendering with render prop', () => {
+    render(<Button render={<a href="/test" />}>Link Button</Button>)
+    const link = screen.getByRole('link')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', '/test')
+    expect(link).toHaveClass('bg-slate-900', 'text-slate-50')
+    expect(screen.getByText('Link Button')).toBeInTheDocument()
+  })
 })

@@ -1,4 +1,5 @@
-import { forwardRef } from 'react'
+import { useRender } from '@base-ui-components/react/use-render'
+import { mergeProps } from '@base-ui-components/react/merge-props'
 import { tv, type VariantProps } from 'tailwind-variants'
 import { clsx } from 'clsx'
 
@@ -30,23 +31,20 @@ const buttonVariants = tv({
   },
 })
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  className?: string
-  asChild?: boolean
-}
+export interface ButtonProps extends useRender.ComponentProps<'button'>, VariantProps<typeof buttonVariants> {}
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    return (
-      <button
-        className={clsx(buttonVariants({ variant, size }), className)}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
+export function Button(props: ButtonProps) {
+  const { render = <button />, variant, size, ...otherProps } = props
+  
+  const element = useRender({
+    render,
+    props: mergeProps<'button'>({
+      className: clsx(buttonVariants({ variant, size })),
+      type: 'button',
+    }, otherProps),
+  })
+  
+  return element
+}
 
 Button.displayName = 'Button'

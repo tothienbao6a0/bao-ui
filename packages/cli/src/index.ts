@@ -23,35 +23,24 @@ function ask(question: string): Promise<string> {
 function generateComponent(options: ComponentOptions): string {
   const { name, needsMotion } = options
   
-  return `import { forwardRef } from 'react'
+  return `import { useRender } from '@base-ui-components/react/use-render'
+import { mergeProps } from '@base-ui-components/react/merge-props'
 import { clsx } from 'clsx'${needsMotion ? '\nimport { useAutoAnimate } from \'@/hooks\'' : ''}
 
-export interface ${name}Props extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string
-  asChild?: boolean
-  render?: React.ElementType
-}
+export interface ${name}Props extends useRender.ComponentProps<'div'> {}
 
-export const ${name} = forwardRef<HTMLDivElement, ${name}Props>(
-  ({ className, children, asChild = false, render, ...props }, ref) => {${needsMotion ? '\n    const [animateRef] = useAutoAnimate<HTMLDivElement>()' : ''}
-    
-    // Base UI polymorphic pattern - support asChild + render prop
-    const Component = render || (asChild ? 'div' : 'div')
-    
-    return (
-      <Component
-        ref={${needsMotion ? 'animateRef' : 'ref'}}
-        className={clsx(
-          '${name.toLowerCase()}-component',
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </Component>
-    )
-  }
-)
+export function ${name}(props: ${name}Props) {
+  const { render = <div />, ...otherProps } = props${needsMotion ? '\n  const [animateRef] = useAutoAnimate<HTMLDivElement>()' : ''}
+  
+  const element = useRender({
+    render,
+    props: mergeProps<'div'>({
+      className: clsx('${name.toLowerCase()}-component'),${needsMotion ? '\n      ref: animateRef,' : ''}
+    }, otherProps),
+  })
+  
+  return element
+}
 
 ${name}.displayName = '${name}'`
 }
