@@ -14,11 +14,18 @@ Try the interactive demo to see all components in action.
 
 ```tsx
 import { useState } from 'react'
-import { Button, DialogRoot, DialogBackdrop, DialogPopup, DialogTitle, DialogClose } from '@bao-ui/react'
+import {
+  Button,
+  DialogRoot,
+  DialogBackdrop,
+  DialogPopup,
+  DialogTitle,
+  DialogClose,
+} from '@bao-ui/react'
 
 function DeleteConfirmation() {
   const [open, setOpen] = useState(false)
-  
+
   const handleDelete = () => {
     // Perform delete action
     console.log('Item deleted')
@@ -30,12 +37,15 @@ function DeleteConfirmation() {
       <Button variant="destructive" onClick={() => setOpen(true)}>
         Delete Item
       </Button>
-      
+
       <DialogBackdrop />
       <DialogPopup>
         <DialogTitle>Confirm Deletion</DialogTitle>
-        <p>Are you sure you want to delete this item? This action cannot be undone.</p>
-        
+        <p>
+          Are you sure you want to delete this item? This action cannot be
+          undone.
+        </p>
+
         <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
           <DialogClose>
             <Button variant="outline">Cancel</Button>
@@ -53,7 +63,12 @@ function DeleteConfirmation() {
 ### Tooltip with Rich Content
 
 ```tsx
-import { Button, TooltipRoot, TooltipTrigger, TooltipPopup } from '@bao-ui/react'
+import {
+  Button,
+  TooltipRoot,
+  TooltipTrigger,
+  TooltipPopup,
+} from '@bao-ui/react'
 
 function UserProfile() {
   return (
@@ -64,7 +79,9 @@ function UserProfile() {
       <TooltipPopup>
         <div style={{ padding: '0.5rem' }}>
           <div style={{ fontWeight: 'bold' }}>John Doe</div>
-          <div style={{ color: '#666', fontSize: '0.875rem' }}>Software Engineer</div>
+          <div style={{ color: '#666', fontSize: '0.875rem' }}>
+            Software Engineer
+          </div>
           <div style={{ marginTop: '0.25rem', fontSize: '0.75rem' }}>
             Joined March 2024
           </div>
@@ -83,7 +100,7 @@ import { Button } from '@bao-ui/react'
 
 function AsyncAction() {
   const [loading, setLoading] = useState(false)
-  
+
   const handleSubmit = async () => {
     setLoading(true)
     try {
@@ -95,8 +112,8 @@ function AsyncAction() {
   }
 
   return (
-    <Button 
-      onClick={handleSubmit} 
+    <Button
+      onClick={handleSubmit}
       disabled={loading}
       style={{ minWidth: '120px' }}
     >
@@ -110,7 +127,13 @@ function AsyncAction() {
 
 ```tsx
 import { useState } from 'react'
-import { Button, DialogRoot, DialogPopup, DialogTitle, DialogClose } from '@bao-ui/react'
+import {
+  Button,
+  DialogRoot,
+  DialogPopup,
+  DialogTitle,
+  DialogClose,
+} from '@bao-ui/react'
 
 function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '' })
@@ -128,7 +151,7 @@ function ContactForm() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
     if (validate()) {
       setShowSuccess(true)
@@ -145,38 +168,48 @@ function ContactForm() {
             <input
               type="text"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              style={{ 
-                width: '100%', 
-                padding: '0.5rem', 
+              onChange={e => setFormData({ ...formData, name: e.target.value })}
+              style={{
+                width: '100%',
+                padding: '0.5rem',
                 marginTop: '0.25rem',
                 border: errors.name ? '1px solid red' : '1px solid #ccc',
-                borderRadius: '0.25rem'
+                borderRadius: '0.25rem',
               }}
             />
-            {errors.name && <div style={{ color: 'red', fontSize: '0.875rem' }}>{errors.name}</div>}
+            {errors.name && (
+              <div style={{ color: 'red', fontSize: '0.875rem' }}>
+                {errors.name}
+              </div>
+            )}
           </label>
         </div>
-        
+
         <div style={{ marginBottom: '1rem' }}>
           <label>
             Email
             <input
               type="email"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              style={{ 
-                width: '100%', 
-                padding: '0.5rem', 
+              onChange={e =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              style={{
+                width: '100%',
+                padding: '0.5rem',
                 marginTop: '0.25rem',
                 border: errors.email ? '1px solid red' : '1px solid #ccc',
-                borderRadius: '0.25rem'
+                borderRadius: '0.25rem',
               }}
             />
-            {errors.email && <div style={{ color: 'red', fontSize: '0.875rem' }}>{errors.email}</div>}
+            {errors.email && (
+              <div style={{ color: 'red', fontSize: '0.875rem' }}>
+                {errors.email}
+              </div>
+            )}
           </label>
         </div>
-        
+
         <Button type="submit">Submit</Button>
       </form>
 
@@ -197,7 +230,16 @@ function ContactForm() {
 ### Component Composition
 
 ```tsx
-import { Button, TooltipRoot, TooltipTrigger, TooltipPopup, DialogRoot, DialogTrigger, DialogPopup, DialogTitle } from '@bao-ui/react'
+import {
+  Button,
+  TooltipRoot,
+  TooltipTrigger,
+  TooltipPopup,
+  DialogRoot,
+  DialogTrigger,
+  DialogPopup,
+  DialogTitle,
+} from '@bao-ui/react'
 
 function ActionButton({ action, tooltip, confirmMessage, children }) {
   return (
@@ -205,14 +247,12 @@ function ActionButton({ action, tooltip, confirmMessage, children }) {
       <TooltipRoot>
         <TooltipTrigger>
           <DialogTrigger>
-            <Button variant="outline">
-              {children}
-            </Button>
+            <Button variant="outline">{children}</Button>
           </DialogTrigger>
         </TooltipTrigger>
         <TooltipPopup content={tooltip} />
       </TooltipRoot>
-      
+
       <DialogPopup>
         <DialogTitle>Confirm Action</DialogTitle>
         <p>{confirmMessage}</p>
@@ -226,7 +266,7 @@ function ActionButton({ action, tooltip, confirmMessage, children }) {
 }
 
 // Usage
-<ActionButton
+;<ActionButton
   action={() => console.log('Archive action')}
   tooltip="Archive this item"
   confirmMessage="Are you sure you want to archive this item?"
@@ -303,7 +343,7 @@ function App() {
 </Button>
 
 // With inline styles
-<Button style={{ 
+<Button style={{
   background: 'linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)',
   borderRadius: '20px',
   color: 'white'

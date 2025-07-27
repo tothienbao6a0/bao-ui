@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Checkbox, CheckboxRoot, CheckboxIndicator, CheckboxFieldRoot, CheckboxLabel, CheckboxDescription } from '@bao-ui/react'
+import {
+  Checkbox,
+  CheckboxRoot,
+  CheckboxIndicator,
+  CheckboxFieldRoot,
+  CheckboxLabel,
+  CheckboxDescription,
+} from '@bao-ui/react'
 
 # Checkbox
 
@@ -63,22 +70,21 @@ function Example() {
 export function ControlledExample() {
   const [checked, setChecked] = useState(false)
 
-  return (
-    <div className="space-y-4">
-      <Checkbox
-        label="Controlled checkbox"
-        checked={checked}
-        onCheckedChange={setChecked}
-        description={`Checkbox is ${checked ? 'checked' : 'unchecked'}`}
-      />
-      <button
-        onClick={() => setChecked(!checked)}
-        className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
-      >
-        Toggle Checkbox
-      </button>
-    </div>
-  )
+return (
+<div className="space-y-4">
+<Checkbox
+label="Controlled checkbox"
+checked={checked}
+onCheckedChange={setChecked}
+description={`Checkbox is ${checked ? 'checked' : 'unchecked'}`}
+/>
+<button
+onClick={() => setChecked(!checked)}
+className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80" >
+Toggle Checkbox
+</button>
+</div>
+)
 }
 
 ```tsx
@@ -168,40 +174,40 @@ function Example() {
 export function CheckboxGroupExample() {
   const [selectedItems, setSelectedItems] = useState(['option1'])
 
-  const handleChange = (value, checked) => {
-    if (checked) {
-      setSelectedItems([...selectedItems, value])
-    } else {
-      setSelectedItems(selectedItems.filter(item => item !== value))
-    }
-  }
+const handleChange = (value, checked) => {
+if (checked) {
+setSelectedItems([...selectedItems, value])
+} else {
+setSelectedItems(selectedItems.filter(item => item !== value))
+}
+}
 
-  return (
-    <div className="space-y-3">
-      <h3 className="text-sm font-medium">Select your preferences:</h3>
-      <Checkbox
-        label="Email notifications"
-        checked={selectedItems.includes('option1')}
-        onCheckedChange={(checked) => handleChange('option1', checked)}
-        description="Receive updates via email"
-      />
-      <Checkbox
-        label="SMS notifications"
-        checked={selectedItems.includes('option2')}
-        onCheckedChange={(checked) => handleChange('option2', checked)}
-        description="Receive updates via SMS"
-      />
-      <Checkbox
-        label="Push notifications"
-        checked={selectedItems.includes('option3')}
-        onCheckedChange={(checked) => handleChange('option3', checked)}
-        description="Receive push notifications"
-      />
-      <div className="mt-4 text-sm text-muted-foreground">
-        Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
-      </div>
-    </div>
-  )
+return (
+<div className="space-y-3">
+<h3 className="text-sm font-medium">Select your preferences:</h3>
+<Checkbox
+label="Email notifications"
+checked={selectedItems.includes('option1')}
+onCheckedChange={(checked) => handleChange('option1', checked)}
+description="Receive updates via email"
+/>
+<Checkbox
+label="SMS notifications"
+checked={selectedItems.includes('option2')}
+onCheckedChange={(checked) => handleChange('option2', checked)}
+description="Receive updates via SMS"
+/>
+<Checkbox
+label="Push notifications"
+checked={selectedItems.includes('option3')}
+onCheckedChange={(checked) => handleChange('option3', checked)}
+description="Receive push notifications"
+/>
+<div className="mt-4 text-sm text-muted-foreground">
+Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
+</div>
+</div>
+)
 }
 
 ```tsx
@@ -225,19 +231,19 @@ function Example() {
       <Checkbox
         label="Email notifications"
         checked={selectedItems.includes('option1')}
-        onCheckedChange={(checked) => handleChange('option1', checked)}
+        onCheckedChange={checked => handleChange('option1', checked)}
         description="Receive updates via email"
       />
       <Checkbox
         label="SMS notifications"
         checked={selectedItems.includes('option2')}
-        onCheckedChange={(checked) => handleChange('option2', checked)}
+        onCheckedChange={checked => handleChange('option2', checked)}
         description="Receive updates via SMS"
       />
       <Checkbox
         label="Push notifications"
         checked={selectedItems.includes('option3')}
-        onCheckedChange={(checked) => handleChange('option3', checked)}
+        onCheckedChange={checked => handleChange('option3', checked)}
         description="Receive push notifications"
       />
       <div className="mt-4 text-sm text-muted-foreground">
@@ -262,55 +268,56 @@ export function ParentChildExample() {
     child3: false,
   })
 
-  const childCount = Object.values(childStates).filter(Boolean).length
-  const totalChildren = Object.keys(childStates).length
-  const isIndeterminate = childCount > 0 && childCount < totalChildren
+const childCount = Object.values(childStates).filter(Boolean).length
+const totalChildren = Object.keys(childStates).length
+const isIndeterminate = childCount > 0 && childCount < totalChildren
 
-  const handleParentChange = (checked) => {
-    setParentChecked(checked)
-    setChildStates({
-      child1: checked,
-      child2: checked,
-      child3: checked,
-    })
-  }
+const handleParentChange = (checked) => {
+setParentChecked(checked)
+setChildStates({
+child1: checked,
+child2: checked,
+child3: checked,
+})
+}
 
-  const handleChildChange = (childKey, checked) => {
-    const newChildStates = { ...childStates, [childKey]: checked }
-    setChildStates(newChildStates)
-    
+const handleChildChange = (childKey, checked) => {
+const newChildStates = { ...childStates, [childKey]: checked }
+setChildStates(newChildStates)
+
     const newChildCount = Object.values(newChildStates).filter(Boolean).length
     setParentChecked(newChildCount === totalChildren)
-  }
 
-  return (
-    <div className="space-y-3">
-      <Checkbox
+}
+
+return (
+<div className="space-y-3">
+<Checkbox
         label="Select all features"
         checked={parentChecked}
         indeterminate={isIndeterminate}
         onCheckedChange={handleParentChange}
         description="Toggle all features on or off"
       />
-      <div className="ml-6 space-y-2">
-        <Checkbox
-          label="Feature A"
-          checked={childStates.child1}
-          onCheckedChange={(checked) => handleChildChange('child1', checked)}
-        />
-        <Checkbox
-          label="Feature B"
-          checked={childStates.child2}
-          onCheckedChange={(checked) => handleChildChange('child2', checked)}
-        />
-        <Checkbox
-          label="Feature C"
-          checked={childStates.child3}
-          onCheckedChange={(checked) => handleChildChange('child3', checked)}
-        />
-      </div>
-    </div>
-  )
+<div className="ml-6 space-y-2">
+<Checkbox
+label="Feature A"
+checked={childStates.child1}
+onCheckedChange={(checked) => handleChildChange('child1', checked)}
+/>
+<Checkbox
+label="Feature B"
+checked={childStates.child2}
+onCheckedChange={(checked) => handleChildChange('child2', checked)}
+/>
+<Checkbox
+label="Feature C"
+checked={childStates.child3}
+onCheckedChange={(checked) => handleChildChange('child3', checked)}
+/>
+</div>
+</div>
+)
 }
 
 ```tsx
@@ -329,7 +336,7 @@ function Example() {
   const totalChildren = Object.keys(childStates).length
   const isIndeterminate = childCount > 0 && childCount < totalChildren
 
-  const handleParentChange = (checked) => {
+  const handleParentChange = checked => {
     setParentChecked(checked)
     setChildStates({
       child1: checked,
@@ -341,7 +348,7 @@ function Example() {
   const handleChildChange = (childKey, checked) => {
     const newChildStates = { ...childStates, [childKey]: checked }
     setChildStates(newChildStates)
-    
+
     const newChildCount = Object.values(newChildStates).filter(Boolean).length
     setParentChecked(newChildCount === totalChildren)
   }
@@ -359,17 +366,17 @@ function Example() {
         <Checkbox
           label="Feature A"
           checked={childStates.child1}
-          onCheckedChange={(checked) => handleChildChange('child1', checked)}
+          onCheckedChange={checked => handleChildChange('child1', checked)}
         />
         <Checkbox
           label="Feature B"
           checked={childStates.child2}
-          onCheckedChange={(checked) => handleChildChange('child2', checked)}
+          onCheckedChange={checked => handleChildChange('child2', checked)}
         />
         <Checkbox
           label="Feature C"
           checked={childStates.child3}
-          onCheckedChange={(checked) => handleChildChange('child3', checked)}
+          onCheckedChange={checked => handleChildChange('child3', checked)}
         />
       </div>
     </div>
@@ -386,7 +393,13 @@ function Example() {
 For advanced use cases, you can compose the checkbox using individual components:
 
 ```tsx
-import { CheckboxFieldRoot, CheckboxRoot, CheckboxIndicator, CheckboxLabel, CheckboxDescription } from '@bao-ui/react'
+import {
+  CheckboxFieldRoot,
+  CheckboxRoot,
+  CheckboxIndicator,
+  CheckboxLabel,
+  CheckboxDescription,
+} from '@bao-ui/react'
 
 function Example() {
   return (
@@ -427,17 +440,17 @@ function Example() {
 
 ### Checkbox
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | - | Label text for the checkbox |
-| `description` | `string` | - | Helper text below the checkbox |
-| `indeterminate` | `boolean` | `false` | Whether the checkbox is in indeterminate state |
-| `size` | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the checkbox |
-| `checked` | `boolean` | - | Controlled checked state |
-| `defaultChecked` | `boolean` | `false` | Default checked state |
-| `onCheckedChange` | `(checked: boolean) => void` | - | Callback when checked state changes |
-| `disabled` | `boolean` | `false` | Whether the checkbox is disabled |
-| `className` | `string` | - | Additional CSS classes |
+| Prop              | Type                         | Default     | Description                                    |
+| ----------------- | ---------------------------- | ----------- | ---------------------------------------------- |
+| `label`           | `string`                     | -           | Label text for the checkbox                    |
+| `description`     | `string`                     | -           | Helper text below the checkbox                 |
+| `indeterminate`   | `boolean`                    | `false`     | Whether the checkbox is in indeterminate state |
+| `size`            | `'sm' \| 'default' \| 'lg'`  | `'default'` | Size of the checkbox                           |
+| `checked`         | `boolean`                    | -           | Controlled checked state                       |
+| `defaultChecked`  | `boolean`                    | `false`     | Default checked state                          |
+| `onCheckedChange` | `(checked: boolean) => void` | -           | Callback when checked state changes            |
+| `disabled`        | `boolean`                    | `false`     | Whether the checkbox is disabled               |
+| `className`       | `string`                     | -           | Additional CSS classes                         |
 
 ### Individual Components
 
@@ -445,42 +458,42 @@ function Example() {
 
 The root checkbox element (button).
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the checkbox |
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type                        | Default     | Description            |
+| ----------- | --------------------------- | ----------- | ---------------------- |
+| `size`      | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the checkbox   |
+| `className` | `string`                    | -           | Additional CSS classes |
 
 #### CheckboxIndicator
 
 The visual indicator (checkmark/dash).
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 #### CheckboxFieldRoot
 
 Container component for field composition.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 #### CheckboxLabel
 
 Label component for the checkbox.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 #### CheckboxDescription
 
 Description component for the checkbox.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 ## Accessibility
 

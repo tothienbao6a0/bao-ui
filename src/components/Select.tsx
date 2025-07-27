@@ -52,11 +52,11 @@ export interface SelectRootProps
 }
 
 export const SelectRoot = forwardRef<HTMLDivElement, SelectRootProps>(
-  ({ options, placeholder, onValueChange, ...props }, _ref) => {
+  ({ options, onValueChange, ...props }, _ref) => {
     return (
       <Select.Root
         items={options}
-        onValueChange={(value) => onValueChange?.(value)}
+        onValueChange={value => onValueChange?.(value)}
         {...props}
       />
     )
@@ -200,7 +200,10 @@ export const SelectLabel = forwardRef<HTMLDivElement, SelectLabelProps>(
     return (
       <Select.Label
         ref={ref}
-        className={clsx('py-1.5 pl-8 pr-2 text-sm font-semibold text-foreground', className)}
+        className={clsx(
+          'py-1.5 pl-8 pr-2 text-sm font-semibold text-foreground',
+          className
+        )}
         {...props}
       />
     )

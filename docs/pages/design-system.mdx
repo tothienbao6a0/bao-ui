@@ -24,10 +24,10 @@ Font families and sizes:
 
 ```css
 --font-sans: system-ui, sans-serif;
---font-mono: ui-monospace, "SF Mono", "Consolas", monospace;
+--font-mono: ui-monospace, 'SF Mono', 'Consolas', monospace;
 
 --text-sm: 0.875rem;
---text-base: 1rem;  
+--text-base: 1rem;
 --text-lg: 1.125rem;
 --text-xl: 1.25rem;
 ```
@@ -37,12 +37,12 @@ Font families and sizes:
 Consistent spacing scale:
 
 ```css
---space-1: 0.25rem;  /* 4px */
---space-2: 0.5rem;   /* 8px */
---space-3: 0.75rem;  /* 12px */
---space-4: 1rem;     /* 16px */
---space-6: 1.5rem;   /* 24px */
---space-8: 2rem;     /* 32px */
+--space-1: 0.25rem; /* 4px */
+--space-2: 0.5rem; /* 8px */
+--space-3: 0.75rem; /* 12px */
+--space-4: 1rem; /* 16px */
+--space-6: 1.5rem; /* 24px */
+--space-8: 2rem; /* 32px */
 ```
 
 ### Border Radius
@@ -50,10 +50,10 @@ Consistent spacing scale:
 Rounded corner scale:
 
 ```css
---radius-sm: 0.125rem;   /* 2px */
---radius: 0.25rem;       /* 4px */
---radius-md: 0.375rem;   /* 6px */
---radius-lg: 0.5rem;     /* 8px */
+--radius-sm: 0.125rem; /* 2px */
+--radius: 0.25rem; /* 4px */
+--radius-md: 0.375rem; /* 6px */
+--radius-lg: 0.5rem; /* 8px */
 ```
 
 ## Tailwind Plugin
@@ -74,14 +74,26 @@ This adds custom utilities and component classes:
 
 ```css
 /* Button variants */
-.btn-default { /* ... */ }
-.btn-outline { /* ... */ }
-.btn-destructive { /* ... */ }
+.btn-default {
+  /* ... */
+}
+.btn-outline {
+  /* ... */
+}
+.btn-destructive {
+  /* ... */
+}
 
 /* Utilities */
-.text-foreground { color: hsl(var(--foreground)); }
-.bg-background { background-color: hsl(var(--background)); }
-.border-border { border-color: hsl(var(--border)); }
+.text-foreground {
+  color: hsl(var(--foreground));
+}
+.bg-background {
+  background-color: hsl(var(--background));
+}
+.border-border {
+  border-color: hsl(var(--border));
+}
 ```
 
 ## Theming
@@ -95,7 +107,7 @@ Override design tokens with CSS custom properties:
   /* Override primary color */
   --color-primary: hsl(210 40% 98%);
   --color-primary-foreground: hsl(222.2 47.4% 11.2%);
-  
+
   /* Override border radius */
   --radius: 0.5rem;
 }
@@ -160,16 +172,20 @@ Common animation keyframes:
 
 ```css
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slide-up {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(10px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -179,6 +195,7 @@ Common animation keyframes:
 ## Best Practices
 
 ### Consistent Spacing
+
 Use the spacing scale for margins, padding, and gaps:
 
 ```tsx
@@ -188,21 +205,21 @@ Use the spacing scale for margins, padding, and gaps:
 ```
 
 ### Semantic Colors
+
 Use semantic color names instead of literal colors:
 
 ```tsx
 // Good
 <Button className="bg-destructive text-destructive-foreground">
 
-// Avoid  
+// Avoid
 <Button className="bg-red-500 text-white">
 ```
 
 ### Responsive Design
+
 Use responsive utilities for different screen sizes:
 
 ```tsx
-<Button className="text-sm md:text-base lg:text-lg">
-  Responsive text
-</Button>
+<Button className="text-sm md:text-base lg:text-lg">Responsive text</Button>
 ```

@@ -123,29 +123,29 @@ export function InteractiveExample() {
   const [clickCount, setClickCount] = useState(0)
   const [loading, setLoading] = useState(false)
 
-  const handleClick = async () => {
-    setLoading(true)
-    // Simulate async operation
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setClickCount(prev => prev + 1)
-    setLoading(false)
-  }
+const handleClick = async () => {
+setLoading(true)
+// Simulate async operation
+await new Promise(resolve => setTimeout(resolve, 1000))
+setClickCount(prev => prev + 1)
+setLoading(false)
+}
 
-  return (
-    <div className="space-y-4">
-      <div className="flex gap-2">
-        <Button onClick={handleClick} disabled={loading}>
-          {loading ? 'Loading...' : `Clicked ${clickCount} times`}
-        </Button>
-        <Button variant="outline" onClick={() => setClickCount(0)}>
-          Reset
-        </Button>
-      </div>
-      <p className="text-sm text-muted-foreground">
-        Try clicking the button to see state changes!
-      </p>
-    </div>
-  )
+return (
+<div className="space-y-4">
+<div className="flex gap-2">
+<Button onClick={handleClick} disabled={loading}>
+{loading ? 'Loading...' : `Clicked ${clickCount} times`}
+</Button>
+<Button variant="outline" onClick={() => setClickCount(0)}>
+Reset
+</Button>
+</div>
+<p className="text-sm text-muted-foreground">
+Try clicking the button to see state changes!
+</p>
+</div>
+)
 }
 
 ```tsx
@@ -200,45 +200,65 @@ function Example() {
         <Button>Default</Button>
         <Button size="lg">Large</Button>
       </div>
-      
+
       {/* Outline variants */}
       <div className="space-y-2">
         <h4 className="text-sm font-medium">Outline</h4>
-        <Button variant="outline" size="sm">Small</Button>
+        <Button variant="outline" size="sm">
+          Small
+        </Button>
         <Button variant="outline">Default</Button>
-        <Button variant="outline" size="lg">Large</Button>
+        <Button variant="outline" size="lg">
+          Large
+        </Button>
       </div>
-      
+
       {/* Secondary variants */}
       <div className="space-y-2">
         <h4 className="text-sm font-medium">Secondary</h4>
-        <Button variant="secondary" size="sm">Small</Button>
+        <Button variant="secondary" size="sm">
+          Small
+        </Button>
         <Button variant="secondary">Default</Button>
-        <Button variant="secondary" size="lg">Large</Button>
+        <Button variant="secondary" size="lg">
+          Large
+        </Button>
       </div>
-      
+
       {/* Destructive variants */}
       <div className="space-y-2">
         <h4 className="text-sm font-medium">Destructive</h4>
-        <Button variant="destructive" size="sm">Delete</Button>
+        <Button variant="destructive" size="sm">
+          Delete
+        </Button>
         <Button variant="destructive">Delete</Button>
-        <Button variant="destructive" size="lg">Delete</Button>
+        <Button variant="destructive" size="lg">
+          Delete
+        </Button>
       </div>
-      
+
       {/* Ghost variants */}
       <div className="space-y-2">
         <h4 className="text-sm font-medium">Ghost</h4>
-        <Button variant="ghost" size="sm">Ghost</Button>
+        <Button variant="ghost" size="sm">
+          Ghost
+        </Button>
         <Button variant="ghost">Ghost</Button>
-        <Button variant="ghost" size="lg">Ghost</Button>
+        <Button variant="ghost" size="lg">
+          Ghost
+        </Button>
       </div>
-      
+
       {/* Link variants */}
       <div className="space-y-2">
         <h4 className="text-sm font-medium">Link</h4>
-        <Button variant="link" size="sm">Link</Button>
+        <Button variant="link" size="sm">
+          Link
+        </Button>
         <Button variant="link">Link</Button>
-        <Button variant="link" size="lg">Link</Button>
+        <Button variant="link" size="lg">
+          Link
+        </Button>
       </div>
     </div>
   )
@@ -255,49 +275,69 @@ function Example() {
         <Button size="lg">Large</Button>
       </div>
     </div>
-    
+
     <div className="space-y-2">
       <h4 className="text-sm font-medium">Outline</h4>
       <div className="flex flex-col space-y-1">
-        <Button variant="outline" size="sm">Small</Button>
+        <Button variant="outline" size="sm">
+          Small
+        </Button>
         <Button variant="outline">Default</Button>
-        <Button variant="outline" size="lg">Large</Button>
+        <Button variant="outline" size="lg">
+          Large
+        </Button>
       </div>
     </div>
-    
+
     <div className="space-y-2">
       <h4 className="text-sm font-medium">Secondary</h4>
       <div className="flex flex-col space-y-1">
-        <Button variant="secondary" size="sm">Small</Button>
+        <Button variant="secondary" size="sm">
+          Small
+        </Button>
         <Button variant="secondary">Default</Button>
-        <Button variant="secondary" size="lg">Large</Button>
+        <Button variant="secondary" size="lg">
+          Large
+        </Button>
       </div>
     </div>
-    
+
     <div className="space-y-2">
       <h4 className="text-sm font-medium">Destructive</h4>
       <div className="flex flex-col space-y-1">
-        <Button variant="destructive" size="sm">Delete</Button>
+        <Button variant="destructive" size="sm">
+          Delete
+        </Button>
         <Button variant="destructive">Delete</Button>
-        <Button variant="destructive" size="lg">Delete</Button>
+        <Button variant="destructive" size="lg">
+          Delete
+        </Button>
       </div>
     </div>
-    
+
     <div className="space-y-2">
       <h4 className="text-sm font-medium">Ghost</h4>
       <div className="flex flex-col space-y-1">
-        <Button variant="ghost" size="sm">Ghost</Button>
+        <Button variant="ghost" size="sm">
+          Ghost
+        </Button>
         <Button variant="ghost">Ghost</Button>
-        <Button variant="ghost" size="lg">Ghost</Button>
+        <Button variant="ghost" size="lg">
+          Ghost
+        </Button>
       </div>
     </div>
-    
+
     <div className="space-y-2">
       <h4 className="text-sm font-medium">Link</h4>
       <div className="flex flex-col space-y-1">
-        <Button variant="link" size="sm">Link</Button>
+        <Button variant="link" size="sm">
+          Link
+        </Button>
         <Button variant="link">Link</Button>
-        <Button variant="link" size="lg">Link</Button>
+        <Button variant="link" size="lg">
+          Link
+        </Button>
       </div>
     </div>
   </div>
@@ -307,14 +347,14 @@ function Example() {
 
 ### Button
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'default' \| 'destructive' \| 'outline' \| 'secondary' \| 'ghost' \| 'link'` | `'default'` | Visual variant of the button |
-| `size` | `'default' \| 'sm' \| 'lg' \| 'icon'` | `'default'` | Size of the button |
-| `disabled` | `boolean` | `false` | Whether the button is disabled |
-| `onClick` | `() => void` | - | Click handler function |
-| `children` | `React.ReactNode` | - | Button content |
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type                                                                          | Default     | Description                    |
+| ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------ |
+| `variant`   | `'default' \| 'destructive' \| 'outline' \| 'secondary' \| 'ghost' \| 'link'` | `'default'` | Visual variant of the button   |
+| `size`      | `'default' \| 'sm' \| 'lg' \| 'icon'`                                         | `'default'` | Size of the button             |
+| `disabled`  | `boolean`                                                                     | `false`     | Whether the button is disabled |
+| `onClick`   | `() => void`                                                                  | -           | Click handler function         |
+| `children`  | `React.ReactNode`                                                             | -           | Button content                 |
+| `className` | `string`                                                                      | -           | Additional CSS classes         |
 
 The Button component also accepts all standard HTML button attributes.
 

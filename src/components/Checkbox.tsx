@@ -55,32 +55,36 @@ export interface CheckboxIndicatorProps
   className?: string
 }
 
-export const CheckboxIndicator = forwardRef<HTMLSpanElement, CheckboxIndicatorProps>(
-  ({ className, children, ...props }, ref) => {
-    return (
-      <Checkbox.Indicator
-        ref={ref}
-        className={clsx('flex items-center justify-center text-current', className)}
-        {...props}
-      >
-        {children || (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4"
-          >
-            <polyline points="20,6 9,17 4,12" />
-          </svg>
-        )}
-      </Checkbox.Indicator>
-    )
-  }
-)
+export const CheckboxIndicator = forwardRef<
+  HTMLSpanElement,
+  CheckboxIndicatorProps
+>(({ className, children, ...props }, ref) => {
+  return (
+    <Checkbox.Indicator
+      ref={ref}
+      className={clsx(
+        'flex items-center justify-center text-current',
+        className
+      )}
+      {...props}
+    >
+      {children || (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-4 w-4"
+        >
+          <polyline points="20,6 9,17 4,12" />
+        </svg>
+      )}
+    </Checkbox.Indicator>
+  )
+})
 
 CheckboxIndicator.displayName = 'CheckboxIndicator'
 
@@ -106,17 +110,14 @@ export interface CheckboxFieldRootProps
   className?: string
 }
 
-export const CheckboxFieldRoot = forwardRef<HTMLDivElement, CheckboxFieldRootProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <Field.Root
-        ref={ref}
-        className={clsx('space-y-2', className)}
-        {...props}
-      />
-    )
-  }
-)
+export const CheckboxFieldRoot = forwardRef<
+  HTMLDivElement,
+  CheckboxFieldRootProps
+>(({ className, ...props }, ref) => {
+  return (
+    <Field.Root ref={ref} className={clsx('space-y-2', className)} {...props} />
+  )
+})
 
 CheckboxFieldRoot.displayName = 'CheckboxFieldRoot'
 
@@ -144,23 +145,23 @@ export interface CheckboxDescriptionProps
   className?: string
 }
 
-export const CheckboxDescription = forwardRef<HTMLDivElement, CheckboxDescriptionProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <Field.Description
-        ref={ref}
-        className={clsx('text-sm text-muted-foreground', className)}
-        {...props}
-      />
-    )
-  }
-)
+export const CheckboxDescription = forwardRef<
+  HTMLDivElement,
+  CheckboxDescriptionProps
+>(({ className, ...props }, ref) => {
+  return (
+    <Field.Description
+      ref={ref}
+      className={clsx('text-sm text-muted-foreground', className)}
+      {...props}
+    />
+  )
+})
 
 CheckboxDescription.displayName = 'CheckboxDescription'
 
 // Compound component for easy usage
-export interface CheckboxProps
-  extends Omit<CheckboxRootProps, 'children'> {
+export interface CheckboxProps extends Omit<CheckboxRootProps, 'children'> {
   label?: string
   description?: string
   indeterminate?: boolean
@@ -180,7 +181,9 @@ export const CheckboxField = forwardRef<HTMLButtonElement, CheckboxProps>(
             {label && <CheckboxLabel>{label}</CheckboxLabel>}
           </div>
         </Field.Control>
-        {description && <CheckboxDescription>{description}</CheckboxDescription>}
+        {description && (
+          <CheckboxDescription>{description}</CheckboxDescription>
+        )}
       </CheckboxFieldRoot>
     )
   }

@@ -17,7 +17,8 @@ const meta: Meta<typeof SelectRoot> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'A customizable select component built on Base UI primitives.',
+        component:
+          'A customizable select component built on Base UI primitives.',
       },
     },
   },
@@ -63,7 +64,7 @@ export const Default: Story = {
       <SelectRoot options={fruits} placeholder="Select a fruit...">
         <SelectTrigger />
         <SelectContent>
-          {fruits.map((fruit) => (
+          {fruits.map(fruit => (
             <SelectItem key={fruit.value} value={fruit.value}>
               {fruit.label}
             </SelectItem>
@@ -81,7 +82,7 @@ export const WithLabel: Story = {
         <SelectTrigger />
         <SelectContent>
           <SelectLabel>Frontend Frameworks</SelectLabel>
-          {frameworks.map((framework) => (
+          {frameworks.map(framework => (
             <SelectItem key={framework.value} value={framework.value}>
               {framework.label}
             </SelectItem>
@@ -115,14 +116,14 @@ export const WithSeparator: Story = {
           <SelectTrigger />
           <SelectContent>
             <SelectLabel>Fruits</SelectLabel>
-            {groupedOptions.map((option) => (
+            {groupedOptions.map(option => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
               </SelectItem>
             ))}
             <SelectSeparator />
             <SelectLabel>Vegetables</SelectLabel>
-            {vegetables.map((option) => (
+            {vegetables.map(option => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
               </SelectItem>
@@ -140,7 +141,7 @@ export const Disabled: Story = {
       <SelectRoot options={fruits} placeholder="Select a fruit..." disabled>
         <SelectTrigger />
         <SelectContent>
-          {fruits.map((fruit) => (
+          {fruits.map(fruit => (
             <SelectItem key={fruit.value} value={fruit.value}>
               {fruit.label}
             </SelectItem>
@@ -159,7 +160,7 @@ export const Sizes: Story = {
         <SelectRoot options={fruits} placeholder="Small select">
           <SelectTrigger size="sm" />
           <SelectContent>
-            {fruits.map((fruit) => (
+            {fruits.map(fruit => (
               <SelectItem key={fruit.value} value={fruit.value}>
                 {fruit.label}
               </SelectItem>
@@ -172,7 +173,7 @@ export const Sizes: Story = {
         <SelectRoot options={fruits} placeholder="Default select">
           <SelectTrigger />
           <SelectContent>
-            {fruits.map((fruit) => (
+            {fruits.map(fruit => (
               <SelectItem key={fruit.value} value={fruit.value}>
                 {fruit.label}
               </SelectItem>
@@ -185,7 +186,7 @@ export const Sizes: Story = {
         <SelectRoot options={fruits} placeholder="Large select">
           <SelectTrigger size="lg" />
           <SelectContent>
-            {fruits.map((fruit) => (
+            {fruits.map(fruit => (
               <SelectItem key={fruit.value} value={fruit.value}>
                 {fruit.label}
               </SelectItem>
@@ -212,7 +213,7 @@ export const Controlled: Story = {
           >
             <SelectTrigger />
             <SelectContent>
-              {fruits.map((fruit) => (
+              {fruits.map(fruit => (
                 <SelectItem key={fruit.value} value={fruit.value}>
                   {fruit.label}
                 </SelectItem>

@@ -4,37 +4,42 @@ Bao UI provides a set of accessible, customizable React components built on Base
 
 ## Available Components
 
-| Component | Description | Status |
-| --- | --- | --- |
-| [Button](/components/button) | Multi-variant button with Tailwind styling | ✅ |
-| [Input](/components/input) | Form input with validation states and field integration | ✅ |
-| [Select](/components/select) | Dropdown select with keyboard navigation and grouping | ✅ |
-| [Checkbox](/components/checkbox) | Checkbox with indeterminate state support | ✅ |
-| [Dialog](/components/dialog) | Modal dialog with Base UI primitives | ✅ |
-| [Tooltip](/components/tooltip) | Content tooltip with XSS protection | ✅ |
+| Component                        | Description                                             | Status |
+| -------------------------------- | ------------------------------------------------------- | ------ |
+| [Button](/components/button)     | Multi-variant button with Tailwind styling              | ✅     |
+| [Input](/components/input)       | Form input with validation states and field integration | ✅     |
+| [Select](/components/select)     | Dropdown select with keyboard navigation and grouping   | ✅     |
+| [Checkbox](/components/checkbox) | Checkbox with indeterminate state support               | ✅     |
+| [Dialog](/components/dialog)     | Modal dialog with Base UI primitives                    | ✅     |
+| [Tooltip](/components/tooltip)   | Content tooltip with XSS protection                     | ✅     |
 
 ## Key Features
 
 ### Accessibility First
+
 All components are built on [Base UI](https://base-ui.com/) primitives, ensuring:
+
 - Full keyboard navigation support
 - Screen reader compatibility
 - ARIA attributes and roles
 - Focus management
 
 ### Themeable & Customizable
+
 - Token-based design system
 - Tailwind CSS integration
 - Variant-based styling
 - Custom CSS properties support
 
 ### Type Safe
+
 - Full TypeScript support
 - Intellisense for all props
 - Type-safe variant props
 - Generic component typing
 
 ### Performance Optimized
+
 - Tree-shakeable exports
 - Minimal bundle impact
 - React 18+ compatibility
@@ -43,11 +48,13 @@ All components are built on [Base UI](https://base-ui.com/) primitives, ensuring
 ## Usage Patterns
 
 ### Basic Import
+
 ```tsx
 import { Button, Input, Select, Checkbox, Dialog, Tooltip } from '@bao-ui/react'
 ```
 
 ### Variant-based Styling
+
 ```tsx
 <Button variant="outline" size="lg">
   Large Outline Button
@@ -55,6 +62,7 @@ import { Button, Input, Select, Checkbox, Dialog, Tooltip } from '@bao-ui/react'
 ```
 
 ### Composition
+
 ```tsx
 <Dialog.Root>
   <Dialog.Trigger>

@@ -114,17 +114,21 @@ export interface RadioFieldLabelProps
   className?: string
 }
 
-export const RadioFieldLabel = forwardRef<HTMLLabelElement, RadioFieldLabelProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <Field.Label
-        ref={ref}
-        className={clsx('text-sm font-medium leading-none text-foreground', className)}
-        {...props}
-      />
-    )
-  }
-)
+export const RadioFieldLabel = forwardRef<
+  HTMLLabelElement,
+  RadioFieldLabelProps
+>(({ className, ...props }, ref) => {
+  return (
+    <Field.Label
+      ref={ref}
+      className={clsx(
+        'text-sm font-medium leading-none text-foreground',
+        className
+      )}
+      {...props}
+    />
+  )
+})
 
 RadioFieldLabel.displayName = 'RadioFieldLabel'
 
@@ -133,23 +137,23 @@ export interface RadioFieldDescriptionProps
   className?: string
 }
 
-export const RadioFieldDescription = forwardRef<HTMLDivElement, RadioFieldDescriptionProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <Field.Description
-        ref={ref}
-        className={clsx('text-sm text-muted-foreground', className)}
-        {...props}
-      />
-    )
-  }
-)
+export const RadioFieldDescription = forwardRef<
+  HTMLDivElement,
+  RadioFieldDescriptionProps
+>(({ className, ...props }, ref) => {
+  return (
+    <Field.Description
+      ref={ref}
+      className={clsx('text-sm text-muted-foreground', className)}
+      {...props}
+    />
+  )
+})
 
 RadioFieldDescription.displayName = 'RadioFieldDescription'
 
 // Radio Item component for easy usage
-export interface RadioItemProps
-  extends Omit<RadioRootProps, 'children'> {
+export interface RadioItemProps extends Omit<RadioRootProps, 'children'> {
   label: string
   description?: string
 }
@@ -180,8 +184,7 @@ export const RadioItem = forwardRef<HTMLButtonElement, RadioItemProps>(
 RadioItem.displayName = 'RadioItem'
 
 // Compound component for easy usage
-export interface RadioGroupProps
-  extends Omit<RadioGroupRootProps, 'children'> {
+export interface RadioGroupProps extends Omit<RadioGroupRootProps, 'children'> {
   label?: string
   description?: string
   items: Array<{
@@ -201,7 +204,7 @@ export const RadioGroupField = forwardRef<HTMLDivElement, RadioGroupProps>(
           <RadioFieldDescription>{description}</RadioFieldDescription>
         )}
         <RadioGroupRoot ref={ref} {...props}>
-          {items.map((item) => (
+          {items.map(item => (
             <RadioItem
               key={item.value}
               value={item.value}

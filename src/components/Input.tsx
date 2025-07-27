@@ -110,17 +110,18 @@ export interface InputDescriptionProps
   className?: string
 }
 
-export const InputDescription = forwardRef<HTMLDivElement, InputDescriptionProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <Field.Description
-        ref={ref}
-        className={clsx('text-sm text-muted-foreground', className)}
-        {...props}
-      />
-    )
-  }
-)
+export const InputDescription = forwardRef<
+  HTMLDivElement,
+  InputDescriptionProps
+>(({ className, ...props }, ref) => {
+  return (
+    <Field.Description
+      ref={ref}
+      className={clsx('text-sm text-muted-foreground', className)}
+      {...props}
+    />
+  )
+})
 
 InputDescription.displayName = 'InputDescription'
 
@@ -144,8 +145,7 @@ export const InputError = forwardRef<HTMLDivElement, InputErrorProps>(
 InputError.displayName = 'InputError'
 
 // Compound component for easy usage
-export interface InputProps
-  extends Omit<InputFieldProps, 'variant'> {
+export interface InputProps extends Omit<InputFieldProps, 'variant'> {
   label?: string
   description?: string
   error?: string
@@ -153,7 +153,10 @@ export interface InputProps
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, description, error, variant = 'default', className, ...props }, ref) => {
+  (
+    { label, description, error, variant = 'default', className, ...props },
+    ref
+  ) => {
     const finalVariant = error ? 'error' : variant
 
     return (

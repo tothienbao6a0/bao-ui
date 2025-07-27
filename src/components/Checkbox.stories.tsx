@@ -2,13 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
 import {
   Checkbox,
-  CheckboxField,
   CheckboxRoot,
   CheckboxIndicator,
   CheckboxFieldRoot,
   CheckboxLabel,
   CheckboxDescription,
-  CheckboxIndeterminate,
 } from './Checkbox'
 
 const meta: Meta<typeof Checkbox> = {
@@ -18,7 +16,8 @@ const meta: Meta<typeof Checkbox> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'A customizable checkbox component with support for indeterminate state, built on Base UI primitives.',
+        component:
+          'A customizable checkbox component with support for indeterminate state, built on Base UI primitives.',
       },
     },
   },
@@ -128,23 +127,24 @@ export const CheckboxGroup: Story = {
         <Checkbox
           label="Email notifications"
           checked={selectedItems.includes('option1')}
-          onCheckedChange={(checked) => handleChange('option1', checked)}
+          onCheckedChange={checked => handleChange('option1', checked)}
           description="Receive updates via email"
         />
         <Checkbox
           label="SMS notifications"
           checked={selectedItems.includes('option2')}
-          onCheckedChange={(checked) => handleChange('option2', checked)}
+          onCheckedChange={checked => handleChange('option2', checked)}
           description="Receive updates via SMS"
         />
         <Checkbox
           label="Push notifications"
           checked={selectedItems.includes('option3')}
-          onCheckedChange={(checked) => handleChange('option3', checked)}
+          onCheckedChange={checked => handleChange('option3', checked)}
           description="Receive push notifications"
         />
         <div className="mt-4 text-sm text-slate-600">
-          Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
+          Selected:{' '}
+          {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
         </div>
       </div>
     )
@@ -173,10 +173,13 @@ export const ParentChildCheckboxes: Story = {
       })
     }
 
-    const handleChildChange = (childKey: keyof typeof childStates, checked: boolean) => {
+    const handleChildChange = (
+      childKey: keyof typeof childStates,
+      checked: boolean
+    ) => {
       const newChildStates = { ...childStates, [childKey]: checked }
       setChildStates(newChildStates)
-      
+
       const newChildCount = Object.values(newChildStates).filter(Boolean).length
       setParentChecked(newChildCount === totalChildren)
     }
@@ -194,17 +197,17 @@ export const ParentChildCheckboxes: Story = {
           <Checkbox
             label="Feature A"
             checked={childStates.child1}
-            onCheckedChange={(checked) => handleChildChange('child1', checked)}
+            onCheckedChange={checked => handleChildChange('child1', checked)}
           />
           <Checkbox
             label="Feature B"
             checked={childStates.child2}
-            onCheckedChange={(checked) => handleChildChange('child2', checked)}
+            onCheckedChange={checked => handleChildChange('child2', checked)}
           />
           <Checkbox
             label="Feature C"
             checked={childStates.child3}
-            onCheckedChange={(checked) => handleChildChange('child3', checked)}
+            onCheckedChange={checked => handleChildChange('child3', checked)}
           />
         </div>
       </div>

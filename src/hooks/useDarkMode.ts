@@ -22,7 +22,7 @@ export function useDarkMode(defaultTheme: Theme = 'system') {
   useEffect(() => {
     // Apply theme to document
     const effectiveTheme = theme === 'system' ? systemTheme : theme
-    
+
     if (effectiveTheme === 'dark') {
       document.documentElement.classList.add('dark')
     } else {

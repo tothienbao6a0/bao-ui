@@ -5,12 +5,12 @@ A tooltip component with XSS protection and flexible positioning.
 ## Import
 
 ```tsx
-import { 
+import {
   Tooltip,
   TooltipRoot,
   TooltipTrigger,
   TooltipPopup,
-  TooltipArrow 
+  TooltipArrow,
 } from '@bao-ui/react'
 ```
 
@@ -68,15 +68,15 @@ import {
 ## Components
 
 ### TooltipRoot
+
 The root container that manages tooltip state.
 
 ```tsx
-<TooltipRoot>
-  {/* Tooltip content */}
-</TooltipRoot>
+<TooltipRoot>{/* Tooltip content */}</TooltipRoot>
 ```
 
 ### TooltipTrigger
+
 The element that triggers the tooltip on hover/focus.
 
 ```tsx
@@ -86,18 +86,22 @@ The element that triggers the tooltip on hover/focus.
 ```
 
 ### TooltipPopup
+
 The tooltip content container.
 
 ```tsx
-<TooltipPopup content="Simple text" />
+;<TooltipPopup content="Simple text" />
 
-{/* Or with children */}
-<TooltipPopup>
+{
+  /* Or with children */
+}
+;<TooltipPopup>
   <div>Custom content</div>
 </TooltipPopup>
 ```
 
 ### TooltipArrow
+
 Optional arrow pointing to the trigger.
 
 ```tsx
@@ -108,17 +112,17 @@ Optional arrow pointing to the trigger.
 
 ### TooltipPopup Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `content` | `string` | - | HTML string content (sanitized) |
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `React.ReactNode` | - | Custom React content |
+| Prop        | Type              | Default | Description                     |
+| ----------- | ----------------- | ------- | ------------------------------- |
+| `content`   | `string`          | -       | HTML string content (sanitized) |
+| `className` | `string`          | -       | Additional CSS classes          |
+| `children`  | `React.ReactNode` | -       | Custom React content            |
 
 ### TooltipArrow Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 ## Security
 

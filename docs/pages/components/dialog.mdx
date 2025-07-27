@@ -5,13 +5,13 @@ A modal dialog component with backdrop and proper focus management.
 ## Import
 
 ```tsx
-import { 
+import {
   Dialog,
   DialogRoot,
-  DialogBackdrop, 
+  DialogBackdrop,
   DialogPopup,
   DialogTitle,
-  DialogClose 
+  DialogClose,
 } from '@bao-ui/react'
 ```
 
@@ -36,6 +36,7 @@ import {
 ## Components
 
 ### DialogRoot
+
 The root container that manages dialog state.
 
 ```tsx
@@ -44,7 +45,8 @@ The root container that manages dialog state.
 </DialogRoot>
 ```
 
-### DialogTrigger  
+### DialogTrigger
+
 The element that opens the dialog when clicked.
 
 ```tsx
@@ -54,6 +56,7 @@ The element that opens the dialog when clicked.
 ```
 
 ### DialogBackdrop
+
 The backdrop overlay behind the dialog.
 
 ```tsx
@@ -61,6 +64,7 @@ The backdrop overlay behind the dialog.
 ```
 
 ### DialogPopup
+
 The main dialog container.
 
 ```tsx
@@ -71,6 +75,7 @@ The main dialog container.
 ```
 
 ### DialogTitle
+
 The dialog title for accessibility.
 
 ```tsx
@@ -78,6 +83,7 @@ The dialog title for accessibility.
 ```
 
 ### DialogClose
+
 Element that closes the dialog when clicked.
 
 ```tsx
@@ -111,24 +117,24 @@ return (
 
 ### DialogRoot Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `open` | `boolean` | - | Controlled open state |
-| `onOpenChange` | `(open: boolean) => void` | - | Open state change handler |
-| `children` | `React.ReactNode` | - | Dialog content |
+| Prop           | Type                      | Default | Description               |
+| -------------- | ------------------------- | ------- | ------------------------- |
+| `open`         | `boolean`                 | -       | Controlled open state     |
+| `onOpenChange` | `(open: boolean) => void` | -       | Open state change handler |
+| `children`     | `React.ReactNode`         | -       | Dialog content            |
 
 ### DialogPopup Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `React.ReactNode` | - | Dialog content |
+| Prop        | Type              | Default | Description            |
+| ----------- | ----------------- | ------- | ---------------------- |
+| `className` | `string`          | -       | Additional CSS classes |
+| `children`  | `React.ReactNode` | -       | Dialog content         |
 
 ### DialogBackdrop Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 ## Accessibility
 

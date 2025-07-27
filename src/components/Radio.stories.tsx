@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
 import {
   RadioGroup,
-  RadioGroupField,
   RadioGroupRoot,
   RadioRoot,
   RadioIndicator,
@@ -19,7 +18,8 @@ const meta: Meta<typeof RadioGroup> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'A radio button group component built on Base UI primitives with proper field integration.',
+        component:
+          'A radio button group component built on Base UI primitives with proper field integration.',
       },
     },
   },
@@ -54,20 +54,20 @@ const notificationOptions = [
 ]
 
 const paymentOptions = [
-  { 
-    value: 'card', 
+  {
+    value: 'card',
     label: 'Credit Card',
-    description: 'Pay with your credit or debit card'
+    description: 'Pay with your credit or debit card',
   },
-  { 
-    value: 'paypal', 
+  {
+    value: 'paypal',
     label: 'PayPal',
-    description: 'Pay with your PayPal account'
+    description: 'Pay with your PayPal account',
   },
-  { 
-    value: 'apple', 
+  {
+    value: 'apple',
     label: 'Apple Pay',
-    description: 'Pay with Touch ID or Face ID'
+    description: 'Pay with Touch ID or Face ID',
   },
 ]
 
@@ -111,44 +111,22 @@ export const Sizes: Story = {
       <div>
         <h3 className="mb-3 text-sm font-medium">Small</h3>
         <RadioGroupRoot defaultValue="option1">
-          <RadioItem
-            size="sm"
-            value="option1"
-            label="Small radio"
-          />
-          <RadioItem
-            size="sm"
-            value="option2"
-            label="Another option"
-          />
+          <RadioItem size="sm" value="option1" label="Small radio" />
+          <RadioItem size="sm" value="option2" label="Another option" />
         </RadioGroupRoot>
       </div>
       <div>
         <h3 className="mb-3 text-sm font-medium">Default</h3>
         <RadioGroupRoot defaultValue="option1">
-          <RadioItem
-            value="option1"
-            label="Default radio"
-          />
-          <RadioItem
-            value="option2"
-            label="Another option"
-          />
+          <RadioItem value="option1" label="Default radio" />
+          <RadioItem value="option2" label="Another option" />
         </RadioGroupRoot>
       </div>
       <div>
         <h3 className="mb-3 text-sm font-medium">Large</h3>
         <RadioGroupRoot defaultValue="option1">
-          <RadioItem
-            size="lg"
-            value="option1"
-            label="Large radio"
-          />
-          <RadioItem
-            size="lg"
-            value="option2"
-            label="Another option"
-          />
+          <RadioItem size="lg" value="option1" label="Large radio" />
+          <RadioItem size="lg" value="option2" label="Another option" />
         </RadioGroupRoot>
       </div>
     </div>
@@ -169,7 +147,8 @@ export const Controlled: Story = {
           onValueChange={setValue}
         />
         <div className="text-sm text-muted-foreground">
-          Selected: {paymentOptions.find(option => option.value === value)?.label}
+          Selected:{' '}
+          {paymentOptions.find(option => option.value === value)?.label}
         </div>
         <div className="flex gap-2">
           <button
@@ -223,7 +202,9 @@ export const CustomComposition: Story = {
             <RadioIndicator />
           </RadioRoot>
           <div>
-            <label className="text-sm font-medium">Custom Option 1</label>
+            <label htmlFor="custom1" className="text-sm font-medium">
+              Custom Option 1
+            </label>
             <p className="text-xs text-muted-foreground">
               With custom layout and styling
             </p>
@@ -234,7 +215,9 @@ export const CustomComposition: Story = {
             <RadioIndicator />
           </RadioRoot>
           <div>
-            <label className="text-sm font-medium">Custom Option 2</label>
+            <label htmlFor="custom2" className="text-sm font-medium">
+              Custom Option 2
+            </label>
             <p className="text-xs text-muted-foreground">
               Another custom option
             </p>
@@ -260,13 +243,25 @@ export const FormExample: Story = {
     return (
       <div className="space-y-6 max-w-md">
         <h2 className="text-lg font-semibold">Account Settings</h2>
-        
+
         <RadioGroup
           label="Plan"
           items={[
-            { value: 'free', label: 'Free', description: '$0/month - Basic features' },
-            { value: 'pro', label: 'Pro', description: '$10/month - All features' },
-            { value: 'enterprise', label: 'Enterprise', description: 'Custom pricing' },
+            {
+              value: 'free',
+              label: 'Free',
+              description: '$0/month - Basic features',
+            },
+            {
+              value: 'pro',
+              label: 'Pro',
+              description: '$10/month - All features',
+            },
+            {
+              value: 'enterprise',
+              label: 'Enterprise',
+              description: 'Custom pricing',
+            },
           ]}
           value={formData.plan}
           onValueChange={handleChange('plan')}

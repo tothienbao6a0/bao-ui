@@ -6,7 +6,6 @@ import {
   InputLabel,
   InputField,
   InputDescription,
-  InputError,
 } from './Input'
 
 const meta: Meta<typeof Input> = {
@@ -16,7 +15,8 @@ const meta: Meta<typeof Input> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'A flexible input component with validation states built on Base UI Field primitives.',
+        component:
+          'A flexible input component with validation states built on Base UI Field primitives.',
       },
     },
   },
@@ -75,7 +75,7 @@ export const WithDescription: Story = {
   args: {
     label: 'Email Address',
     placeholder: 'Enter your email',
-    description: 'We\'ll never share your email with anyone else.',
+    description: "We'll never share your email with anyone else.",
   },
 }
 
@@ -142,35 +142,12 @@ export const Sizes: Story = {
 export const InputTypes: Story = {
   render: () => (
     <div className="space-y-4 w-80">
-      <Input
-        label="Text"
-        type="text"
-        placeholder="Enter text"
-      />
-      <Input
-        label="Email"
-        type="email"
-        placeholder="Enter email address"
-      />
-      <Input
-        label="Password"
-        type="password"
-        placeholder="Enter password"
-      />
-      <Input
-        label="Number"
-        type="number"
-        placeholder="Enter number"
-      />
-      <Input
-        label="Date"
-        type="date"
-      />
-      <Input
-        label="Search"
-        type="search"
-        placeholder="Search..."
-      />
+      <Input label="Text" type="text" placeholder="Enter text" />
+      <Input label="Email" type="email" placeholder="Enter email address" />
+      <Input label="Password" type="password" placeholder="Enter password" />
+      <Input label="Number" type="number" placeholder="Enter number" />
+      <Input label="Date" type="date" />
+      <Input label="Search" type="search" placeholder="Search..." />
     </div>
   ),
 }
@@ -206,7 +183,7 @@ export const Controlled: Story = {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value
       setValue(newValue)
-      
+
       if (newValue.length < 3) {
         setError('Must be at least 3 characters')
       } else {
@@ -239,7 +216,8 @@ export const CustomComposition: Story = {
           className="bg-slate-50"
         />
         <InputDescription>
-          This input is composed using individual components for maximum flexibility.
+          This input is composed using individual components for maximum
+          flexibility.
         </InputDescription>
       </InputRoot>
     </div>
