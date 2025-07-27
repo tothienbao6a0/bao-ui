@@ -1,6 +1,6 @@
 # bao-ui v0.1.0
 
-> AI-native React component & logic system built on Base UI primitives
+> Tailwind-first components powered by Base UI primitives — shadcn feel, npm-install simplicity.
 
 ## 🚀 Value Proposition
 

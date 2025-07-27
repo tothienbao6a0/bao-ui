@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [],
+  "linked": [["@bao/ui", "@bao/core", "@bao/tokens"]],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",

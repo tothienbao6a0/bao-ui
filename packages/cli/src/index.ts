@@ -28,13 +28,18 @@ import { clsx } from 'clsx'${needsMotion ? '\nimport { useAutoAnimate } from \'@
 
 export interface ${name}Props extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
+  asChild?: boolean
+  render?: React.ElementType
 }
 
 export const ${name} = forwardRef<HTMLDivElement, ${name}Props>(
-  ({ className, children, ...props }, ref) => {${needsMotion ? '\n    const [animateRef] = useAutoAnimate<HTMLDivElement>()' : ''}
+  ({ className, children, asChild = false, render, ...props }, ref) => {${needsMotion ? '\n    const [animateRef] = useAutoAnimate<HTMLDivElement>()' : ''}
+    
+    // Base UI polymorphic pattern - support asChild + render prop
+    const Component = render || (asChild ? 'div' : 'div')
     
     return (
-      <div
+      <Component
         ref={${needsMotion ? 'animateRef' : 'ref'}}
         className={clsx(
           '${name.toLowerCase()}-component',
@@ -43,7 +48,7 @@ export const ${name} = forwardRef<HTMLDivElement, ${name}Props>(
         {...props}
       >
         {children}
-      </div>
+      </Component>
     )
   }
 )
