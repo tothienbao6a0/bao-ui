@@ -9,21 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@bao-ui/react": "^1.0.0",
-    "@bao-ui/core": "^1.0.0",
-    "@bao-ui/tokens": "^1.0.0",
-    "next": "^15.4.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@bao-ui/react": "^1.0.3",
+    "@bao-ui/core": "^1.0.1",
+    "@bao-ui/tokens": "^1.0.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "next": "15.4.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "^5"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "^15.4.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "eslint-config-next": "^15.4.0"
   }
 }
