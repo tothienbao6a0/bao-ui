@@ -15,21 +15,23 @@
 
 ## Packages
 
-| Package       | Description                     | Version                                          |
-| ------------- | ------------------------------- | ------------------------------------------------ |
-| `@bao/ui`     | Styled React components         | ![npm](https://img.shields.io/npm/v/@bao/ui)     |
-| `@bao/core`   | Headless primitives & hooks     | ![npm](https://img.shields.io/npm/v/@bao/core)   |
-| `@bao/tokens` | Design tokens & Tailwind plugin | ![npm](https://img.shields.io/npm/v/@bao/tokens) |
-| `@bao/cli`    | Component scaffolding CLI       | ![npm](https://img.shields.io/npm/v/@bao/cli)    |
+| Package          | Description                     | Version                                             |
+| ---------------- | ------------------------------- | --------------------------------------------------- |
+| `@bao-ui/react`  | Styled React components         | ![npm](https://img.shields.io/npm/v/@bao-ui/react)  |
+| `@bao-ui/core`   | Headless primitives & hooks     | ![npm](https://img.shields.io/npm/v/@bao-ui/core)   |
+| `@bao-ui/tokens` | Design tokens & Tailwind plugin | ![npm](https://img.shields.io/npm/v/@bao-ui/tokens) |
+| `@bao-ui/cli`    | Component scaffolding CLI       | ![npm](https://img.shields.io/npm/v/@bao-ui/cli)    |
 
 ## ⚡ Quick Start
 
+🚀 **[Try the live demo →](https://next-demo-5coyfaf3k-tothienbao6a0-gmailcoms-projects.vercel.app)**
+
 ```bash
 # Install the packages
-pnpm add @bao/ui @bao/tokens
+pnpm add @bao-ui/react @bao-ui/core @bao-ui/tokens
 
 # Or with CLI
-npx @bao/cli add button
+npx @bao-ui/cli add button
 ```
 
 ### Setup
@@ -37,7 +39,7 @@ npx @bao/cli add button
 1. **Configure Tailwind** - Add to your `tailwind.config.js`:
 
 ```ts
-import { plugin } from '@bao/tokens/tailwind'
+import { plugin } from '@bao-ui/tokens/tailwind'
 
 export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -48,7 +50,7 @@ export default {
 2. **Import styles** in your app:
 
 ```ts
-import '@bao/ui/styles.css'
+import '@bao-ui/react/styles.css'
 ```
 
 ## 📖 Usage Example
@@ -60,7 +62,7 @@ import {
   DialogBackdrop,
   DialogPopup,
   TooltipRoot,
-} from '@bao/ui'
+} from '@bao-ui/react'
 
 function App() {
   return (
@@ -93,7 +95,7 @@ pnpm lint         # Lint code
 pnpm build        # Build all packages
 
 # Add new component
-npx @bao/cli add MyComponent
+npx @bao-ui/cli add MyComponent
 ```
 
 ## Components

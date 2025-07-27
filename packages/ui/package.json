@@ -1,6 +1,6 @@
 {
-  "name": "@bao/ui",
-  "version": "2.0.0",
+  "name": "@bao-ui/react",
+  "version": "1.0.3",
   "description": "Styled React components built on Base UI primitives",
   "type": "module",
   "main": "./dist/index.js",
@@ -33,8 +33,8 @@
   "author": "Bao To",
   "license": "MIT",
   "dependencies": {
-    "@bao/core": "workspace:*",
-    "@bao/tokens": "workspace:*",
+    "@bao-ui/core": "^1.0.0",
+    "@bao-ui/tokens": "^1.0.0",
     "@base-ui-components/react": "^1.0.0-beta.1",
     "clsx": "^2.1.1",
     "dompurify": "^3.0.8",

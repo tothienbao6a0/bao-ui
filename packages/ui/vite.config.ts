@@ -12,12 +12,20 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        '@base-ui-components/react',
-        'framer-motion',
-      ],
+      external: id => {
+        return [
+          'react',
+          'react-dom',
+          'react/jsx-runtime',
+          '@base-ui-components/react',
+          '@bao-ui/core',
+          '@bao-ui/tokens',
+          'framer-motion',
+          'clsx',
+          'dompurify',
+          'tailwind-variants',
+        ].some(ext => id === ext || id.startsWith(ext + '/'))
+      },
       output: {
         globals: {
           react: 'React',
