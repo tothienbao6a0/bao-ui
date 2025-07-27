@@ -35,4 +35,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           exitZeroOnChanges: true
           onlyChanged: true
-        if: ${{ secrets.CHROMATIC_PROJECT_TOKEN != '' }}
+        if: ${{ secrets.CHROMATIC_PROJECT_TOKEN != null }}
