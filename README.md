@@ -2,7 +2,7 @@
 
 > Beautifully designed Tailwind-first components you can install in one command. Accessible. Themeable. AI-native. Powered by Base UI. Open Source
 
-## 🚀 Value Proposition
+## Value Proposition
 
 **bao-ui** is a production-ready component library that beats shadcn/ui on theming & packaging. Built with:
 
@@ -13,14 +13,14 @@
 - **Secure defaults** with DOMPurify sanitization
 - **Monorepo architecture** for modularity
 
-## 📦 Packages
+## Packages
 
-| Package | Description | Version |
-|---------|-------------|---------|
-| `@bao/ui` | Styled React components | ![npm](https://img.shields.io/npm/v/@bao/ui) |
-| `@bao/core` | Headless primitives & hooks | ![npm](https://img.shields.io/npm/v/@bao/core) |
+| Package       | Description                     | Version                                          |
+| ------------- | ------------------------------- | ------------------------------------------------ |
+| `@bao/ui`     | Styled React components         | ![npm](https://img.shields.io/npm/v/@bao/ui)     |
+| `@bao/core`   | Headless primitives & hooks     | ![npm](https://img.shields.io/npm/v/@bao/core)   |
 | `@bao/tokens` | Design tokens & Tailwind plugin | ![npm](https://img.shields.io/npm/v/@bao/tokens) |
-| `@bao/cli` | Component scaffolding CLI | ![npm](https://img.shields.io/npm/v/@bao/cli) |
+| `@bao/cli`    | Component scaffolding CLI       | ![npm](https://img.shields.io/npm/v/@bao/cli)    |
 
 ## ⚡ Quick Start
 
@@ -54,7 +54,13 @@ import '@bao/ui/styles.css'
 ## 📖 Usage Example
 
 ```tsx
-import { Button, DialogRoot, DialogBackdrop, DialogPopup, TooltipRoot } from '@bao/ui'
+import {
+  Button,
+  DialogRoot,
+  DialogBackdrop,
+  DialogPopup,
+  TooltipRoot,
+} from '@bao/ui'
 
 function App() {
   return (
@@ -72,7 +78,7 @@ function App() {
 }
 ```
 
-## 🛠️ Development
+## Development
 
 ```bash
 # Clone & install
@@ -90,28 +96,31 @@ pnpm build        # Build all packages
 npx @bao/cli add MyComponent
 ```
 
-## 🎨 Components
+## Components
 
-| Component | Description | Status |
-|-----------|-------------|---------|
-| Button | Multi-variant button with Tailwind styling | ✅ |
-| Dialog | Modal dialog with Base UI primitives | ✅ |
-| Tooltip | Content tooltip with XSS protection | ✅ |
+| Component | Description                                | Status |
+| --------- | ------------------------------------------ | ------ |
+| Button    | Multi-variant button with Tailwind styling | ✅     |
+| Dialog    | Modal dialog with Base UI primitives       | ✅     |
+| Tooltip   | Content tooltip with XSS protection        | ✅     |
 
-## 🗺️ Roadmap
+## Roadmap
 
 ### Phase 0: Foundation ✅
+
 - Monorepo with 4 publishable packages
 - Core components (Button, Dialog, Tooltip)
 - Token-based theming system
 - Storybook documentation
 
 ### Phase 1: CLI & Templates 🔄
+
 - Enhanced CLI with templates
 - Component scaffolding
 - Auto peer-dependency management
 
 ### Phase 2: Advanced Features 🚧
+
 - Form components with validation
 - Data visualization components
 - Animation presets
