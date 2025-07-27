@@ -5,6 +5,7 @@ import {
   NotificationBadge,
   InteractiveBadge,
 } from '@bao-ui/react'
+import { ClientOnly } from '../../components/ClientOnly'
 
 # Badge
 
@@ -185,38 +186,38 @@ Interactive badges support removal functionality, perfect for tags and filters.
 export function InteractiveBadgeExample() {
   const [tags, setTags] = useState(['React', 'TypeScript', 'Tailwind CSS'])
 
-const removeTag = (tagToRemove) => {
-setTags(tags.filter(tag => tag !== tagToRemove))
-}
+  const removeTag = (tagToRemove) => {
+    setTags(tags.filter(tag => tag !== tagToRemove))
+  }
 
-const addTag = () => {
-const newTag = `Tag ${tags.length + 1}`
-setTags([...tags, newTag])
-}
+  const addTag = () => {
+    const newTag = `Tag ${tags.length + 1}`
+    setTags([...tags, newTag])
+  }
 
-return (
-
-<div className="space-y-4">
-  <div className="flex flex-wrap gap-2">
-    {tags.map(tag => (
-      <InteractiveBadge
-        key={tag}
-        variant="secondary"
-        removable
-        onRemove={() => removeTag(tag)}
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
+        {tags.map(tag => (
+          <InteractiveBadge
+            key={tag}
+            variant="secondary"
+            removable
+            onRemove={() => removeTag(tag)}
+          >
+            {tag}
+          </InteractiveBadge>
+        ))}
+      </div>
+      <button
+        onClick={addTag}
+        className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
       >
-        {tag}
-      </InteractiveBadge>
-    ))}
-  </div>
-  <button
-    onClick={addTag}
-    className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
-  >
-    Add Tag
-  </button>
-</div>
-) }
+        Add Tag
+      </button>
+    </div>
+  )
+}
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
@@ -247,8 +248,7 @@ export function TagList() {
           {tag}
         </InteractiveBadge>
       ))}
-      </ClientOnly>
-</div>
+    </div>
   )
 }
 ```
@@ -258,23 +258,23 @@ export function TagList() {
 ### User Profile
 
 <div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6">
-    <div className="flex items-center gap-3 rounded-lg border border-border p-4">
-      <div className="h-10 w-10 rounded-full bg-muted">  </ClientOnly>
-</div>
-      <div className="flex-1">
-        <div className="flex items-center gap-2">
-          <span className="font-medium">John Doe</span>
-          <StatusBadge status="success" showDot size="sm">
-            Pro
-          </StatusBadge>
-          </ClientOnly>
-</div>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <span>john.doe@example.com</span>
-          <Badge variant="outline" size="sm">
-            Admin
-          </Badge>
+  <ClientOnly fallback={<div className="animate-pulse h-20 bg-muted rounded"></div>}>
+    <div className="rounded-lg border border-border bg-background p-6">
+      <div className="flex items-center gap-3 rounded-lg border border-border p-4">
+        <div className="h-10 w-10 rounded-full bg-muted"></div>
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <span className="font-medium">John Doe</span>
+            <StatusBadge status="success" showDot size="sm">
+              Pro
+            </StatusBadge>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span>john.doe@example.com</span>
+            <Badge variant="outline" size="sm">
+              Admin
+            </Badge>
+          </div>
         </div>
       </div>
     </div>
@@ -398,7 +398,6 @@ The Badge components follow accessibility best practices:
   <Badge variant="warning">Limited Stock</Badge>
   <Badge variant="outline">New Arrival</Badge>
   <Badge variant="secondary">Best Seller</Badge>
-  </ClientOnly>
 </div>
 ```
 
@@ -411,16 +410,13 @@ The Badge components follow accessibility best practices:
     <StatusBadge status="success" showDot>
       Valid
     </StatusBadge>
-    </ClientOnly>
-</div>
+  </div>
   <div className="flex items-center gap-2">
     <input type="password" className="..." />
     <StatusBadge status="destructive" showDot>
       Invalid
     </StatusBadge>
-    </ClientOnly>
-</div>
-  </ClientOnly>
+  </div>
 </div>
 ```
 

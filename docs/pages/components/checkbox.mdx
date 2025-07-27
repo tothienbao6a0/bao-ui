@@ -42,7 +42,6 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <ClientOnly fallback={<div className="animate-pulse h-8 bg-muted rounded"></div>}>
     <Checkbox label="Accept terms and conditions" />
   </ClientOnly>
 </div>
@@ -64,10 +63,11 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <Checkbox
-    label="Send me notifications"
-    description="Get notified about updates and news."
-  />
+    <Checkbox
+      label="Send me notifications"
+      description="Get notified about updates and news."
+    />
+  </ClientOnly>
 </div>
 
 ### Controlled Checkbox
@@ -75,23 +75,23 @@ function Example() {
 export function ControlledExample() {
   const [checked, setChecked] = useState(false)
 
-return (
-
-<div className="space-y-4">
-  <Checkbox
-    label="Controlled checkbox"
-    checked={checked}
-    onCheckedChange={setChecked}
-    description={`Checkbox is ${checked ? 'checked' : 'unchecked'}`}
-  />
-  <button
-    onClick={() => setChecked(!checked)}
-    className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
-  >
-    Toggle Checkbox
-  </button>
-</div>
-) }
+  return (
+    <div className="space-y-4">
+      <Checkbox
+        label="Controlled checkbox"
+        checked={checked}
+        onCheckedChange={setChecked}
+        description={`Checkbox is ${checked ? 'checked' : 'unchecked'}`}
+      />
+      <button
+        onClick={() => setChecked(!checked)}
+        className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+      >
+        Toggle Checkbox
+      </button>
+    </div>
+  )
+}
 
 ```tsx
 import { useState } from 'react'
@@ -121,7 +121,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <ControlledExample />
+    <ControlledExample />
   </ClientOnly>
 </div>
 
@@ -143,11 +143,12 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <div className="space-y-4">
-    <Checkbox size="sm" label="Small checkbox" />
-    <Checkbox size="default" label="Default checkbox" />
-    <Checkbox size="lg" label="Large checkbox" />
-  </div>
+    <div className="space-y-4">
+      <Checkbox size="sm" label="Small checkbox" />
+      <Checkbox size="default" label="Default checkbox" />
+      <Checkbox size="lg" label="Large checkbox" />
+    </div>
+  </ClientOnly>
 </div>
 
 ### States
@@ -170,13 +171,14 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <div className="space-y-4">
-    <Checkbox label="Default state" />
-    <Checkbox label="Checked state" defaultChecked />
-    <Checkbox label="Indeterminate state" indeterminate />
-    <Checkbox label="Disabled state" disabled />
-    <Checkbox label="Disabled checked" disabled defaultChecked />
-  </div>
+    <div className="space-y-4">
+      <Checkbox label="Default state" />
+      <Checkbox label="Checked state" defaultChecked />
+      <Checkbox label="Indeterminate state" indeterminate />
+      <Checkbox label="Disabled state" disabled />
+      <Checkbox label="Disabled checked" disabled defaultChecked />
+    </div>
+  </ClientOnly>
 </div>
 
 ### Checkbox Group
@@ -184,41 +186,41 @@ function Example() {
 export function CheckboxGroupExample() {
   const [selectedItems, setSelectedItems] = useState(['option1'])
 
-const handleChange = (value, checked) => {
-if (checked) {
-setSelectedItems([...selectedItems, value])
-} else {
-setSelectedItems(selectedItems.filter(item => item !== value))
-}
-}
+  const handleChange = (value, checked) => {
+    if (checked) {
+      setSelectedItems([...selectedItems, value])
+    } else {
+      setSelectedItems(selectedItems.filter(item => item !== value))
+    }
+  }
 
-return (
-
-<div className="space-y-3">
-  <h3 className="text-sm font-medium">Select your preferences:</h3>
-  <Checkbox
-    label="Email notifications"
-    checked={selectedItems.includes('option1')}
-    onCheckedChange={checked => handleChange('option1', checked)}
-    description="Receive updates via email"
-  />
-  <Checkbox
-    label="SMS notifications"
-    checked={selectedItems.includes('option2')}
-    onCheckedChange={checked => handleChange('option2', checked)}
-    description="Receive updates via SMS"
-  />
-  <Checkbox
-    label="Push notifications"
-    checked={selectedItems.includes('option3')}
-    onCheckedChange={checked => handleChange('option3', checked)}
-    description="Receive push notifications"
-  />
-  <div className="mt-4 text-sm text-muted-foreground">
-    Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
-  </div>
-</div>
-) }
+  return (
+    <div className="space-y-3">
+      <h3 className="text-sm font-medium">Select your preferences:</h3>
+      <Checkbox
+        label="Email notifications"
+        checked={selectedItems.includes('option1')}
+        onCheckedChange={checked => handleChange('option1', checked)}
+        description="Receive updates via email"
+      />
+      <Checkbox
+        label="SMS notifications"
+        checked={selectedItems.includes('option2')}
+        onCheckedChange={checked => handleChange('option2', checked)}
+        description="Receive updates via SMS"
+      />
+      <Checkbox
+        label="Push notifications"
+        checked={selectedItems.includes('option3')}
+        onCheckedChange={checked => handleChange('option3', checked)}
+        description="Receive push notifications"
+      />
+      <div className="mt-4 text-sm text-muted-foreground">
+        Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
+      </div>
+    </div>
+  )
+}
 
 ```tsx
 import { useState } from 'react'
@@ -266,7 +268,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <CheckboxGroupExample />
+    <CheckboxGroupExample />
   </ClientOnly>
 </div>
 
@@ -280,57 +282,56 @@ export function ParentChildExample() {
     child3: false,
   })
 
-const childCount = Object.values(childStates).filter(Boolean).length
-const totalChildren = Object.keys(childStates).length
-const isIndeterminate = childCount > 0 && childCount < totalChildren
+  const childCount = Object.values(childStates).filter(Boolean).length
+  const totalChildren = Object.keys(childStates).length
+  const isIndeterminate = childCount > 0 && childCount < totalChildren
 
-const handleParentChange = (checked) => {
-setParentChecked(checked)
-setChildStates({
-child1: checked,
-child2: checked,
-child3: checked,
-})
-}
+  const handleParentChange = (checked) => {
+    setParentChecked(checked)
+    setChildStates({
+      child1: checked,
+      child2: checked,
+      child3: checked,
+    })
+  }
 
-const handleChildChange = (childKey, checked) => {
-const newChildStates = { ...childStates, [childKey]: checked }
-setChildStates(newChildStates)
+  const handleChildChange = (childKey, checked) => {
+    const newChildStates = { ...childStates, [childKey]: checked }
+    setChildStates(newChildStates)
 
     const newChildCount = Object.values(newChildStates).filter(Boolean).length
     setParentChecked(newChildCount === totalChildren)
+  }
 
-}
-
-return (
-
-<div className="space-y-3">
-  <Checkbox
-    label="Select all features"
-    checked={parentChecked}
-    indeterminate={isIndeterminate}
-    onCheckedChange={handleParentChange}
-    description="Toggle all features on or off"
-  />
-  <div className="ml-6 space-y-2">
-    <Checkbox
-      label="Feature A"
-      checked={childStates.child1}
-      onCheckedChange={checked => handleChildChange('child1', checked)}
-    />
-    <Checkbox
-      label="Feature B"
-      checked={childStates.child2}
-      onCheckedChange={checked => handleChildChange('child2', checked)}
-    />
-    <Checkbox
-      label="Feature C"
-      checked={childStates.child3}
-      onCheckedChange={checked => handleChildChange('child3', checked)}
-    />
+  return (
+    <div className="space-y-3">
+      <Checkbox
+        label="Select all features"
+        checked={parentChecked}
+        indeterminate={isIndeterminate}
+        onCheckedChange={handleParentChange}
+        description="Toggle all features on or off"
+      />
+      <div className="ml-6 space-y-2">
+        <Checkbox
+          label="Feature A"
+          checked={childStates.child1}
+          onCheckedChange={checked => handleChildChange('child1', checked)}
+        />
+        <Checkbox
+          label="Feature B"
+          checked={childStates.child2}
+          onCheckedChange={checked => handleChildChange('child2', checked)}
+        />
+        <Checkbox
+          label="Feature C"
+          checked={childStates.child3}
+          onCheckedChange={checked => handleChildChange('child3', checked)}
+        />
+      </div>
     </div>
-  </div>
-) }
+  )
+}
 
 ```tsx
 import { useState } from 'react'
@@ -398,7 +399,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <ParentChildExample />
+    <ParentChildExample />
   </ClientOnly>
 </div>
 
@@ -427,10 +428,8 @@ function Example() {
           <CheckboxDescription>
             This uses individual components for maximum flexibility.
           </CheckboxDescription>
-          </ClientOnly>
-</div>
-        </ClientOnly>
-</div>
+        </div>
+      </div>
     </CheckboxFieldRoot>
   )
 }
@@ -438,19 +437,20 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-  <CheckboxFieldRoot>
-    <div className="flex items-center space-x-3">
-      <CheckboxRoot defaultChecked>
-        <CheckboxIndicator />
-      </CheckboxRoot>
-      <div>
-        <CheckboxLabel>Custom composed checkbox</CheckboxLabel>
-        <CheckboxDescription>
-          This uses individual components for maximum flexibility.
-        </CheckboxDescription>
+    <CheckboxFieldRoot>
+      <div className="flex items-center space-x-3">
+        <CheckboxRoot defaultChecked>
+          <CheckboxIndicator />
+        </CheckboxRoot>
+        <div>
+          <CheckboxLabel>Custom composed checkbox</CheckboxLabel>
+          <CheckboxDescription>
+            This uses individual components for maximum flexibility.
+          </CheckboxDescription>
+        </div>
       </div>
-    </div>
-  </CheckboxFieldRoot>
+    </CheckboxFieldRoot>
+  </ClientOnly>
 </div>
 
 ## API Reference
