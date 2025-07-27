@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import {
-  SelectRoot,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectLabel,
-  SelectSeparator,
-} from '@bao-ui/react'
+  Default,
+  WithLabel,
+  WithSeparator,
+  Disabled,
+  Sizes,
+  Controlled,
+} from '../../../src/components/Select.stories'
 import { ClientOnly } from '../../components/ClientOnly'
 
 # Select
@@ -66,23 +65,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="w-[200px]">
-      <SelectRoot
-        options={[
-          { value: 'apple', label: 'Apple' },
-          { value: 'banana', label: 'Banana' },
-          { value: 'orange', label: 'Orange' },
-        ]}
-        placeholder="Select a fruit..."
-      >
-        <SelectTrigger />
-        <SelectContent>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="orange">Orange</SelectItem>
-        </SelectContent>
-      </SelectRoot>
-    </div>
+    <Default />
   </ClientOnly>
 </div>
 
@@ -141,32 +124,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="w-[200px]">
-      <SelectRoot
-        options={[
-          { value: 'apple', label: 'Apple' },
-          { value: 'banana', label: 'Banana' },
-          { value: 'grape', label: 'Grape' },
-          { value: 'carrot', label: 'Carrot' },
-          { value: 'broccoli', label: 'Broccoli' },
-          { value: 'spinach', label: 'Spinach' },
-        ]}
-        placeholder="Select food..."
-      >
-        <SelectTrigger />
-        <SelectContent>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="grape">Grape</SelectItem>
-          <SelectSeparator />
-          <SelectLabel>Vegetables</SelectLabel>
-          <SelectItem value="carrot">Carrot</SelectItem>
-          <SelectItem value="broccoli">Broccoli</SelectItem>
-          <SelectItem value="spinach">Spinach</SelectItem>
-        </SelectContent>
-      </SelectRoot>
-    </div>
+    <WithSeparator />
   </ClientOnly>
 </div>
 
@@ -235,106 +193,11 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="space-y-4">
-      <div className="w-[200px]">
-        <p className="mb-2 text-sm font-medium">Small</p>
-        <SelectRoot
-          options={[
-            { value: 'option1', label: 'Option 1' },
-            { value: 'option2', label: 'Option 2' },
-            { value: 'option3', label: 'Option 3' },
-          ]}
-          placeholder="Small select"
-        >
-          <SelectTrigger size="sm" />
-          <SelectContent>
-            <SelectItem value="option1">Option 1</SelectItem>
-            <SelectItem value="option2">Option 2</SelectItem>
-            <SelectItem value="option3">Option 3</SelectItem>
-          </SelectContent>
-        </SelectRoot>
-      </div>
-      <div className="w-[200px]">
-        <p className="mb-2 text-sm font-medium">Default</p>
-        <SelectRoot
-          options={[
-            { value: 'option1', label: 'Option 1' },
-            { value: 'option2', label: 'Option 2' },
-            { value: 'option3', label: 'Option 3' },
-          ]}
-          placeholder="Default select"
-        >
-          <SelectTrigger />
-          <SelectContent>
-            <SelectItem value="option1">Option 1</SelectItem>
-            <SelectItem value="option2">Option 2</SelectItem>
-            <SelectItem value="option3">Option 3</SelectItem>
-          </SelectContent>
-        </SelectRoot>
-      </div>
-      <div className="w-[200px]">
-        <p className="mb-2 text-sm font-medium">Large</p>
-        <SelectRoot
-          options={[
-            { value: 'option1', label: 'Option 1' },
-            { value: 'option2', label: 'Option 2' },
-            { value: 'option3', label: 'Option 3' },
-          ]}
-          placeholder="Large select"
-        >
-          <SelectTrigger size="lg" />
-          <SelectContent>
-            <SelectItem value="option1">Option 1</SelectItem>
-            <SelectItem value="option2">Option 2</SelectItem>
-            <SelectItem value="option3">Option 3</SelectItem>
-          </SelectContent>
-        </SelectRoot>
-      </div>
-    </div>
+    <Sizes />
   </ClientOnly>
 </div>
 
 ### Controlled Select
-
-export function ControlledExample() {
-  const [value, setValue] = useState(null)
-  
-  const frameworks = [
-    { value: 'react', label: 'React' },
-    { value: 'vue', label: 'Vue' },
-    { value: 'angular', label: 'Angular' },
-    { value: 'svelte', label: 'Svelte' }
-  ]
-
-  return (
-    <div className="space-y-4">
-      <div className="w-[200px]">
-        <SelectRoot
-          options={frameworks}
-          placeholder="Choose framework..."
-          value={value}
-          onValueChange={setValue}
-        >
-          <SelectTrigger />
-          <SelectContent>
-            {frameworks.map(framework => (
-              <SelectItem key={framework.value} value={framework.value}>
-                {framework.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </SelectRoot>
-      </div>
-      <p className="text-sm text-muted-foreground">Selected: {value || 'None'}</p>
-      <button
-        onClick={() => setValue(null)}
-        className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
-      >
-        Clear Selection
-      </button>
-    </div>
-  )
-}
 
 ```tsx
 import { useState } from 'react'
@@ -390,7 +253,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <ControlledExample />
+    <Controlled />
   </ClientOnly>
 </div>
 
@@ -428,22 +291,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="w-[200px]">
-      <SelectRoot
-        options={[
-          { value: 'option1', label: 'Option 1' },
-          { value: 'option2', label: 'Option 2' },
-        ]}
-        placeholder="Disabled select..."
-        disabled
-      >
-        <SelectTrigger />
-        <SelectContent>
-          <SelectItem value="option1">Option 1</SelectItem>
-          <SelectItem value="option2">Option 2</SelectItem>
-        </SelectContent>
-      </SelectRoot>
-    </div>
+    <Disabled />
   </ClientOnly>
 </div>
 

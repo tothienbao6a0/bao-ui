@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import {
-  Input,
-  InputRoot,
-  InputLabel,
-  InputField,
-  InputDescription,
-  InputError,
-} from '@bao-ui/react'
+import { 
+  Default,
+  WithLabel,
+  WithDescription,
+  ValidationStates,
+  Sizes,
+  InputTypes,
+  Controlled,
+  CustomComposition
+} from '../../../src/components/Input.stories'
 import { ClientOnly } from '../../components/ClientOnly'
 
 # Input
@@ -42,7 +43,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <Input placeholder="Enter your name..." />
+    <Default />
   </ClientOnly>
 </div>
 
@@ -58,7 +59,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <Input label="Full Name" placeholder="Enter your full name" />
+    <WithLabel />
   </ClientOnly>
 </div>
 
@@ -80,11 +81,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <Input
-      label="Email Address"
-      placeholder="Enter your email"
-      description="We'll never share your email with anyone else."
-    />
+    <WithDescription />
   </ClientOnly>
 </div>
 
@@ -119,24 +116,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="space-y-4">
-      <Input
-        label="Default State"
-        placeholder="Default input"
-        description="This is a normal input field."
-      />
-      <Input
-        label="Success State"
-        variant="success"
-        placeholder="Valid input"
-        description="Input is valid!"
-      />
-      <Input
-        label="Error State"
-        placeholder="Invalid input"
-        error="This field is required."
-      />
-    </div>
+    <ValidationStates />
   </ClientOnly>
 </div>
 
@@ -158,11 +138,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="space-y-4">
-      <Input size="sm" label="Small" placeholder="Small input" />
-      <Input size="default" label="Default" placeholder="Default input" />
-      <Input size="lg" label="Large" placeholder="Large input" />
-    </div>
+    <Sizes />
   </ClientOnly>
 </div>
 
@@ -186,44 +162,11 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="space-y-4">
-      <Input label="Text" type="text" placeholder="Enter text" />
-      <Input label="Email" type="email" placeholder="Enter email" />
-      <Input label="Password" type="password" placeholder="Enter password" />
-      <Input label="Number" type="number" placeholder="Enter number" />
-      <Input label="Date" type="date" />
-    </div>
+    <InputTypes />
   </ClientOnly>
 </div>
 
 ### Controlled Input
-
-export function ControlledExample() {
-  const [value, setValue] = useState('')
-  const [error, setError] = useState('')
-
-  const handleChange = (e) => {
-    const newValue = e.target.value
-    setValue(newValue)
-
-    if (newValue.length < 3) {
-      setError('Must be at least 3 characters')
-    } else {
-      setError('')
-    }
-  }
-
-  return (
-    <Input
-      label="Controlled Input"
-      placeholder="Type something..."
-      value={value}
-      onChange={handleChange}
-      error={error}
-      description={!error ? `Character count: ${value.length}` : undefined}
-    />
-  )
-}
 
 ```tsx
 import { useState } from 'react'
@@ -259,7 +202,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <ControlledExample />
+    <Controlled />
   </ClientOnly>
 </div>
 
@@ -294,17 +237,7 @@ function Example() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <InputRoot>
-      <InputLabel>Custom Composed Input</InputLabel>
-      <InputField
-        placeholder="This uses individual components"
-        className="bg-accent"
-      />
-      <InputDescription>
-        This input is composed using individual components for maximum
-        flexibility.
-      </InputDescription>
-    </InputRoot>
+    <CustomComposition />
   </ClientOnly>
 </div>
 

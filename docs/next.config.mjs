@@ -13,4 +13,23 @@ export default withNextra({
   images: {
     unoptimized: true,
   },
+  experimental: {
+    externalDir: true,
+  },
+  webpack: (config) => {
+    // Allow importing .stories.tsx files
+    config.module.rules.push({
+      test: /\.stories\.(js|jsx|ts|tsx)$/,
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: ['next/babel'],
+          },
+        },
+      ],
+    })
+    
+    return config
+  },
 })

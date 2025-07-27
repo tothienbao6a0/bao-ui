@@ -1,12 +1,16 @@
-import { useState } from 'react'
 import {
-  Switch,
-  SwitchRoot,
-  SwitchThumb,
-  SwitchFieldRoot,
-  SwitchLabel,
-  SwitchDescription,
-} from '@bao-ui/react'
+  Default,
+  WithDescription,
+  Checked,
+  Disabled,
+  DisabledChecked,
+  Sizes,
+  WithoutLabel,
+  SettingsPanel,
+  Controlled,
+  CustomComposition,
+  FormIntegration
+} from '../../../src/components/Switch.stories'
 import { ClientOnly } from '../../components/ClientOnly'
 
 # Switch
@@ -29,7 +33,7 @@ The Switch component is included in the `@bao-ui/react` package.
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <Switch label="Enable notifications" />
+    <Default />
   </ClientOnly>
 </div>
 
@@ -45,10 +49,7 @@ export function BasicSwitch() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <Switch
-      label="Marketing emails"
-      description="Receive emails about new products and features."
-    />
+    <WithDescription />
   </ClientOnly>
 </div>
 
@@ -63,11 +64,7 @@ export function BasicSwitch() {
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <div className="space-y-4">
-      <Switch size="sm" label="Small switch" />
-      <Switch size="default" label="Default switch" />
-      <Switch size="lg" label="Large switch" />
-    </div>
+    <Sizes />
   </ClientOnly>
 </div>
 
@@ -82,10 +79,10 @@ export function BasicSwitch() {
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
     <div className="space-y-4">
-      <Switch label="Default" />
-      <Switch label="Checked" defaultChecked />
-      <Switch label="Disabled" disabled />
-      <Switch label="Disabled & Checked" disabled defaultChecked />
+      <Default />
+      <Checked />
+      <Disabled />
+      <DisabledChecked />
     </div>
   </ClientOnly>
 </div>
@@ -99,41 +96,9 @@ export function BasicSwitch() {
 
 ## Controlled
 
-export function ControlledExample() {
-  const [checked, setChecked] = useState(false)
-
-  return (
-    <div className="space-y-4">
-      <Switch
-        label="Controlled switch"
-        description="This switch is controlled by external state."
-        checked={checked}
-        onCheckedChange={setChecked}
-      />
-      <div className="text-sm text-muted-foreground">
-        Current state: {checked ? 'On' : 'Off'}
-      </div>
-      <div className="flex gap-2">
-        <button
-          onClick={() => setChecked(true)}
-          className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
-        >
-          Turn On
-        </button>
-        <button
-          onClick={() => setChecked(false)}
-          className="rounded bg-secondary px-3 py-1 text-sm text-secondary-foreground hover:bg-secondary/80"
-        >
-          Turn Off
-        </button>
-      </div>
-    </div>
-  )
-}
-
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <ControlledExample />
+    <Controlled />
   </ClientOnly>
 </div>
 
@@ -161,51 +126,9 @@ export function ControlledExample() {
 
 ## Settings Panel Example
 
-export function SettingsPanelExample() {
-  const [settings, setSettings] = useState({
-    notifications: true,
-    marketing: false,
-    analytics: true,
-    autoSave: false,
-  })
-
-  const handleToggle = (key) => (checked) => {
-    setSettings(prev => ({ ...prev, [key]: checked }))
-  }
-
-  return (
-    <div className="w-80 space-y-4">
-      <Switch
-        label="Push notifications"
-        description="Receive push notifications on your device."
-        checked={settings.notifications}
-        onCheckedChange={handleToggle('notifications')}
-      />
-      <Switch
-        label="Marketing emails"
-        description="Receive emails about new products."
-        checked={settings.marketing}
-        onCheckedChange={handleToggle('marketing')}
-      />
-      <Switch
-        label="Analytics"
-        description="Help us improve by sharing usage data."
-        checked={settings.analytics}
-        onCheckedChange={handleToggle('analytics')}
-      />
-      <Switch
-        label="Auto-save"
-        description="Automatically save your work."
-        checked={settings.autoSave}
-        onCheckedChange={handleToggle('autoSave')}
-      />
-    </div>
-  )
-}
-
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <SettingsPanelExample />
+    <SettingsPanel />
   </ClientOnly>
 </div>
 
@@ -215,19 +138,7 @@ For advanced use cases, you can compose the switch using individual components:
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
   <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
-    <SwitchFieldRoot>
-      <div className="flex items-center justify-between">
-        <div>
-          <SwitchLabel>Custom layout switch</SwitchLabel>
-          <SwitchDescription>
-            This uses individual components for maximum flexibility.
-          </SwitchDescription>
-        </div>
-        <SwitchRoot defaultChecked>
-          <SwitchThumb />
-        </SwitchRoot>
-      </div>
-    </SwitchFieldRoot>
+    <CustomComposition />
   </ClientOnly>
 </div>
 
