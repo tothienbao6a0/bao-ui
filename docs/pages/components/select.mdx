@@ -1,0 +1,487 @@
+import { useState } from 'react'
+import { SelectRoot, SelectTrigger, SelectContent, SelectItem, SelectLabel, SelectSeparator } from '@bao-ui/react'
+
+# Select
+
+A customizable select component built on Base UI primitives with search and filter capabilities.
+
+## Features
+
+- **Base UI Integration**: Built on Base UI Select primitives for accessibility
+- **Keyboard Navigation**: Full keyboard support with arrow keys and search
+- **Multiple Sizes**: Small, default, and large trigger sizes
+- **Grouping**: Support for option groups with labels and separators
+- **Disabled States**: Support for disabled options and entire select
+- **Dark Mode**: Automatically adapts to light and dark themes
+
+## Installation
+
+```bash
+npm install @bao-ui/react
+```
+
+## Usage
+
+### Basic Select
+
+```tsx
+import { SelectRoot, SelectTrigger, SelectContent, SelectItem } from '@bao-ui/react'
+
+const fruits = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'orange', label: 'Orange' }
+]
+
+function Example() {
+  return (
+    <div className="w-[200px]">
+      <SelectRoot options={fruits} placeholder="Select a fruit...">
+        <SelectTrigger />
+        <SelectContent>
+          {fruits.map((fruit) => (
+            <SelectItem key={fruit.value} value={fruit.value}>
+              {fruit.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </SelectRoot>
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="w-[200px]">
+    <SelectRoot options={[
+      { value: 'apple', label: 'Apple' },
+      { value: 'banana', label: 'Banana' },
+      { value: 'orange', label: 'Orange' }
+    ]} placeholder="Select a fruit...">
+      <SelectTrigger />
+      <SelectContent>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectItem value="banana">Banana</SelectItem>
+        <SelectItem value="orange">Orange</SelectItem>
+      </SelectContent>
+    </SelectRoot>
+  </div>
+</div>
+
+### With Labels and Groups
+
+```tsx
+import { SelectRoot, SelectTrigger, SelectContent, SelectItem, SelectLabel, SelectSeparator } from '@bao-ui/react'
+
+const groupedOptions = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'grape', label: 'Grape' }
+]
+
+const vegetables = [
+  { value: 'carrot', label: 'Carrot' },
+  { value: 'broccoli', label: 'Broccoli' },
+  { value: 'spinach', label: 'Spinach' }
+]
+
+function Example() {
+  return (
+    <div className="w-[200px]">
+      <SelectRoot
+        options={[...groupedOptions, ...vegetables]}
+        placeholder="Select food..."
+      >
+        <SelectTrigger />
+        <SelectContent>
+          <SelectLabel>Fruits</SelectLabel>
+          {groupedOptions.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
+          <SelectSeparator />
+          <SelectLabel>Vegetables</SelectLabel>
+          {vegetables.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </SelectRoot>
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="w-[200px]">
+    <SelectRoot
+      options={[
+        { value: 'apple', label: 'Apple' },
+        { value: 'banana', label: 'Banana' },
+        { value: 'grape', label: 'Grape' },
+        { value: 'carrot', label: 'Carrot' },
+        { value: 'broccoli', label: 'Broccoli' },
+        { value: 'spinach', label: 'Spinach' }
+      ]}
+      placeholder="Select food..."
+    >
+      <SelectTrigger />
+      <SelectContent>
+        <SelectLabel>Fruits</SelectLabel>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectItem value="banana">Banana</SelectItem>
+        <SelectItem value="grape">Grape</SelectItem>
+        <SelectSeparator />
+        <SelectLabel>Vegetables</SelectLabel>
+        <SelectItem value="carrot">Carrot</SelectItem>
+        <SelectItem value="broccoli">Broccoli</SelectItem>
+        <SelectItem value="spinach">Spinach</SelectItem>
+      </SelectContent>
+    </SelectRoot>
+  </div>
+</div>
+
+### Sizes
+
+```tsx
+import { SelectRoot, SelectTrigger, SelectContent, SelectItem } from '@bao-ui/react'
+
+const options = [
+  { value: 'option1', label: 'Option 1' },
+  { value: 'option2', label: 'Option 2' },
+  { value: 'option3', label: 'Option 3' }
+]
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <div className="w-[200px]">
+        <p className="mb-2 text-sm font-medium">Small</p>
+        <SelectRoot options={options} placeholder="Small select">
+          <SelectTrigger size="sm" />
+          <SelectContent>
+            {options.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </SelectRoot>
+      </div>
+      <div className="w-[200px]">
+        <p className="mb-2 text-sm font-medium">Default</p>
+        <SelectRoot options={options} placeholder="Default select">
+          <SelectTrigger />
+          <SelectContent>
+            {options.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </SelectRoot>
+      </div>
+      <div className="w-[200px]">
+        <p className="mb-2 text-sm font-medium">Large</p>
+        <SelectRoot options={options} placeholder="Large select">
+          <SelectTrigger size="lg" />
+          <SelectContent>
+            {options.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </SelectRoot>
+      </div>
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="space-y-4">
+    <div className="w-[200px]">
+      <p className="mb-2 text-sm font-medium">Small</p>
+      <SelectRoot options={[
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' }
+      ]} placeholder="Small select">
+        <SelectTrigger size="sm" />
+        <SelectContent>
+          <SelectItem value="option1">Option 1</SelectItem>
+          <SelectItem value="option2">Option 2</SelectItem>
+          <SelectItem value="option3">Option 3</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    </div>
+    <div className="w-[200px]">
+      <p className="mb-2 text-sm font-medium">Default</p>
+      <SelectRoot options={[
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' }
+      ]} placeholder="Default select">
+        <SelectTrigger />
+        <SelectContent>
+          <SelectItem value="option1">Option 1</SelectItem>
+          <SelectItem value="option2">Option 2</SelectItem>
+          <SelectItem value="option3">Option 3</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    </div>
+    <div className="w-[200px]">
+      <p className="mb-2 text-sm font-medium">Large</p>
+      <SelectRoot options={[
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' }
+      ]} placeholder="Large select">
+        <SelectTrigger size="lg" />
+        <SelectContent>
+          <SelectItem value="option1">Option 1</SelectItem>
+          <SelectItem value="option2">Option 2</SelectItem>
+          <SelectItem value="option3">Option 3</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    </div>
+  </div>
+</div>
+
+### Controlled Select
+
+export function ControlledExample() {
+  const [value, setValue] = useState(null)
+  
+  const frameworks = [
+    { value: 'react', label: 'React' },
+    { value: 'vue', label: 'Vue' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'svelte', label: 'Svelte' }
+  ]
+
+  return (
+    <div className="space-y-4">
+      <div className="w-[200px]">
+        <SelectRoot
+          options={frameworks}
+          placeholder="Choose framework..."
+          value={value}
+          onValueChange={setValue}
+        >
+          <SelectTrigger />
+          <SelectContent>
+            {frameworks.map((framework) => (
+              <SelectItem key={framework.value} value={framework.value}>
+                {framework.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </SelectRoot>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        Selected: {value || 'None'}
+      </p>
+      <button
+        onClick={() => setValue(null)}
+        className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+      >
+        Clear Selection
+      </button>
+    </div>
+  )
+}
+
+```tsx
+import { useState } from 'react'
+import { SelectRoot, SelectTrigger, SelectContent, SelectItem } from '@bao-ui/react'
+
+function Example() {
+  const [value, setValue] = useState(null)
+  
+  const frameworks = [
+    { value: 'react', label: 'React' },
+    { value: 'vue', label: 'Vue' },
+    { value: 'angular', label: 'Angular' },
+    { value: 'svelte', label: 'Svelte' }
+  ]
+
+  return (
+    <div className="space-y-4">
+      <div className="w-[200px]">
+        <SelectRoot
+          options={frameworks}
+          placeholder="Choose framework..."
+          value={value}
+          onValueChange={setValue}
+        >
+          <SelectTrigger />
+          <SelectContent>
+            {frameworks.map((framework) => (
+              <SelectItem key={framework.value} value={framework.value}>
+                {framework.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </SelectRoot>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        Selected: {value || 'None'}
+      </p>
+      <button
+        onClick={() => setValue(null)}
+        className="rounded bg-secondary px-3 py-1 text-sm hover:bg-secondary/80"
+      >
+        Clear Selection
+      </button>
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ControlledExample />
+</div>
+
+### Disabled State
+
+```tsx
+import { SelectRoot, SelectTrigger, SelectContent, SelectItem } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="w-[200px]">
+      <SelectRoot
+        options={[
+          { value: 'option1', label: 'Option 1' },
+          { value: 'option2', label: 'Option 2' }
+        ]}
+        placeholder="Disabled select..."
+        disabled
+      >
+        <SelectTrigger />
+        <SelectContent>
+          <SelectItem value="option1">Option 1</SelectItem>
+          <SelectItem value="option2">Option 2</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="w-[200px]">
+    <SelectRoot
+      options={[
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' }
+      ]}
+      placeholder="Disabled select..."
+      disabled
+    >
+      <SelectTrigger />
+      <SelectContent>
+        <SelectItem value="option1">Option 1</SelectItem>
+        <SelectItem value="option2">Option 2</SelectItem>
+      </SelectContent>
+    </SelectRoot>
+  </div>
+</div>
+
+## API Reference
+
+### SelectRoot
+
+The root container for the select component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `options` | `SelectOption[]` | - | Array of options for the select |
+| `placeholder` | `string` | - | Placeholder text when no value is selected |
+| `value` | `string \| null` | - | Controlled value |
+| `onValueChange` | `(value: string \| null) => void` | - | Callback when value changes |
+| `disabled` | `boolean` | `false` | Whether the select is disabled |
+| `className` | `string` | - | Additional CSS classes |
+
+### SelectTrigger
+
+The button that opens the select dropdown.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the trigger |
+| `className` | `string` | - | Additional CSS classes |
+
+### SelectContent
+
+The dropdown content container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### SelectItem
+
+An individual option in the select dropdown.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Value of the option |
+| `disabled` | `boolean` | `false` | Whether the option is disabled |
+| `className` | `string` | - | Additional CSS classes |
+
+### SelectLabel
+
+A label for grouping options.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### SelectSeparator
+
+A visual separator between option groups.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### SelectOption Type
+
+```typescript
+interface SelectOption {
+  value: string
+  label: string
+  disabled?: boolean
+}
+```
+
+## Accessibility
+
+The Select component follows WAI-ARIA guidelines:
+
+- Proper ARIA attributes for combobox pattern
+- Keyboard navigation with arrow keys
+- Type-ahead search functionality
+- Focus management and escape handling
+- Screen reader announcements
+
+## Keyboard Shortcuts
+
+- `Space` or `Enter` - Open/close the dropdown
+- `Arrow Up/Down` - Navigate options
+- `Home/End` - Go to first/last option
+- `Escape` - Close dropdown
+- `A-Z` - Type-ahead search
+
+## Dark Mode
+
+The Select component automatically adapts to your theme:
+
+- Uses semantic color tokens
+- Supports both system preference and manual theme switching
+- Maintains proper contrast ratios in all themes

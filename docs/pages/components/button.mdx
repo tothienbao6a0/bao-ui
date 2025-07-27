@@ -1,111 +1,360 @@
+import { useState } from 'react'
+import { Button } from '@bao-ui/react'
+
 # Button
 
-A versatile button component with multiple variants and sizes.
+A versatile button component with multiple variants and sizes, built with Tailwind variants.
 
-## Import
+## Features
+
+- **Multiple Variants**: Default, outline, destructive, secondary, ghost, and link styles
+- **Size Options**: Small, default, large, and icon sizes
+- **Accessible**: Proper ARIA attributes and keyboard navigation
+- **Customizable**: Full Tailwind CSS integration with variant-based styling
+- **Dark Mode**: Automatically adapts to light and dark themes
+
+## Installation
+
+```bash
+npm install @bao-ui/react
+```
+
+## Usage
+
+### Basic Button
 
 ```tsx
 import { Button } from '@bao-ui/react'
+
+function Example() {
+  return <Button>Click me</Button>
+}
 ```
 
-## Basic Usage
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <Button>Click me</Button>
+</div>
 
-```tsx
-<Button>Click me</Button>
-```
-
-## Variants
+### Variants
 
 The Button component supports several visual variants:
 
-### Default
 ```tsx
-<Button variant="default">Default Button</Button>
+import { Button } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button variant="default">Default</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="link">Link</Button>
+    </div>
+  )
+}
 ```
 
-### Outline
-```tsx
-<Button variant="outline">Outline Button</Button>
-```
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="flex flex-wrap gap-2">
+    <Button variant="default">Default</Button>
+    <Button variant="destructive">Destructive</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="link">Link</Button>
+  </div>
+</div>
 
-### Destructive
-```tsx
-<Button variant="destructive">Delete</Button>
-```
-
-### Ghost
-```tsx
-<Button variant="ghost">Ghost Button</Button>
-```
-
-### Link
-```tsx
-<Button variant="link">Link Button</Button>
-```
-
-## Sizes
+### Sizes
 
 Control the button size with the `size` prop:
 
 ```tsx
-<Button size="sm">Small</Button>
-<Button size="default">Default</Button>
-<Button size="lg">Large</Button>
-<Button size="icon">🎉</Button>
+import { Button } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="flex items-center gap-2">
+      <Button size="sm">Small</Button>
+      <Button size="default">Default</Button>
+      <Button size="lg">Large</Button>
+      <Button size="icon">🎉</Button>
+    </div>
+  )
+}
 ```
 
-## States
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="flex items-center gap-2">
+    <Button size="sm">Small</Button>
+    <Button size="default">Default</Button>
+    <Button size="lg">Large</Button>
+    <Button size="icon">🎉</Button>
+  </div>
+</div>
 
-### Disabled
+### States
+
 ```tsx
-<Button disabled>Disabled Button</Button>
+import { Button } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button>Default</Button>
+      <Button disabled>Disabled</Button>
+    </div>
+  )
+}
 ```
 
-### Loading (Custom Implementation)
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="flex flex-wrap gap-2">
+    <Button>Default</Button>
+    <Button disabled>Disabled</Button>
+  </div>
+</div>
+
+### Interactive Example
+
+export function InteractiveExample() {
+  const [clickCount, setClickCount] = useState(0)
+  const [loading, setLoading] = useState(false)
+
+  const handleClick = async () => {
+    setLoading(true)
+    // Simulate async operation
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    setClickCount(prev => prev + 1)
+    setLoading(false)
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2">
+        <Button onClick={handleClick} disabled={loading}>
+          {loading ? 'Loading...' : `Clicked ${clickCount} times`}
+        </Button>
+        <Button variant="outline" onClick={() => setClickCount(0)}>
+          Reset
+        </Button>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        Try clicking the button to see state changes!
+      </p>
+    </div>
+  )
+}
+
 ```tsx
-<Button disabled>
-  <span>Loading...</span>
-</Button>
+import { useState } from 'react'
+import { Button } from '@bao-ui/react'
+
+function Example() {
+  const [clickCount, setClickCount] = useState(0)
+  const [loading, setLoading] = useState(false)
+
+  const handleClick = async () => {
+    setLoading(true)
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    setClickCount(prev => prev + 1)
+    setLoading(false)
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2">
+        <Button onClick={handleClick} disabled={loading}>
+          {loading ? 'Loading...' : `Clicked ${clickCount} times`}
+        </Button>
+        <Button variant="outline" onClick={() => setClickCount(0)}>
+          Reset
+        </Button>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        Try clicking the button to see state changes!
+      </p>
+    </div>
+  )
+}
 ```
 
-## Custom Render
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <InteractiveExample />
+</div>
 
-Use the `render` prop to customize the underlying element:
+### All Variants Showcase
 
 ```tsx
-<Button render={<a href="#" />}>
-  Link Button
-</Button>
+import { Button } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+      {/* Default variants */}
+      <div className="space-y-2">
+        <h4 className="text-sm font-medium">Default</h4>
+        <Button size="sm">Small</Button>
+        <Button>Default</Button>
+        <Button size="lg">Large</Button>
+      </div>
+      
+      {/* Outline variants */}
+      <div className="space-y-2">
+        <h4 className="text-sm font-medium">Outline</h4>
+        <Button variant="outline" size="sm">Small</Button>
+        <Button variant="outline">Default</Button>
+        <Button variant="outline" size="lg">Large</Button>
+      </div>
+      
+      {/* Secondary variants */}
+      <div className="space-y-2">
+        <h4 className="text-sm font-medium">Secondary</h4>
+        <Button variant="secondary" size="sm">Small</Button>
+        <Button variant="secondary">Default</Button>
+        <Button variant="secondary" size="lg">Large</Button>
+      </div>
+      
+      {/* Destructive variants */}
+      <div className="space-y-2">
+        <h4 className="text-sm font-medium">Destructive</h4>
+        <Button variant="destructive" size="sm">Delete</Button>
+        <Button variant="destructive">Delete</Button>
+        <Button variant="destructive" size="lg">Delete</Button>
+      </div>
+      
+      {/* Ghost variants */}
+      <div className="space-y-2">
+        <h4 className="text-sm font-medium">Ghost</h4>
+        <Button variant="ghost" size="sm">Ghost</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="ghost" size="lg">Ghost</Button>
+      </div>
+      
+      {/* Link variants */}
+      <div className="space-y-2">
+        <h4 className="text-sm font-medium">Link</h4>
+        <Button variant="link" size="sm">Link</Button>
+        <Button variant="link">Link</Button>
+        <Button variant="link" size="lg">Link</Button>
+      </div>
+    </div>
+  )
+}
 ```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+    <div className="space-y-2">
+      <h4 className="text-sm font-medium">Default</h4>
+      <div className="flex flex-col space-y-1">
+        <Button size="sm">Small</Button>
+        <Button>Default</Button>
+        <Button size="lg">Large</Button>
+      </div>
+    </div>
+    
+    <div className="space-y-2">
+      <h4 className="text-sm font-medium">Outline</h4>
+      <div className="flex flex-col space-y-1">
+        <Button variant="outline" size="sm">Small</Button>
+        <Button variant="outline">Default</Button>
+        <Button variant="outline" size="lg">Large</Button>
+      </div>
+    </div>
+    
+    <div className="space-y-2">
+      <h4 className="text-sm font-medium">Secondary</h4>
+      <div className="flex flex-col space-y-1">
+        <Button variant="secondary" size="sm">Small</Button>
+        <Button variant="secondary">Default</Button>
+        <Button variant="secondary" size="lg">Large</Button>
+      </div>
+    </div>
+    
+    <div className="space-y-2">
+      <h4 className="text-sm font-medium">Destructive</h4>
+      <div className="flex flex-col space-y-1">
+        <Button variant="destructive" size="sm">Delete</Button>
+        <Button variant="destructive">Delete</Button>
+        <Button variant="destructive" size="lg">Delete</Button>
+      </div>
+    </div>
+    
+    <div className="space-y-2">
+      <h4 className="text-sm font-medium">Ghost</h4>
+      <div className="flex flex-col space-y-1">
+        <Button variant="ghost" size="sm">Ghost</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="ghost" size="lg">Ghost</Button>
+      </div>
+    </div>
+    
+    <div className="space-y-2">
+      <h4 className="text-sm font-medium">Link</h4>
+      <div className="flex flex-col space-y-1">
+        <Button variant="link" size="sm">Link</Button>
+        <Button variant="link">Link</Button>
+        <Button variant="link" size="lg">Link</Button>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## API Reference
 
-### Props
+### Button
 
 | Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `variant` | `'default' \| 'outline' \| 'destructive' \| 'ghost' \| 'link'` | `'default'` | Visual variant |
-| `size` | `'sm' \| 'default' \| 'lg' \| 'icon'` | `'default'` | Button size |
-| `render` | `React.ReactElement` | `<button />` | Custom element to render |
-| `disabled` | `boolean` | `false` | Disable the button |
+|------|------|---------|-------------|
+| `variant` | `'default' \| 'destructive' \| 'outline' \| 'secondary' \| 'ghost' \| 'link'` | `'default'` | Visual variant of the button |
+| `size` | `'default' \| 'sm' \| 'lg' \| 'icon'` | `'default'` | Size of the button |
+| `disabled` | `boolean` | `false` | Whether the button is disabled |
+| `onClick` | `() => void` | - | Click handler function |
 | `children` | `React.ReactNode` | - | Button content |
 | `className` | `string` | - | Additional CSS classes |
-| `onClick` | `() => void` | - | Click handler |
 
-### CSS Classes
-
-The Button component uses these CSS classes for styling:
-
-- `.bao-button` - Base button styles
-- `.bao-button--default` - Default variant styles
-- `.bao-button--outline` - Outline variant styles
-- `.bao-button--destructive` - Destructive variant styles
-- `.bao-button--ghost` - Ghost variant styles
-- `.bao-button--link` - Link variant styles
+The Button component also accepts all standard HTML button attributes.
 
 ## Accessibility
 
+The Button component follows WAI-ARIA guidelines:
+
 - Supports keyboard navigation (Space, Enter)
-- Proper ARIA attributes
-- Focus management
+- Proper ARIA attributes and roles
+- Focus management with visible focus indicators
 - Screen reader compatible
+- Disabled state properly announced
+
+## Keyboard Shortcuts
+
+- `Space` or `Enter` - Activate the button
+- `Tab` - Move focus to the button
+- `Shift + Tab` - Move focus away from the button
+
+## Dark Mode
+
+The Button component automatically adapts to your theme:
+
+- Uses semantic color tokens from the design system
+- Supports both system preference and manual theme switching
+- Maintains proper contrast ratios in all themes
+- All variants work seamlessly in both light and dark modes
+
+## Custom Styling
+
+You can customize the button appearance using Tailwind CSS classes:
+
+```tsx
+<Button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+  Gradient Button
+</Button>
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <Button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+    Gradient Button
+  </Button>
+</div>

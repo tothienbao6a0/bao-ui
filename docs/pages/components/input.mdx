@@ -1,0 +1,365 @@
+import { useState } from 'react'
+import { Input, InputRoot, InputLabel, InputField, InputDescription, InputError } from '@bao-ui/react'
+
+# Input
+
+A flexible input component with validation states built on Base UI Field primitives.
+
+## Features
+
+- **Form Integration**: Built on Base UI Field for proper labeling and validation
+- **Validation States**: Support for default, error, and success states
+- **Multiple Sizes**: Small, default, and large sizes
+- **Input Types**: Support for all HTML input types
+- **Accessible**: Proper ARIA attributes and keyboard navigation
+- **Dark Mode**: Automatically adapts to light and dark themes
+
+## Installation
+
+```bash
+npm install @bao-ui/react
+```
+
+## Usage
+
+### Basic Input
+
+```tsx
+import { Input } from '@bao-ui/react'
+
+function Example() {
+  return <Input placeholder="Enter your name..." />
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <Input placeholder="Enter your name..." />
+</div>
+
+### With Label
+
+```tsx
+import { Input } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <Input
+      label="Full Name"
+      placeholder="Enter your full name"
+    />
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <Input
+    label="Full Name"
+    placeholder="Enter your full name"
+  />
+</div>
+
+### With Description
+
+```tsx
+import { Input } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <Input
+      label="Email Address"
+      placeholder="Enter your email"
+      description="We'll never share your email with anyone else."
+    />
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <Input
+    label="Email Address"
+    placeholder="Enter your email"
+    description="We'll never share your email with anyone else."
+  />
+</div>
+
+### Validation States
+
+```tsx
+import { Input } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <Input
+        label="Default State"
+        placeholder="Default input"
+        description="This is a normal input field."
+      />
+      <Input
+        label="Success State"
+        variant="success"
+        placeholder="Valid input"
+        description="Input is valid!"
+      />
+      <Input
+        label="Error State"
+        placeholder="Invalid input"
+        error="This field is required."
+      />
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="space-y-4">
+    <Input
+      label="Default State"
+      placeholder="Default input"
+      description="This is a normal input field."
+    />
+    <Input
+      label="Success State"
+      variant="success"
+      placeholder="Valid input"
+      description="Input is valid!"
+    />
+    <Input
+      label="Error State"
+      placeholder="Invalid input"
+      error="This field is required."
+    />
+  </div>
+</div>
+
+### Sizes
+
+```tsx
+import { Input } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <Input size="sm" label="Small" placeholder="Small input" />
+      <Input size="default" label="Default" placeholder="Default input" />
+      <Input size="lg" label="Large" placeholder="Large input" />
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="space-y-4">
+    <Input size="sm" label="Small" placeholder="Small input" />
+    <Input size="default" label="Default" placeholder="Default input" />
+    <Input size="lg" label="Large" placeholder="Large input" />
+  </div>
+</div>
+
+### Input Types
+
+```tsx
+import { Input } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <Input label="Text" type="text" placeholder="Enter text" />
+      <Input label="Email" type="email" placeholder="Enter email" />
+      <Input label="Password" type="password" placeholder="Enter password" />
+      <Input label="Number" type="number" placeholder="Enter number" />
+      <Input label="Date" type="date" />
+    </div>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <div className="space-y-4">
+    <Input label="Text" type="text" placeholder="Enter text" />
+    <Input label="Email" type="email" placeholder="Enter email" />
+    <Input label="Password" type="password" placeholder="Enter password" />
+    <Input label="Number" type="number" placeholder="Enter number" />
+    <Input label="Date" type="date" />
+  </div>
+</div>
+
+### Controlled Input
+
+export function ControlledExample() {
+  const [value, setValue] = useState('')
+  const [error, setError] = useState('')
+
+  const handleChange = (e) => {
+    const newValue = e.target.value
+    setValue(newValue)
+    
+    if (newValue.length < 3) {
+      setError('Must be at least 3 characters')
+    } else {
+      setError('')
+    }
+  }
+
+  return (
+    <Input
+      label="Controlled Input"
+      placeholder="Type something..."
+      value={value}
+      onChange={handleChange}
+      error={error}
+      description={!error ? `Character count: ${value.length}` : undefined}
+    />
+  )
+}
+
+```tsx
+import { useState } from 'react'
+import { Input } from '@bao-ui/react'
+
+function Example() {
+  const [value, setValue] = useState('')
+  const [error, setError] = useState('')
+
+  const handleChange = (e) => {
+    const newValue = e.target.value
+    setValue(newValue)
+    
+    if (newValue.length < 3) {
+      setError('Must be at least 3 characters')
+    } else {
+      setError('')
+    }
+  }
+
+  return (
+    <Input
+      label="Controlled Input"
+      placeholder="Type something..."
+      value={value}
+      onChange={handleChange}
+      error={error}
+      description={!error ? `Character count: ${value.length}` : undefined}
+    />
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ControlledExample />
+</div>
+
+### Custom Composition
+
+For advanced use cases, you can compose the input using individual components:
+
+```tsx
+import { InputRoot, InputLabel, InputField, InputDescription } from '@bao-ui/react'
+
+function Example() {
+  return (
+    <InputRoot>
+      <InputLabel>Custom Composed Input</InputLabel>
+      <InputField
+        placeholder="This uses individual components"
+        className="bg-accent"
+      />
+      <InputDescription>
+        This input is composed using individual components for maximum flexibility.
+      </InputDescription>
+    </InputRoot>
+  )
+}
+```
+
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <InputRoot>
+    <InputLabel>Custom Composed Input</InputLabel>
+    <InputField
+      placeholder="This uses individual components"
+      className="bg-accent"
+    />
+    <InputDescription>
+      This input is composed using individual components for maximum flexibility.
+    </InputDescription>
+  </InputRoot>
+</div>
+
+## API Reference
+
+### Input
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | - | Label text for the input |
+| `description` | `string` | - | Helper text below the input |
+| `error` | `string` | - | Error message (overrides description) |
+| `variant` | `'default' \| 'error' \| 'success'` | `'default'` | Visual variant |
+| `size` | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the input |
+| `type` | `string` | `'text'` | HTML input type |
+| `placeholder` | `string` | - | Placeholder text |
+| `disabled` | `boolean` | `false` | Whether the input is disabled |
+| `className` | `string` | - | Additional CSS classes |
+
+### Individual Components
+
+#### InputRoot
+
+Container component that provides field context.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+#### InputLabel
+
+Label component for the input field.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'default' \| 'error' \| 'success'` | `'default'` | Visual variant |
+| `className` | `string` | - | Additional CSS classes |
+
+#### InputField
+
+The actual input element.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'default' \| 'error' \| 'success'` | `'default'` | Visual variant |
+| `size` | `'sm' \| 'default' \| 'lg'` | `'default'` | Size of the input |
+| `type` | `string` | `'text'` | HTML input type |
+| `className` | `string` | - | Additional CSS classes |
+
+#### InputDescription
+
+Helper text component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+#### InputError
+
+Error message component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+## Accessibility
+
+The Input component follows WAI-ARIA guidelines:
+
+- Proper labeling with `aria-labelledby`
+- Error states with `aria-invalid` and `aria-describedby`
+- Support for all HTML input attributes
+- Keyboard navigation support
+
+## Dark Mode
+
+The Input component automatically adapts to your theme:
+
+- Uses semantic color tokens
+- Supports both system preference and manual theme switching
+- Maintains proper contrast ratios in all themes
