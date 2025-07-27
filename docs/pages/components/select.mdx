@@ -58,12 +58,14 @@ function Example() {
           ))}
         </SelectContent>
       </SelectRoot>
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <div className="w-[200px]">
     <SelectRoot
       options={[
@@ -80,7 +82,9 @@ function Example() {
         <SelectItem value="orange">Orange</SelectItem>
       </SelectContent>
     </SelectRoot>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### With Labels and Groups
@@ -131,12 +135,14 @@ function Example() {
           ))}
         </SelectContent>
       </SelectRoot>
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <div className="w-[200px]">
     <SelectRoot
       options={[
@@ -162,7 +168,9 @@ function Example() {
         <SelectItem value="spinach">Spinach</SelectItem>
       </SelectContent>
     </SelectRoot>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### Sizes
@@ -196,7 +204,8 @@ function Example() {
             ))}
           </SelectContent>
         </SelectRoot>
-      </div>
+        </ClientOnly>
+</div>
       <div className="w-[200px]">
         <p className="mb-2 text-sm font-medium">Default</p>
         <SelectRoot options={options} placeholder="Default select">
@@ -209,7 +218,8 @@ function Example() {
             ))}
           </SelectContent>
         </SelectRoot>
-      </div>
+        </ClientOnly>
+</div>
       <div className="w-[200px]">
         <p className="mb-2 text-sm font-medium">Large</p>
         <SelectRoot options={options} placeholder="Large select">
@@ -222,13 +232,16 @@ function Example() {
             ))}
           </SelectContent>
         </SelectRoot>
-      </div>
-    </div>
+        </ClientOnly>
+</div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <div className="space-y-4">
     <div className="w-[200px]">
       <p className="mb-2 text-sm font-medium">Small</p>
@@ -247,7 +260,8 @@ function Example() {
           <SelectItem value="option3">Option 3</SelectItem>
         </SelectContent>
       </SelectRoot>
-    </div>
+      </ClientOnly>
+</div>
     <div className="w-[200px]">
       <p className="mb-2 text-sm font-medium">Default</p>
       <SelectRoot
@@ -265,7 +279,8 @@ function Example() {
           <SelectItem value="option3">Option 3</SelectItem>
         </SelectContent>
       </SelectRoot>
-    </div>
+      </ClientOnly>
+</div>
     <div className="w-[200px]">
       <p className="mb-2 text-sm font-medium">Large</p>
       <SelectRoot
@@ -283,8 +298,11 @@ function Example() {
           <SelectItem value="option3">Option 3</SelectItem>
         </SelectContent>
       </SelectRoot>
-    </div>
-  </div>
+      </ClientOnly>
+</div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### Controlled Select
@@ -318,7 +336,8 @@ return (
         ))}
       </SelectContent>
     </SelectRoot>
-  </div>
+    </ClientOnly>
+</div>
   <p className="text-sm text-muted-foreground">Selected: {value || 'None'}</p>
   <button
     onClick={() => setValue(null)}
@@ -326,6 +345,7 @@ return (
   >
     Clear Selection
   </button>
+  </ClientOnly>
 </div>
 ) }
 
@@ -366,7 +386,8 @@ function Example() {
             ))}
           </SelectContent>
         </SelectRoot>
-      </div>
+        </ClientOnly>
+</div>
       <p className="text-sm text-muted-foreground">
         Selected: {value || 'None'}
       </p>
@@ -376,13 +397,16 @@ function Example() {
       >
         Clear Selection
       </button>
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <ControlledExample />
+  </ClientOnly>
 </div>
 
 ### Disabled State
@@ -412,12 +436,14 @@ function Example() {
           <SelectItem value="option2">Option 2</SelectItem>
         </SelectContent>
       </SelectRoot>
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <div className="w-[200px]">
     <SelectRoot
       options={[
@@ -433,7 +459,9 @@ function Example() {
         <SelectItem value="option2">Option 2</SelectItem>
       </SelectContent>
     </SelectRoot>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ## API Reference

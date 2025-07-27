@@ -29,7 +29,9 @@ The Badge component is included in the `@bao-ui/react` package.
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
     <Badge>Default Badge</Badge>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -52,8 +54,11 @@ export function BasicBadge() {
       <Badge variant="warning">Warning</Badge>
       <Badge variant="outline">Outline</Badge>
       <Badge variant="ghost">Ghost</Badge>
-    </div>
-  </div>
+      </ClientOnly>
+</div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -74,8 +79,11 @@ export function BasicBadge() {
       <Badge size="sm">Small</Badge>
       <Badge size="default">Default</Badge>
       <Badge size="lg">Large</Badge>
-    </div>
-  </div>
+      </ClientOnly>
+</div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -98,8 +106,10 @@ Status badges are perfect for displaying status information with optional dot in
         <StatusBadge status="destructive">Error</StatusBadge>
         <StatusBadge status="default">Draft</StatusBadge>
         <StatusBadge status="secondary">Archived</StatusBadge>
-      </div>
-    </div>
+        </ClientOnly>
+</div>
+      </ClientOnly>
+</div>
     <div>
       <h4 className="mb-2 text-sm font-medium">With Dot Indicator</h4>
       <div className="flex flex-wrap gap-2">
@@ -115,9 +125,13 @@ Status badges are perfect for displaying status information with optional dot in
         <StatusBadge status="default" showDot>
           Idle
         </StatusBadge>
-      </div>
-    </div>
-  </div>
+        </ClientOnly>
+</div>
+      </ClientOnly>
+</div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -140,23 +154,32 @@ Notification badges are designed for displaying counts, with automatic overflow 
   <div className="rounded-lg border border-border bg-background p-6">
     <div className="flex items-center gap-4">
       <div className="relative">
-        <div className="h-8 w-8 rounded bg-muted"></div>
+        <div className="h-8 w-8 rounded bg-muted">  </ClientOnly>
+</div>
         <NotificationBadge count={3} className="absolute -right-1 -top-1" />
-      </div>
+        </ClientOnly>
+</div>
       <div className="relative">
-        <div className="h-8 w-8 rounded bg-muted"></div>
+        <div className="h-8 w-8 rounded bg-muted">  </ClientOnly>
+</div>
         <NotificationBadge count={25} className="absolute -right-1 -top-1" />
-      </div>
+        </ClientOnly>
+</div>
       <div className="relative">
-        <div className="h-8 w-8 rounded bg-muted"></div>
+        <div className="h-8 w-8 rounded bg-muted">  </ClientOnly>
+</div>
         <NotificationBadge
           count={150}
           max={99}
           className="absolute -right-1 -top-1"
         />
-      </div>
-    </div>
-  </div>
+        </ClientOnly>
+</div>
+      </ClientOnly>
+</div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -171,8 +194,10 @@ Notification badges are designed for displaying counts, with automatic overflow 
 
 // Positioned on an element
 <div className="relative">
-  <div className="h-8 w-8 rounded bg-muted"></div>
+  <div className="h-8 w-8 rounded bg-muted">  </ClientOnly>
+</div>
   <NotificationBadge count={5} className="absolute -right-1 -top-1" />
+  </ClientOnly>
 </div>
 ```
 
@@ -206,20 +231,24 @@ return (
         {tag}
       </InteractiveBadge>
     ))}
-  </div>
+    </ClientOnly>
+</div>
   <button
     onClick={addTag}
     className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
   >
     Add Tag
   </button>
+  </ClientOnly>
 </div>
 ) }
 
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
     <InteractiveBadgeExample />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -245,7 +274,8 @@ export function TagList() {
           {tag}
         </InteractiveBadge>
       ))}
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
@@ -257,23 +287,30 @@ export function TagList() {
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
     <div className="flex items-center gap-3 rounded-lg border border-border p-4">
-      <div className="h-10 w-10 rounded-full bg-muted"></div>
+      <div className="h-10 w-10 rounded-full bg-muted">  </ClientOnly>
+</div>
       <div className="flex-1">
         <div className="flex items-center gap-2">
           <span className="font-medium">John Doe</span>
           <StatusBadge status="success" showDot size="sm">
             Pro
           </StatusBadge>
-        </div>
+          </ClientOnly>
+</div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span>john.doe@example.com</span>
           <Badge variant="outline" size="sm">
             Admin
           </Badge>
-        </div>
-      </div>
-    </div>
-  </div>
+          </ClientOnly>
+</div>
+        </ClientOnly>
+</div>
+      </ClientOnly>
+</div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### Navigation with Counts
@@ -284,17 +321,22 @@ export function TagList() {
       <div className="flex items-center justify-between rounded px-3 py-2 hover:bg-accent">
         <span>Inbox</span>
         <NotificationBadge count={12} />
-      </div>
+        </ClientOnly>
+</div>
       <div className="flex items-center justify-between rounded px-3 py-2 hover:bg-accent">
         <span>Drafts</span>
         <NotificationBadge count={3} />
-      </div>
+        </ClientOnly>
+</div>
       <div className="flex items-center justify-between rounded px-3 py-2 hover:bg-accent">
         <span>Archive</span>
         <NotificationBadge count={0} />
-      </div>
+        </ClientOnly>
+</div>
     </nav>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### Status Dashboard
@@ -307,21 +349,27 @@ export function TagList() {
         <StatusBadge status="success" showDot>
           Operational
         </StatusBadge>
-      </div>
+        </ClientOnly>
+</div>
       <div className="flex items-center justify-between rounded border border-border px-3 py-2">
         <span className="font-medium">Database</span>
         <StatusBadge status="warning" showDot>
           Slow Response
         </StatusBadge>
-      </div>
+        </ClientOnly>
+</div>
       <div className="flex items-center justify-between rounded border border-border px-3 py-2">
         <span className="font-medium">CDN</span>
         <StatusBadge status="destructive" showDot>
           Down
         </StatusBadge>
-      </div>
-    </div>
-  </div>
+        </ClientOnly>
+</div>
+      </ClientOnly>
+</div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ## API Reference
@@ -393,6 +441,7 @@ The Badge components follow accessibility best practices:
   <Badge variant="warning">Limited Stock</Badge>
   <Badge variant="outline">New Arrival</Badge>
   <Badge variant="secondary">Best Seller</Badge>
+  </ClientOnly>
 </div>
 ```
 
@@ -405,13 +454,16 @@ The Badge components follow accessibility best practices:
     <StatusBadge status="success" showDot>
       Valid
     </StatusBadge>
-  </div>
+    </ClientOnly>
+</div>
   <div className="flex items-center gap-2">
     <input type="password" className="..." />
     <StatusBadge status="destructive" showDot>
       Invalid
     </StatusBadge>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 ```
 
@@ -432,6 +484,7 @@ return (
         {filter}
       </InteractiveBadge>
     ))}
-  </div>
+    </ClientOnly>
+</div>
 )
 ```

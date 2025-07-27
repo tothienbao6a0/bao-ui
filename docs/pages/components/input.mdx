@@ -41,7 +41,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <Input placeholder="Enter your name..." />
+  </ClientOnly>
 </div>
 
 ### With Label
@@ -55,7 +57,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <Input label="Full Name" placeholder="Enter your full name" />
+  </ClientOnly>
 </div>
 
 ### With Description
@@ -75,11 +79,13 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <Input
     label="Email Address"
     placeholder="Enter your email"
     description="We'll never share your email with anyone else."
   />
+  </ClientOnly>
 </div>
 
 ### Validation States
@@ -106,12 +112,14 @@ function Example() {
         placeholder="Invalid input"
         error="This field is required."
       />
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <div className="space-y-4">
     <Input
       label="Default State"
@@ -129,7 +137,9 @@ function Example() {
       placeholder="Invalid input"
       error="This field is required."
     />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### Sizes
@@ -143,17 +153,21 @@ function Example() {
       <Input size="sm" label="Small" placeholder="Small input" />
       <Input size="default" label="Default" placeholder="Default input" />
       <Input size="lg" label="Large" placeholder="Large input" />
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <div className="space-y-4">
     <Input size="sm" label="Small" placeholder="Small input" />
     <Input size="default" label="Default" placeholder="Default input" />
     <Input size="lg" label="Large" placeholder="Large input" />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### Input Types
@@ -169,19 +183,23 @@ function Example() {
       <Input label="Password" type="password" placeholder="Enter password" />
       <Input label="Number" type="number" placeholder="Enter number" />
       <Input label="Date" type="date" />
-    </div>
+      </ClientOnly>
+</div>
   )
 }
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <div className="space-y-4">
     <Input label="Text" type="text" placeholder="Enter text" />
     <Input label="Email" type="email" placeholder="Enter email" />
     <Input label="Password" type="password" placeholder="Enter password" />
     <Input label="Number" type="number" placeholder="Enter number" />
     <Input label="Date" type="date" />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ### Controlled Input
@@ -247,7 +265,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <ControlledExample />
+  </ClientOnly>
 </div>
 
 ### Custom Composition
@@ -280,6 +300,7 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
   <InputRoot>
     <InputLabel>Custom Composed Input</InputLabel>
     <InputField
@@ -291,6 +312,7 @@ function Example() {
       flexibility.
     </InputDescription>
   </InputRoot>
+  </ClientOnly>
 </div>
 
 ## API Reference

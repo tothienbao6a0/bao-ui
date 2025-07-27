@@ -29,7 +29,9 @@ The Switch component is included in the `@bao-ui/react` package.
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
     <Switch label="Enable notifications" />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -48,7 +50,9 @@ export function BasicSwitch() {
       label="Marketing emails"
       description="Receive emails about new products and features."
     />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -65,7 +69,9 @@ export function BasicSwitch() {
     <Switch size="sm" label="Small switch" />
     <Switch size="default" label="Default switch" />
     <Switch size="lg" label="Large switch" />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -82,7 +88,9 @@ export function BasicSwitch() {
     <Switch label="Checked" defaultChecked />
     <Switch label="Disabled" disabled />
     <Switch label="Disabled & Checked" disabled defaultChecked />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -108,7 +116,8 @@ return (
   />
   <div className="text-sm text-muted-foreground">
     Current state: {checked ? 'On' : 'Off'}
-  </div>
+    </ClientOnly>
+</div>
   <div className="flex gap-2">
     <button
       onClick={() => setChecked(true)}
@@ -122,14 +131,18 @@ return (
     >
       Turn Off
     </button>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 ) }
 
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
     <ControlledExample />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -148,8 +161,10 @@ export function ControlledExample() {
       />
       <div className="text-sm text-muted-foreground">
         Current state: {checked ? 'On' : 'Off'}
-      </div>
-    </div>
+        </ClientOnly>
+</div>
+      </ClientOnly>
+</div>
   )
 }
 ```
@@ -195,13 +210,16 @@ return (
     checked={settings.autoSave}
     onCheckedChange={handleToggle('autoSave')}
   />
+  </ClientOnly>
 </div>
 ) }
 
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
     <SettingsPanelExample />
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ## Custom Composition
@@ -217,13 +235,17 @@ For advanced use cases, you can compose the switch using individual components:
           <SwitchDescription>
             This uses individual components for maximum flexibility.
           </SwitchDescription>
-        </div>
+          </ClientOnly>
+</div>
         <SwitchRoot defaultChecked>
           <SwitchThumb />
         </SwitchRoot>
-      </div>
+        </ClientOnly>
+</div>
     </SwitchFieldRoot>
-  </div>
+    </ClientOnly>
+</div>
+  </ClientOnly>
 </div>
 
 ```tsx
@@ -241,11 +263,13 @@ import {
       <SwitchDescription>
         This uses individual components for maximum flexibility.
       </SwitchDescription>
-    </div>
+      </ClientOnly>
+</div>
     <SwitchRoot defaultChecked>
       <SwitchThumb />
     </SwitchRoot>
-  </div>
+    </ClientOnly>
+</div>
 </SwitchFieldRoot>
 ```
 
@@ -374,5 +398,6 @@ export function SettingsForm() {
 <div className="flex items-center space-x-2">
   <span>Dark Mode</span>
   <Switch />
+  </ClientOnly>
 </div>
 ```
