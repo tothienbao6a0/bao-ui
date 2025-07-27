@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import { DialogRoot, DialogBackdrop, DialogPopup, DialogTitle, DialogClose } from './Dialog'
+import {
+  DialogRoot,
+  DialogBackdrop,
+  DialogPopup,
+  DialogTitle,
+  DialogClose,
+} from './Dialog'
 import { Button } from './Button'
 
 const meta: Meta<typeof DialogRoot> = {

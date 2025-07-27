@@ -13,7 +13,8 @@ const buttonVariants = tv({
     variant: {
       default: 'bg-slate-900 text-slate-50 hover:bg-slate-900/90',
       destructive: 'bg-red-500 text-slate-50 hover:bg-red-500/90',
-      outline: 'border-2 border-slate-300 bg-white text-slate-900 hover:bg-slate-50 shadow-sm',
+      outline:
+        'border-2 border-slate-300 bg-white text-slate-900 hover:bg-slate-50 shadow-sm',
       secondary: 'bg-slate-100 text-slate-900 hover:bg-slate-200',
       ghost: 'text-slate-900 hover:bg-slate-100 hover:text-slate-900',
       link: 'text-slate-900 underline-offset-4 hover:underline hover:text-slate-700',
@@ -21,7 +22,7 @@ const buttonVariants = tv({
     size: {
       default: 'h-10 px-4 py-2',
       sm: 'h-9 rounded-md px-3',
-      lg: 'h-11 rounded-md px-8',  
+      lg: 'h-11 rounded-md px-8',
       icon: 'h-10 w-10',
     },
   },
@@ -31,19 +32,24 @@ const buttonVariants = tv({
   },
 })
 
-export interface ButtonProps extends useRender.ComponentProps<'button'>, VariantProps<typeof buttonVariants> {}
+export interface ButtonProps
+  extends useRender.ComponentProps<'button'>,
+    VariantProps<typeof buttonVariants> {}
 
 export function Button(props: ButtonProps) {
   const { render = <button />, variant, size, ...otherProps } = props
-  
+
   const element = useRender({
     render,
-    props: mergeProps<'button'>({
-      className: clsx(buttonVariants({ variant, size })),
-      type: 'button',
-    }, otherProps),
+    props: mergeProps<'button'>(
+      {
+        className: clsx(buttonVariants({ variant, size })),
+        type: 'button',
+      },
+      otherProps
+    ),
   })
-  
+
   return element
 }
 

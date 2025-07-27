@@ -38,17 +38,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src",
-    "scripts",
-    ".storybook"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "storybook-static"
-  ],
-  "references": [
-    { "path": "./tsconfig.node.json" }
-  ]
+  "include": ["src", "scripts", ".storybook"],
+  "exclude": ["node_modules", "dist", "storybook-static"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -9,16 +9,21 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'BaoUI',
       formats: ['es'],
-      fileName: 'index'
+      fileName: 'index',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@base-ui-components/react', 'framer-motion'],
+      external: [
+        'react',
+        'react-dom',
+        '@base-ui-components/react',
+        'framer-motion',
+      ],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
-    }
-  }
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
+  },
 })

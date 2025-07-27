@@ -7,16 +7,21 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'BaoCore',
       formats: ['es'],
-      fileName: 'index'
+      fileName: 'index',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@base-ui-components/react', '@formkit/auto-animate'],
+      external: [
+        'react',
+        'react-dom',
+        '@base-ui-components/react',
+        '@formkit/auto-animate',
+      ],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
-    }
-  }
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
+  },
 })

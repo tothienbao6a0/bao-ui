@@ -11,13 +11,13 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  viteFinal: async (config) => {
+  viteFinal: async config => {
     // Ensure Base UI components are properly resolved
     config.resolve = {
       ...config.resolve,
       alias: {
         ...config.resolve?.alias,
-      }
+      },
     }
     return config
   },
@@ -26,7 +26,8 @@ const config: StorybookConfig = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: prop =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
   docs: {

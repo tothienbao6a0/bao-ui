@@ -19,7 +19,10 @@ describe('Button', () => {
     render(<Button disabled>Disabled Button</Button>)
     const button = screen.getByRole('button')
     expect(button).toBeDisabled()
-    expect(button).toHaveClass('disabled:pointer-events-none', 'disabled:opacity-50')
+    expect(button).toHaveClass(
+      'disabled:pointer-events-none',
+      'disabled:opacity-50'
+    )
   })
 
   it('supports polymorphic rendering with render prop', () => {

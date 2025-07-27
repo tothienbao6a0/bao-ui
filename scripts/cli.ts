@@ -22,9 +22,9 @@ function ask(question: string): Promise<string> {
 
 function generateComponent(options: ComponentOptions): string {
   const { name, needsMotion } = options
-  
+
   return `import { forwardRef } from 'react'
-import { clsx } from 'clsx'${needsMotion ? '\nimport { useAutoAnimate } from \'@/hooks\'' : ''}
+import { clsx } from 'clsx'${needsMotion ? "\nimport { useAutoAnimate } from '@/hooks'" : ''}
 
 export interface ${name}Props extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
@@ -107,21 +107,23 @@ export const CustomStyling: Story = {
 async function addComponent() {
   try {
     const args = process.argv.slice(2)
-    
+
     if (args.length === 0) {
       console.error('Usage: npx bao add <ComponentName>')
       process.exit(1)
     }
 
     const componentName = args[0]
-    
+
     if (!/^[A-Z][a-zA-Z0-9]*$/.test(componentName)) {
       console.error('Component name must be PascalCase (e.g., MyComponent)')
       process.exit(1)
     }
 
     const needsMotionAnswer = await ask('Need motion layer? (y/N): ')
-    const needsMotion = needsMotionAnswer.toLowerCase() === 'y' || needsMotionAnswer.toLowerCase() === 'yes'
+    const needsMotion =
+      needsMotionAnswer.toLowerCase() === 'y' ||
+      needsMotionAnswer.toLowerCase() === 'yes'
 
     const options: ComponentOptions = {
       name: componentName,
@@ -129,9 +131,24 @@ async function addComponent() {
     }
 
     // Generate files
-    const componentPath = join(process.cwd(), 'src', 'components', `${componentName}.tsx`)
-    const testPath = join(process.cwd(), 'src', 'components', `${componentName}.test.tsx`)
-    const storyPath = join(process.cwd(), 'src', 'components', `${componentName}.stories.tsx`)
+    const componentPath = join(
+      process.cwd(),
+      'src',
+      'components',
+      `${componentName}.tsx`
+    )
+    const testPath = join(
+      process.cwd(),
+      'src',
+      'components',
+      `${componentName}.test.tsx`
+    )
+    const storyPath = join(
+      process.cwd(),
+      'src',
+      'components',
+      `${componentName}.stories.tsx`
+    )
     const indexPath = join(process.cwd(), 'src', 'components', 'index.ts')
 
     // Check if component already exists
@@ -156,7 +173,7 @@ async function addComponent() {
     if (existsSync(indexPath)) {
       const indexContent = readFileSync(indexPath, 'utf-8')
       const exportLine = `export { ${componentName}, type ${componentName}Props } from './${componentName}'`
-      
+
       if (!indexContent.includes(exportLine)) {
         const updatedContent = indexContent + '\n' + exportLine
         writeFileSync(indexPath, updatedContent)
@@ -165,7 +182,6 @@ async function addComponent() {
     }
 
     console.log(`\\n🎉 Component ${componentName} created successfully!`)
-    
   } catch (error) {
     console.error('Error creating component:', error)
     process.exit(1)

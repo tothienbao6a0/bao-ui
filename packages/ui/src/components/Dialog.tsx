@@ -2,23 +2,21 @@ import { forwardRef } from 'react'
 import { Dialog } from '@base-ui-components/react/dialog'
 import { clsx } from 'clsx'
 
-export interface DialogRootProps extends React.ComponentProps<typeof Dialog.Root> {
+export interface DialogRootProps
+  extends React.ComponentProps<typeof Dialog.Root> {
   children: React.ReactNode
 }
 
 export const DialogRoot = forwardRef<HTMLDivElement, DialogRootProps>(
   ({ children, ...props }, _ref) => {
-    return (
-      <Dialog.Root {...props}>
-        {children}
-      </Dialog.Root>
-    )
+    return <Dialog.Root {...props}>{children}</Dialog.Root>
   }
 )
 
 DialogRoot.displayName = 'DialogRoot'
 
-export interface DialogBackdropProps extends React.ComponentProps<typeof Dialog.Backdrop> {
+export interface DialogBackdropProps
+  extends React.ComponentProps<typeof Dialog.Backdrop> {
   className?: string
 }
 
@@ -42,7 +40,8 @@ export const DialogBackdrop = forwardRef<HTMLDivElement, DialogBackdropProps>(
 
 DialogBackdrop.displayName = 'DialogBackdrop'
 
-export interface DialogPopupProps extends React.ComponentProps<typeof Dialog.Popup> {
+export interface DialogPopupProps
+  extends React.ComponentProps<typeof Dialog.Popup> {
   className?: string
   children?: React.ReactNode
 }
@@ -69,7 +68,8 @@ export const DialogPopup = forwardRef<HTMLDivElement, DialogPopupProps>(
 
 DialogPopup.displayName = 'DialogPopup'
 
-export interface DialogTitleProps extends React.ComponentProps<typeof Dialog.Title> {
+export interface DialogTitleProps
+  extends React.ComponentProps<typeof Dialog.Title> {
   className?: string
 }
 
@@ -78,7 +78,10 @@ export const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
     return (
       <Dialog.Title
         ref={ref}
-        className={clsx('text-lg font-semibold leading-none tracking-tight', className)}
+        className={clsx(
+          'text-lg font-semibold leading-none tracking-tight',
+          className
+        )}
         {...props}
       />
     )
@@ -87,7 +90,8 @@ export const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
 
 DialogTitle.displayName = 'DialogTitle'
 
-export interface DialogCloseProps extends React.ComponentProps<typeof Dialog.Close> {
+export interface DialogCloseProps
+  extends React.ComponentProps<typeof Dialog.Close> {
   className?: string
 }
 

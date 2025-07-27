@@ -27,7 +27,8 @@ const preview: Preview = {
         },
         {
           name: 'grid',
-          value: 'linear-gradient(90deg, #f1f5f9 1px, transparent 1px), linear-gradient(#f1f5f9 1px, transparent 1px)',
+          value:
+            'linear-gradient(90deg, #f1f5f9 1px, transparent 1px), linear-gradient(#f1f5f9 1px, transparent 1px)',
         },
       ],
     },

@@ -20,11 +20,13 @@ pnpm build        # Build all packages
 We use [Changesets](https://github.com/changesets/changesets) for version management:
 
 ### 1. Create a changeset
+
 ```bash
 pnpm changeset
 ```
 
 ### 2. Version packages
+
 ```bash
 pnpm version-packages
 ```
@@ -43,6 +45,7 @@ Before running releases, you need to add an `NPM_TOKEN` secret to the repository
 This token allows the GitHub Actions CI to publish packages to npm automatically.
 
 ### 4. Release
+
 ```bash
 pnpm release
 ```
@@ -64,6 +67,7 @@ npx @bao/cli add MyComponent
 ```
 
 This generates:
+
 - Component file with Base UI polymorphic API
 - Test file with comprehensive coverage
 - Storybook story with examples

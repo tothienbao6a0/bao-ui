@@ -35,7 +35,7 @@ We take security seriously. If you discover a security vulnerability in bao-ui, 
 When using bao-ui components, configure your CSP headers:
 
 ```http
-Content-Security-Policy: 
+Content-Security-Policy:
   default-src 'self';
   script-src 'self' 'unsafe-inline';
   style-src 'self' 'unsafe-inline';
@@ -96,7 +96,7 @@ Our development process includes:
 # Security scanning in GitHub Actions
 - name: Run Snyk security scan
   run: pnpm snyk test --severity-threshold=high
-  
+
 - name: Audit dependencies
   run: pnpm audit --audit-level moderate
 ```

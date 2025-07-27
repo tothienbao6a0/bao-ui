@@ -6,13 +6,13 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
-        tailwind: resolve(__dirname, 'src/tailwind.ts')
+        tailwind: resolve(__dirname, 'src/tailwind.ts'),
       },
       formats: ['es'],
-      fileName: (format, entryName) => `${entryName}.js`
+      fileName: (format, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
-      external: ['tailwindcss']
-    }
-  }
+      external: ['tailwindcss'],
+    },
+  },
 })

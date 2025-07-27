@@ -15,26 +15,34 @@ type Story = StoryObj<typeof meta>
 
 const PlaygroundComponent = () => {
   const [prompt, setPrompt] = useState('Create a primary button')
-  const [variant, setVariant] = useState<'default' | 'outline' | 'destructive' | 'ghost'>('default')
+  const [variant, setVariant] = useState<
+    'default' | 'outline' | 'destructive' | 'ghost'
+  >('default')
   const [size, setSize] = useState<'sm' | 'md' | 'lg'>('md')
   const [text, setText] = useState('Button')
 
   const parsePrompt = () => {
     const lowerPrompt = prompt.toLowerCase()
-    
+
     // Parse variant
     if (lowerPrompt.includes('outline')) setVariant('outline')
-    else if (lowerPrompt.includes('destructive') || lowerPrompt.includes('danger')) setVariant('destructive')
+    else if (
+      lowerPrompt.includes('destructive') ||
+      lowerPrompt.includes('danger')
+    )
+      setVariant('destructive')
     else if (lowerPrompt.includes('ghost')) setVariant('ghost')
     else setVariant('default')
-    
+
     // Parse size
     if (lowerPrompt.includes('small')) setSize('sm')
     else if (lowerPrompt.includes('large')) setSize('lg')
     else setSize('md')
-    
+
     // Parse text
-    const textMatch = lowerPrompt.match(/(?:with text|saying|labeled) ["']([^"']+)["']/)
+    const textMatch = lowerPrompt.match(
+      /(?:with text|saying|labeled) ["']([^"']+)["']/
+    )
     if (textMatch) {
       setText(textMatch[1])
     } else if (lowerPrompt.includes('button')) {
@@ -45,11 +53,13 @@ const PlaygroundComponent = () => {
   return (
     <div className="space-y-6 p-6 bg-background rounded-lg border">
       <div className="space-y-2">
-        <label htmlFor="ai-prompt" className="text-sm font-medium">AI Prompt (Future Feature Preview)</label>
+        <label htmlFor="ai-prompt" className="text-sm font-medium">
+          AI Prompt (Future Feature Preview)
+        </label>
         <textarea
           id="ai-prompt"
           value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
+          onChange={e => setPrompt(e.target.value)}
           className="w-full p-3 border rounded-md bg-background text-foreground"
           rows={3}
           placeholder="Describe the button you want..."
@@ -61,7 +71,7 @@ const PlaygroundComponent = () => {
           Generate Component
         </button>
       </div>
-      
+
       <div className="border-t pt-4">
         <h3 className="text-lg font-semibold mb-4">Generated Component</h3>
         <div className="flex items-center justify-center p-8 border rounded-md bg-background-muted">
@@ -70,11 +80,11 @@ const PlaygroundComponent = () => {
           </Button>
         </div>
       </div>
-      
+
       <div className="border-t pt-4">
         <h3 className="text-lg font-semibold mb-2">Component Props</h3>
         <pre className="bg-background-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Button 
+          {`<Button 
   variant="${variant}" 
   size="${size}"
 >

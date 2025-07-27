@@ -1,6 +1,9 @@
 import { useRef, useEffect } from 'react'
 import autoAnimate from '@formkit/auto-animate'
-import type { AutoAnimateOptions, AutoAnimationPlugin } from '@formkit/auto-animate'
+import type {
+  AutoAnimateOptions,
+  AutoAnimationPlugin,
+} from '@formkit/auto-animate'
 
 interface UseAutoAnimateOptions extends AutoAnimateOptions {
   respectReducedMotion?: boolean
@@ -21,9 +24,13 @@ export function useAutoAnimate<T extends HTMLElement>(
     const element = elementRef.current
     if (!element) return
 
-    const { respectReducedMotion = true, ...animateOptions } = optionsRef.current
+    const { respectReducedMotion = true, ...animateOptions } =
+      optionsRef.current
 
-    if (respectReducedMotion && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      respectReducedMotion &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       return
     }
 
@@ -37,8 +44,12 @@ export function useAutoAnimate<T extends HTMLElement>(
     enabledRef.current = enabled
     if (elementRef.current) {
       if (enabled) {
-        const { respectReducedMotion = true, ...animateOptions } = optionsRef.current
-        if (respectReducedMotion && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const { respectReducedMotion = true, ...animateOptions } =
+          optionsRef.current
+        if (
+          respectReducedMotion &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
           return
         }
         autoAnimate(elementRef.current, animateOptions)
