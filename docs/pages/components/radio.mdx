@@ -9,7 +9,7 @@ import {
   CustomComposition,
   FormExample
 } from '../../../src/components/Radio.stories'
-import { ClientOnly } from '../../components/ClientOnly'
+import { StoryWrapper } from '../../components/StoryWrapper'
 
 # Radio
 
@@ -55,11 +55,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly
-    fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}
-  >
+  <StoryWrapper>
     <Default />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### With Description
@@ -86,11 +84,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly
-    fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}
-  >
+  <StoryWrapper>
     <WithDescription />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### With Item Descriptions
@@ -129,11 +125,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly
-    fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}
-  >
+  <StoryWrapper>
     <WithItemDescriptions />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Sizes
@@ -171,9 +165,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Sizes />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Controlled Radio Group
@@ -221,11 +215,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly
-    fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}
-  >
+  <StoryWrapper>
     <Controlled />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Disabled Options
@@ -253,9 +245,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <MixedStates />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Custom Composition
@@ -313,9 +305,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <CustomComposition />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ## API Reference

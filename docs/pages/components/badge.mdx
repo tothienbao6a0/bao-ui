@@ -9,7 +9,7 @@ import {
   StatusIndicators,
   Playground
 } from '../../../src/components/Badge.stories'
-import { ClientOnly } from '../../components/ClientOnly'
+import { StoryWrapper } from '../../components/StoryWrapper'
 
 # Badge
 
@@ -32,9 +32,9 @@ The Badge component is included in the `@bao-ui/react` package.
 ## Basic Usage
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Default />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -48,9 +48,9 @@ export function BasicBadge() {
 ## Variants
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Variants />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -66,9 +66,9 @@ export function BasicBadge() {
 ## Sizes
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Sizes />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -82,9 +82,9 @@ export function BasicBadge() {
 Status badges are perfect for displaying status information with optional dot indicators.
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <StatusBadges />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -104,9 +104,9 @@ Status badges are perfect for displaying status information with optional dot in
 Notification badges are designed for displaying counts, with automatic overflow handling.
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <NotificationBadges />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -131,9 +131,9 @@ Notification badges are designed for displaying counts, with automatic overflow 
 Interactive badges support removal functionality, perfect for tags and filters.
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <InteractiveBadges />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -167,9 +167,9 @@ export function TagList() {
 ## Use Cases
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-20 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <UseCases />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ## API Reference

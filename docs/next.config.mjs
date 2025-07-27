@@ -16,6 +16,7 @@ export default withNextra({
   experimental: {
     externalDir: true,
   },
+  reactStrictMode: true,
   webpack: (config) => {
     // Allow importing .stories.tsx files
     config.module.rules.push({

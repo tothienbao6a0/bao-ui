@@ -11,7 +11,7 @@ import {
   CustomComposition,
   CustomIcon
 } from '../../../src/components/Checkbox.stories'
-import { ClientOnly } from '../../components/ClientOnly'
+import { StoryWrapper } from '../../components/StoryWrapper'
 
 # Checkbox
 
@@ -45,9 +45,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Default />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### With Description
@@ -66,9 +66,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <WithDescription />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Controlled Checkbox
@@ -100,9 +100,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <CheckboxGroup />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Sizes
@@ -122,9 +122,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Sizes />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### States
@@ -146,7 +146,7 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <div className="space-y-4">
       <Default />
       <Checked />
@@ -154,7 +154,7 @@ function Example() {
       <Disabled />
       <DisabledChecked />
     </div>
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Checkbox Group
@@ -204,9 +204,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <CheckboxGroup />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Parent-Child Checkboxes
@@ -276,9 +276,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <ParentChildCheckboxes />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ### Custom Composition
@@ -314,9 +314,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <CustomComposition />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ## API Reference

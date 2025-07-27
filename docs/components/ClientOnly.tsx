@@ -14,15 +14,16 @@ export function ClientOnly({ children, fallback = null }: ClientOnlyProps) {
     setHasMounted(true)
   }, [])
 
-  // Prevent hydration on server
+  // Always render fallback on server-side
   if (typeof window === 'undefined') {
     return <>{fallback}</>
   }
 
-  // Show fallback until client has mounted
+  // Show fallback until client has mounted to prevent hydration mismatches
   if (!hasMounted) {
     return <>{fallback}</>
   }
 
+  // Only render children after client has mounted
   return <>{children}</>
 }

@@ -11,7 +11,7 @@ import {
   CustomComposition,
   FormIntegration
 } from '../../../src/components/Switch.stories'
-import { ClientOnly } from '../../components/ClientOnly'
+import { StoryWrapper } from '../../components/StoryWrapper'
 
 # Switch
 
@@ -32,9 +32,9 @@ The Switch component is included in the `@bao-ui/react` package.
 ## Basic Usage
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Default />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -48,9 +48,9 @@ export function BasicSwitch() {
 ## With Description
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <WithDescription />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -63,9 +63,9 @@ export function BasicSwitch() {
 ## Sizes
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Sizes />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -77,14 +77,14 @@ export function BasicSwitch() {
 ## States
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <div className="space-y-4">
       <Default />
       <Checked />
       <Disabled />
       <DisabledChecked />
     </div>
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -97,9 +97,9 @@ export function BasicSwitch() {
 ## Controlled
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <Controlled />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
@@ -127,9 +127,9 @@ export function ControlledExample() {
 ## Settings Panel Example
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <SettingsPanel />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ## Custom Composition
@@ -137,9 +137,9 @@ export function ControlledExample() {
 For advanced use cases, you can compose the switch using individual components:
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+  <StoryWrapper>
     <CustomComposition />
-  </ClientOnly>
+  </StoryWrapper>
 </div>
 
 ```tsx
