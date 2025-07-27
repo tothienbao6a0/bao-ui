@@ -38,7 +38,7 @@ jobs:
         run: pnpm format:check
 
       - name: Run tests
-        run: pnpm test run
+        run: pnpm vitest run
 
       - name: Build
         run: pnpm build
@@ -72,7 +72,12 @@ jobs:
         run: pnpm audit --audit-level moderate
 
       - name: Run Snyk security scan
-        run: pnpm snyk test --severity-threshold=high
+        run: |
+          if [ -n "${{ secrets.SNYK_TOKEN }}" ]; then
+            npx snyk test --severity-threshold=high
+          else
+            echo "Skipping Snyk scan - SNYK_TOKEN not configured"
+          fi
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true
