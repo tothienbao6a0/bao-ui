@@ -29,8 +29,12 @@ export function useAutoAnimate<T extends HTMLElement>(
 
     if (!enabledRef.current) return
 
-    const cleanup = autoAnimate(element, animateOptions)
-    return cleanup
+    const controller = autoAnimate(element, animateOptions)
+    return () => {
+      if (controller && typeof controller.destroy === 'function') {
+        controller.destroy()
+      }
+    }
   }, [])
 
   const setEnabled = (enabled: boolean) => {
