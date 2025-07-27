@@ -1,0 +1,138 @@
+# Tooltip
+
+A tooltip component with XSS protection and flexible positioning.
+
+## Import
+
+```tsx
+import { 
+  Tooltip,
+  TooltipRoot,
+  TooltipTrigger,
+  TooltipPopup,
+  TooltipArrow 
+} from '@bao-ui/react'
+```
+
+## Basic Usage
+
+```tsx
+<TooltipRoot>
+  <TooltipTrigger>
+    <Button>Hover me</Button>
+  </TooltipTrigger>
+  <TooltipPopup content="This is a tooltip" />
+</TooltipRoot>
+```
+
+## With Custom Content
+
+```tsx
+<TooltipRoot>
+  <TooltipTrigger>
+    <Button>Custom tooltip</Button>
+  </TooltipTrigger>
+  <TooltipPopup>
+    <div>
+      <strong>Custom Content</strong>
+      <p>You can put any React content here.</p>
+    </div>
+  </TooltipPopup>
+</TooltipRoot>
+```
+
+## With Arrow
+
+```tsx
+<TooltipRoot>
+  <TooltipTrigger>
+    <Button>With arrow</Button>
+  </TooltipTrigger>
+  <TooltipPopup content="Tooltip with arrow">
+    <TooltipArrow />
+  </TooltipPopup>
+</TooltipRoot>
+```
+
+## HTML Content (Sanitized)
+
+```tsx
+<TooltipRoot>
+  <TooltipTrigger>
+    <Button>HTML content</Button>
+  </TooltipTrigger>
+  <TooltipPopup content="<strong>Bold</strong> and <em>italic</em> text" />
+</TooltipRoot>
+```
+
+## Components
+
+### TooltipRoot
+The root container that manages tooltip state.
+
+```tsx
+<TooltipRoot>
+  {/* Tooltip content */}
+</TooltipRoot>
+```
+
+### TooltipTrigger
+The element that triggers the tooltip on hover/focus.
+
+```tsx
+<TooltipTrigger>
+  <span>Trigger element</span>
+</TooltipTrigger>
+```
+
+### TooltipPopup
+The tooltip content container.
+
+```tsx
+<TooltipPopup content="Simple text" />
+
+{/* Or with children */}
+<TooltipPopup>
+  <div>Custom content</div>
+</TooltipPopup>
+```
+
+### TooltipArrow
+Optional arrow pointing to the trigger.
+
+```tsx
+<TooltipArrow className="custom-arrow" />
+```
+
+## API Reference
+
+### TooltipPopup Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `content` | `string` | - | HTML string content (sanitized) |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `React.ReactNode` | - | Custom React content |
+
+### TooltipArrow Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+
+## Security
+
+The tooltip automatically sanitizes HTML content using DOMPurify to prevent XSS attacks:
+
+```tsx
+// Safe - malicious scripts are removed
+<TooltipPopup content="<script>alert('xss')</script>Safe content" />
+```
+
+## Accessibility
+
+- Shows on hover and focus
+- Dismisses on Escape key
+- Proper ARIA labeling
+- Screen reader compatible
+- Keyboard navigation support

@@ -1,0 +1,70 @@
+# Components Overview
+
+Bao UI provides a set of accessible, customizable React components built on Base UI primitives.
+
+## Available Components
+
+| Component | Description | Status |
+| --- | --- | --- |
+| [Button](/components/button) | Multi-variant button with Tailwind styling | ✅ |
+| [Dialog](/components/dialog) | Modal dialog with Base UI primitives | ✅ |
+| [Tooltip](/components/tooltip) | Content tooltip with XSS protection | ✅ |
+
+## Key Features
+
+### Accessibility First
+All components are built on [Base UI](https://base-ui.com/) primitives, ensuring:
+- Full keyboard navigation support
+- Screen reader compatibility
+- ARIA attributes and roles
+- Focus management
+
+### Themeable & Customizable
+- Token-based design system
+- Tailwind CSS integration
+- Variant-based styling
+- Custom CSS properties support
+
+### Type Safe
+- Full TypeScript support
+- Intellisense for all props
+- Type-safe variant props
+- Generic component typing
+
+### Performance Optimized
+- Tree-shakeable exports
+- Minimal bundle impact
+- React 18+ compatibility
+- Server-side rendering support
+
+## Usage Patterns
+
+### Basic Import
+```tsx
+import { Button, Dialog, Tooltip } from '@bao-ui/react'
+```
+
+### Variant-based Styling
+```tsx
+<Button variant="outline" size="lg">
+  Large Outline Button
+</Button>
+```
+
+### Composition
+```tsx
+<Dialog.Root>
+  <Dialog.Trigger>
+    <Button>Open Dialog</Button>
+  </Dialog.Trigger>
+  <Dialog.Backdrop />
+  <Dialog.Popup>
+    <Dialog.Title>Dialog Title</Dialog.Title>
+    <Dialog.Close />
+  </Dialog.Popup>
+</Dialog.Root>
+```
+
+## Next Steps
+
+Explore individual component documentation to learn about specific props, variants, and usage examples.

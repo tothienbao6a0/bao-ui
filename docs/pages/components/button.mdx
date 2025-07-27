@@ -1,0 +1,111 @@
+# Button
+
+A versatile button component with multiple variants and sizes.
+
+## Import
+
+```tsx
+import { Button } from '@bao-ui/react'
+```
+
+## Basic Usage
+
+```tsx
+<Button>Click me</Button>
+```
+
+## Variants
+
+The Button component supports several visual variants:
+
+### Default
+```tsx
+<Button variant="default">Default Button</Button>
+```
+
+### Outline
+```tsx
+<Button variant="outline">Outline Button</Button>
+```
+
+### Destructive
+```tsx
+<Button variant="destructive">Delete</Button>
+```
+
+### Ghost
+```tsx
+<Button variant="ghost">Ghost Button</Button>
+```
+
+### Link
+```tsx
+<Button variant="link">Link Button</Button>
+```
+
+## Sizes
+
+Control the button size with the `size` prop:
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>
+<Button size="icon">🎉</Button>
+```
+
+## States
+
+### Disabled
+```tsx
+<Button disabled>Disabled Button</Button>
+```
+
+### Loading (Custom Implementation)
+```tsx
+<Button disabled>
+  <span>Loading...</span>
+</Button>
+```
+
+## Custom Render
+
+Use the `render` prop to customize the underlying element:
+
+```tsx
+<Button render={<a href="#" />}>
+  Link Button
+</Button>
+```
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `'default' \| 'outline' \| 'destructive' \| 'ghost' \| 'link'` | `'default'` | Visual variant |
+| `size` | `'sm' \| 'default' \| 'lg' \| 'icon'` | `'default'` | Button size |
+| `render` | `React.ReactElement` | `<button />` | Custom element to render |
+| `disabled` | `boolean` | `false` | Disable the button |
+| `children` | `React.ReactNode` | - | Button content |
+| `className` | `string` | - | Additional CSS classes |
+| `onClick` | `() => void` | - | Click handler |
+
+### CSS Classes
+
+The Button component uses these CSS classes for styling:
+
+- `.bao-button` - Base button styles
+- `.bao-button--default` - Default variant styles
+- `.bao-button--outline` - Outline variant styles
+- `.bao-button--destructive` - Destructive variant styles
+- `.bao-button--ghost` - Ghost variant styles
+- `.bao-button--link` - Link variant styles
+
+## Accessibility
+
+- Supports keyboard navigation (Space, Enter)
+- Proper ARIA attributes
+- Focus management
+- Screen reader compatible

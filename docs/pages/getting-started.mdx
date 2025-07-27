@@ -1,0 +1,68 @@
+# Getting Started
+
+Get up and running with Bao UI in your React project.
+
+## Installation
+
+Install the core packages:
+
+```bash
+npm install @bao-ui/react @bao-ui/core @bao-ui/tokens
+```
+
+Or with pnpm:
+
+```bash
+pnpm add @bao-ui/react @bao-ui/core @bao-ui/tokens
+```
+
+## Setup
+
+### 1. Configure Tailwind CSS
+
+Add the Bao UI plugin to your `tailwind.config.js`:
+
+```js
+import { plugin } from '@bao-ui/tokens/tailwind'
+
+export default {
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  plugins: [plugin],
+}
+```
+
+### 2. Import Styles
+
+Import the component styles in your app root:
+
+```js
+import '@bao-ui/react/styles.css'
+```
+
+## Basic Usage
+
+Start using Bao UI components in your React app:
+
+```tsx
+import { Button } from '@bao-ui/react'
+
+export function MyComponent() {
+  return (
+    <div>
+      <Button>Click me!</Button>
+      <Button variant="outline">Outline Button</Button>
+      <Button variant="destructive">Destructive Action</Button>
+    </div>
+  )
+}
+```
+
+## TypeScript Support
+
+Bao UI is built with TypeScript and provides full type definitions out of the box. No additional setup required!
+
+## Next Steps
+
+- [Explore Components](/components) - See all available components
+- [Design System](/design-system) - Learn about tokens and theming
+- [Examples](/examples) - View real-world usage patterns

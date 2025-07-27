@@ -1,0 +1,29 @@
+{
+  "name": "bao-ui-docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@bao-ui/react": "^1.0.3",
+    "@bao-ui/core": "^1.0.1",
+    "@bao-ui/tokens": "^1.0.1",
+    "next": "15.0.0",
+    "nextra": "^3.0.0",
+    "nextra-theme-docs": "^3.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^9",
+    "eslint-config-next": "^15.0.0",
+    "typescript": "^5"
+  }
+}

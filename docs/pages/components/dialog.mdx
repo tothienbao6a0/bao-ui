@@ -1,0 +1,140 @@
+# Dialog
+
+A modal dialog component with backdrop and proper focus management.
+
+## Import
+
+```tsx
+import { 
+  Dialog,
+  DialogRoot,
+  DialogBackdrop, 
+  DialogPopup,
+  DialogTitle,
+  DialogClose 
+} from '@bao-ui/react'
+```
+
+## Basic Usage
+
+```tsx
+<DialogRoot>
+  <DialogTrigger>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogBackdrop />
+  <DialogPopup>
+    <DialogTitle>Dialog Title</DialogTitle>
+    <p>Dialog content goes here.</p>
+    <DialogClose>
+      <Button variant="outline">Close</Button>
+    </DialogClose>
+  </DialogPopup>
+</DialogRoot>
+```
+
+## Components
+
+### DialogRoot
+The root container that manages dialog state.
+
+```tsx
+<DialogRoot open={open} onOpenChange={setOpen}>
+  {/* Dialog content */}
+</DialogRoot>
+```
+
+### DialogTrigger  
+The element that opens the dialog when clicked.
+
+```tsx
+<DialogTrigger>
+  <Button>Open Dialog</Button>
+</DialogTrigger>
+```
+
+### DialogBackdrop
+The backdrop overlay behind the dialog.
+
+```tsx
+<DialogBackdrop className="custom-backdrop" />
+```
+
+### DialogPopup
+The main dialog container.
+
+```tsx
+<DialogPopup className="custom-dialog">
+  <DialogTitle>Title</DialogTitle>
+  <p>Content</p>
+</DialogPopup>
+```
+
+### DialogTitle
+The dialog title for accessibility.
+
+```tsx
+<DialogTitle>Confirm Action</DialogTitle>
+```
+
+### DialogClose
+Element that closes the dialog when clicked.
+
+```tsx
+<DialogClose>
+  <Button variant="ghost">Cancel</Button>
+</DialogClose>
+```
+
+## Controlled Usage
+
+```tsx
+const [open, setOpen] = useState(false)
+
+return (
+  <DialogRoot open={open} onOpenChange={setOpen}>
+    <DialogTrigger>
+      <Button>Open</Button>
+    </DialogTrigger>
+    <DialogBackdrop />
+    <DialogPopup>
+      <DialogTitle>Controlled Dialog</DialogTitle>
+      <DialogClose>
+        <Button onClick={() => setOpen(false)}>Close</Button>
+      </DialogClose>
+    </DialogPopup>
+  </DialogRoot>
+)
+```
+
+## API Reference
+
+### DialogRoot Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `open` | `boolean` | - | Controlled open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Open state change handler |
+| `children` | `React.ReactNode` | - | Dialog content |
+
+### DialogPopup Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `React.ReactNode` | - | Dialog content |
+
+### DialogBackdrop Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | - | Additional CSS classes |
+
+## Accessibility
+
+- Traps focus within the dialog
+- Returns focus to trigger element on close
+- Supports Escape key to close
+- Proper ARIA labeling with DialogTitle
+- Backdrop click closes dialog
+- Screen reader announcements
