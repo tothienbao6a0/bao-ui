@@ -23,7 +23,7 @@ describe('Button', () => {
   })
 
   it('supports polymorphic rendering with render prop', () => {
-    render(<Button render={<a href="/test" />}>Link Button</Button>)
+    render(<Button render={<a href="/test">Link</a>}>Link Button</Button>)
     const link = screen.getByRole('link')
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', '/test')

@@ -45,8 +45,9 @@ const PlaygroundComponent = () => {
   return (
     <div className="space-y-6 p-6 bg-background rounded-lg border">
       <div className="space-y-2">
-        <label className="text-sm font-medium">AI Prompt (Future Feature Preview)</label>
+        <label htmlFor="ai-prompt" className="text-sm font-medium">AI Prompt (Future Feature Preview)</label>
         <textarea
+          id="ai-prompt"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           className="w-full p-3 border rounded-md bg-background text-foreground"

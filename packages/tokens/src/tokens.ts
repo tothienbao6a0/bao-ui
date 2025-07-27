@@ -77,7 +77,7 @@ export const tokens: {
   spacing: typeof spacing
   radius: typeof radius
   motion: typeof motion
-  plugin: any
+  plugin: ReturnType<typeof plugin>
 } = {
   colors,
   spacing,
