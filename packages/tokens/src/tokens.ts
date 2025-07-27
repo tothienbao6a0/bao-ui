@@ -72,7 +72,13 @@ export const motion = {
   },
 }
 
-export const tokens = {
+export const tokens: {
+  colors: typeof colors
+  spacing: typeof spacing
+  radius: typeof radius
+  motion: typeof motion
+  plugin: any
+} = {
   colors,
   spacing,
   radius,
