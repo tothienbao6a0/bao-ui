@@ -1,6 +1,6 @@
 {
   "name": "@bao/tokens",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Design tokens and Tailwind CSS plugin for Bao UI",
   "type": "module",
   "main": "./dist/index.js",

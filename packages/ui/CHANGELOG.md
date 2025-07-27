@@ -1,5 +1,24 @@
 # @bao/ui
 
+## 2.0.0
+
+### Major Changes
+
+- b46980b: Initial release of bao-ui component library v1.0.0
+  - Complete monorepo structure with 4 packages
+  - Base UI integration with useRender patterns
+  - Clean shadcn/ui-style components (Button, Dialog, Tooltip)
+  - Automated release workflow with changesets
+  - CLI for scaffolding components
+  - TypeScript support throughout
+  - Comprehensive testing and Storybook documentation
+
+### Patch Changes
+
+- Updated dependencies [b46980b]
+  - @bao/core@2.0.0
+  - @bao/tokens@2.0.0
+
 ## 1.0.0
 
 ### Major Changes

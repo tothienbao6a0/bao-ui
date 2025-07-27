@@ -1,6 +1,6 @@
 {
   "name": "@bao/core",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Headless React primitives and hooks for UI components",
   "type": "module",
   "main": "./dist/index.js",
