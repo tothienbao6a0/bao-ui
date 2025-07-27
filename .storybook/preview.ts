@@ -11,15 +11,23 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'light',
+      default: 'canvas',
       values: [
         {
-          name: 'light',
+          name: 'canvas',
+          value: '#f8fafc',
+        },
+        {
+          name: 'white',
           value: '#ffffff',
         },
         {
           name: 'dark',
           value: '#0f172a',
+        },
+        {
+          name: 'grid',
+          value: 'linear-gradient(90deg, #f1f5f9 1px, transparent 1px), linear-gradient(#f1f5f9 1px, transparent 1px)',
         },
       ],
     },

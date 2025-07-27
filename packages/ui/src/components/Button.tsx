@@ -13,10 +13,10 @@ const buttonVariants = tv({
     variant: {
       default: 'bg-slate-900 text-slate-50 hover:bg-slate-900/90',
       destructive: 'bg-red-500 text-slate-50 hover:bg-red-500/90',
-      outline: 'border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900',
-      secondary: 'bg-slate-100 text-slate-900 hover:bg-slate-100/80',
-      ghost: 'hover:bg-slate-100 hover:text-slate-900',
-      link: 'text-slate-900 underline-offset-4 hover:underline',
+      outline: 'border-2 border-slate-300 bg-white text-slate-900 hover:bg-slate-50 shadow-sm',
+      secondary: 'bg-slate-100 text-slate-900 hover:bg-slate-200',
+      ghost: 'text-slate-900 hover:bg-slate-100 hover:text-slate-900',
+      link: 'text-slate-900 underline-offset-4 hover:underline hover:text-slate-700',
     },
     size: {
       default: 'h-10 px-4 py-2',

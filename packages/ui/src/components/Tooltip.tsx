@@ -56,7 +56,7 @@ export const TooltipPopup = forwardRef<HTMLDivElement, TooltipPopupProps>(
           <Tooltip.Popup
             ref={ref}
             className={clsx(
-              'z-50 overflow-hidden rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-950 shadow-md',
+              'z-50 overflow-hidden rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-950 shadow-lg',
               className
             )}
             {...props}
