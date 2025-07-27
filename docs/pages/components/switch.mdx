@@ -97,33 +97,31 @@ export function BasicSwitch() {
 export function ControlledExample() {
   const [checked, setChecked] = useState(false)
 
-  return (
-    <div className="space-y-4">
-      <Switch
+return (
+<div className="space-y-4">
+<Switch
         label="Controlled switch"
         description="This switch is controlled by external state."
         checked={checked}
         onCheckedChange={setChecked}
       />
-      <div className="text-sm text-muted-foreground">
-        Current state: {checked ? 'On' : 'Off'}
-      </div>
-      <div className="flex gap-2">
-        <button
-          onClick={() => setChecked(true)}
-          className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
-        >
-          Turn On
-        </button>
-        <button
-          onClick={() => setChecked(false)}
-          className="rounded bg-secondary px-3 py-1 text-sm text-secondary-foreground hover:bg-secondary/80"
-        >
-          Turn Off
-        </button>
-      </div>
-    </div>
-  )
+<div className="text-sm text-muted-foreground">
+Current state: {checked ? 'On' : 'Off'}
+</div>
+<div className="flex gap-2">
+<button
+onClick={() => setChecked(true)}
+className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90" >
+Turn On
+</button>
+<button
+onClick={() => setChecked(false)}
+className="rounded bg-secondary px-3 py-1 text-sm text-secondary-foreground hover:bg-secondary/80" >
+Turn Off
+</button>
+</div>
+</div>
+)
 }
 
 <div className="not-prose my-6">
@@ -169,34 +167,34 @@ setSettings(prev => ({ ...prev, [key]: checked }))
 }
 
 return (
+
 <div className="w-80 space-y-4">
-<Switch
-label="Push notifications"
-description="Receive push notifications on your device."
-checked={settings.notifications}
-onCheckedChange={handleToggle('notifications')}
-/>
-<Switch
-label="Marketing emails"
-description="Receive emails about new products."
-checked={settings.marketing}
-onCheckedChange={handleToggle('marketing')}
-/>
-<Switch
-label="Analytics"
-description="Help us improve by sharing usage data."
-checked={settings.analytics}
-onCheckedChange={handleToggle('analytics')}
-/>
-<Switch
-label="Auto-save"
-description="Automatically save your work."
-checked={settings.autoSave}
-onCheckedChange={handleToggle('autoSave')}
-/>
+  <Switch
+    label="Push notifications"
+    description="Receive push notifications on your device."
+    checked={settings.notifications}
+    onCheckedChange={handleToggle('notifications')}
+  />
+  <Switch
+    label="Marketing emails"
+    description="Receive emails about new products."
+    checked={settings.marketing}
+    onCheckedChange={handleToggle('marketing')}
+  />
+  <Switch
+    label="Analytics"
+    description="Help us improve by sharing usage data."
+    checked={settings.analytics}
+    onCheckedChange={handleToggle('analytics')}
+  />
+  <Switch
+    label="Auto-save"
+    description="Automatically save your work."
+    checked={settings.autoSave}
+    onCheckedChange={handleToggle('autoSave')}
+  />
 </div>
-)
-}
+) }
 
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
@@ -234,7 +232,6 @@ import {
   SwitchLabel,
   SwitchDescription,
 } from '@bao-ui/components'
-
 ;<SwitchFieldRoot>
   <div className="flex items-center justify-between">
     <div>

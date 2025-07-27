@@ -102,3 +102,13 @@ export {
   type SwitchLabelProps,
   type SwitchDescriptionProps,
 } from './Switch'
+export {
+  Badge,
+  StatusBadge,
+  NotificationBadge,
+  InteractiveBadge,
+  type BadgeProps,
+  type StatusBadgeProps,
+  type NotificationBadgeProps,
+  type InteractiveBadgeProps,
+} from './Badge'
