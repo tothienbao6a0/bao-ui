@@ -10,6 +10,7 @@ import {
   RadioFieldLabel,
   RadioFieldDescription,
 } from '@bao-ui/react'
+import { ClientOnly } from '../../components/ClientOnly'
 
 # Radio
 
@@ -55,15 +56,17 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <RadioGroup
-    label="Notifications"
-    items={[
-      { value: 'all', label: 'All notifications' },
-      { value: 'mentions', label: 'Direct messages and mentions' },
-      { value: 'none', label: 'Nothing' },
-    ]}
-    defaultValue="all"
-  />
+  <ClientOnly fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}>
+    <RadioGroup
+      label="Notifications"
+      items={[
+        { value: 'all', label: 'All notifications' },
+        { value: 'mentions', label: 'Direct messages and mentions' },
+        { value: 'none', label: 'Nothing' },
+      ]}
+      defaultValue="all"
+    />
+  </ClientOnly>
 </div>
 
 ### With Description
@@ -90,16 +93,18 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <RadioGroup
-    label="Email notifications"
-    description="Choose what notifications you want to receive via email."
-    items={[
-      { value: 'all', label: 'All notifications' },
-      { value: 'mentions', label: 'Direct messages and mentions' },
-      { value: 'none', label: 'Nothing' },
-    ]}
-    defaultValue="mentions"
-  />
+  <ClientOnly fallback={<div className="animate-pulse h-24 bg-muted rounded"></div>}>
+    <RadioGroup
+      label="Email notifications"
+      description="Choose what notifications you want to receive via email."
+      items={[
+        { value: 'all', label: 'All notifications' },
+        { value: 'mentions', label: 'Direct messages and mentions' },
+        { value: 'none', label: 'Nothing' },
+      ]}
+      defaultValue="mentions"
+    />
+  </ClientOnly>
 </div>
 
 ### With Item Descriptions
@@ -138,28 +143,30 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <RadioGroup
-    label="Payment Method"
-    description="Choose your preferred payment method."
-    items={[
-      {
-        value: 'card',
-        label: 'Credit Card',
-        description: 'Pay with your credit or debit card',
-      },
-      {
-        value: 'paypal',
-        label: 'PayPal',
-        description: 'Pay with your PayPal account',
-      },
-      {
-        value: 'apple',
-        label: 'Apple Pay',
-        description: 'Pay with Touch ID or Face ID',
-      },
-    ]}
-    defaultValue="card"
-  />
+  <ClientOnly fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}>
+    <RadioGroup
+      label="Payment Method"
+      description="Choose your preferred payment method."
+      items={[
+        {
+          value: 'card',
+          label: 'Credit Card',
+          description: 'Pay with your credit or debit card',
+        },
+        {
+          value: 'paypal',
+          label: 'PayPal',
+          description: 'Pay with your PayPal account',
+        },
+        {
+          value: 'apple',
+          label: 'Apple Pay',
+          description: 'Pay with Touch ID or Face ID',
+        },
+      ]}
+      defaultValue="card"
+    />
+  </ClientOnly>
 </div>
 
 ### Sizes
@@ -319,7 +326,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background p-6">
-  <ControlledExample />
+  <ClientOnly fallback={<div className="animate-pulse h-32 bg-muted rounded"></div>}>
+    <ControlledExample />
+  </ClientOnly>
 </div>
 
 ### Disabled Options

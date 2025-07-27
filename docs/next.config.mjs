@@ -13,8 +13,4 @@ export default withNextra({
   images: {
     unoptimized: true,
   },
-  transpilePackages: ['@bao-ui/react', '@bao-ui/core', '@bao-ui/tokens'],
-  experimental: {
-    esmExternals: 'loose',
-  },
 })
