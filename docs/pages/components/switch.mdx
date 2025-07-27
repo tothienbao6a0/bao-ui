@@ -26,11 +26,9 @@ The Switch component is included in the `@bao-ui/react` package.
 
 ## Basic Usage
 
-<div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6">
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
     <Switch label="Enable notifications" />
-    </ClientOnly>
-</div>
   </ClientOnly>
 </div>
 
@@ -44,14 +42,12 @@ export function BasicSwitch() {
 
 ## With Description
 
-<div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6">
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
     <Switch
       label="Marketing emails"
       description="Receive emails about new products and features."
     />
-    </ClientOnly>
-</div>
   </ClientOnly>
 </div>
 
@@ -64,13 +60,13 @@ export function BasicSwitch() {
 
 ## Sizes
 
-<div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6 space-y-4">
-    <Switch size="sm" label="Small switch" />
-    <Switch size="default" label="Default switch" />
-    <Switch size="lg" label="Large switch" />
-    </ClientOnly>
-</div>
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+    <div className="space-y-4">
+      <Switch size="sm" label="Small switch" />
+      <Switch size="default" label="Default switch" />
+      <Switch size="lg" label="Large switch" />
+    </div>
   </ClientOnly>
 </div>
 
@@ -82,14 +78,14 @@ export function BasicSwitch() {
 
 ## States
 
-<div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6 space-y-4">
-    <Switch label="Default" />
-    <Switch label="Checked" defaultChecked />
-    <Switch label="Disabled" disabled />
-    <Switch label="Disabled & Checked" disabled defaultChecked />
-    </ClientOnly>
-</div>
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
+    <div className="space-y-4">
+      <Switch label="Default" />
+      <Switch label="Checked" defaultChecked />
+      <Switch label="Disabled" disabled />
+      <Switch label="Disabled & Checked" disabled defaultChecked />
+    </div>
   </ClientOnly>
 </div>
 
@@ -137,11 +133,9 @@ return (
 </div>
 ) }
 
-<div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6">
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
     <ControlledExample />
-    </ClientOnly>
-</div>
   </ClientOnly>
 </div>
 
@@ -214,11 +208,9 @@ return (
 </div>
 ) }
 
-<div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6">
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
     <SettingsPanelExample />
-    </ClientOnly>
-</div>
   </ClientOnly>
 </div>
 
@@ -226,8 +218,8 @@ return (
 
 For advanced use cases, you can compose the switch using individual components:
 
-<div className="not-prose my-6">
-  <div className="rounded-lg border border-border bg-background p-6">
+<div className="my-6 rounded-lg border border-border bg-background p-6">
+  <ClientOnly fallback={<div className="animate-pulse h-16 bg-muted rounded"></div>}>
     <SwitchFieldRoot>
       <div className="flex items-center justify-between">
         <div>
@@ -235,16 +227,12 @@ For advanced use cases, you can compose the switch using individual components:
           <SwitchDescription>
             This uses individual components for maximum flexibility.
           </SwitchDescription>
-          </ClientOnly>
-</div>
+        </div>
         <SwitchRoot defaultChecked>
           <SwitchThumb />
         </SwitchRoot>
-        </ClientOnly>
-</div>
+      </div>
     </SwitchFieldRoot>
-    </ClientOnly>
-</div>
   </ClientOnly>
 </div>
 
@@ -263,13 +251,11 @@ import {
       <SwitchDescription>
         This uses individual components for maximum flexibility.
       </SwitchDescription>
-      </ClientOnly>
-</div>
+    </div>
     <SwitchRoot defaultChecked>
       <SwitchThumb />
     </SwitchRoot>
-    </ClientOnly>
-</div>
+  </div>
 </SwitchFieldRoot>
 ```
 
@@ -398,6 +384,5 @@ export function SettingsForm() {
 <div className="flex items-center space-x-2">
   <span>Dark Mode</span>
   <Switch />
-  </ClientOnly>
 </div>
 ```

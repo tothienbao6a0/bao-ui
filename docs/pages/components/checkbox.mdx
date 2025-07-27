@@ -45,7 +45,6 @@ function Example() {
   <ClientOnly fallback={<div className="animate-pulse h-8 bg-muted rounded"></div>}>
     <Checkbox label="Accept terms and conditions" />
   </ClientOnly>
-  </ClientOnly>
 </div>
 
 ### With Description
@@ -69,7 +68,6 @@ function Example() {
     label="Send me notifications"
     description="Get notified about updates and news."
   />
-  </ClientOnly>
 </div>
 
 ### Controlled Checkbox
@@ -92,7 +90,6 @@ return (
   >
     Toggle Checkbox
   </button>
-  </ClientOnly>
 </div>
 ) }
 
@@ -117,8 +114,7 @@ function Example() {
       >
         Toggle Checkbox
       </button>
-      </ClientOnly>
-</div>
+    </div>
   )
 }
 ```
@@ -140,8 +136,7 @@ function Example() {
       <Checkbox size="sm" label="Small checkbox" />
       <Checkbox size="default" label="Default checkbox" />
       <Checkbox size="lg" label="Large checkbox" />
-      </ClientOnly>
-</div>
+    </div>
   )
 }
 ```
@@ -152,9 +147,7 @@ function Example() {
     <Checkbox size="sm" label="Small checkbox" />
     <Checkbox size="default" label="Default checkbox" />
     <Checkbox size="lg" label="Large checkbox" />
-    </ClientOnly>
-</div>
-  </ClientOnly>
+  </div>
 </div>
 
 ### States
@@ -170,8 +163,7 @@ function Example() {
       <Checkbox label="Indeterminate state" indeterminate />
       <Checkbox label="Disabled state" disabled />
       <Checkbox label="Disabled checked" disabled defaultChecked />
-      </ClientOnly>
-</div>
+    </div>
   )
 }
 ```
@@ -184,9 +176,7 @@ function Example() {
     <Checkbox label="Indeterminate state" indeterminate />
     <Checkbox label="Disabled state" disabled />
     <Checkbox label="Disabled checked" disabled defaultChecked />
-    </ClientOnly>
-</div>
-  </ClientOnly>
+  </div>
 </div>
 
 ### Checkbox Group
@@ -226,9 +216,7 @@ return (
   />
   <div className="mt-4 text-sm text-muted-foreground">
     Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
-    </ClientOnly>
-</div>
-  </ClientOnly>
+  </div>
 </div>
 ) }
 
@@ -270,10 +258,8 @@ function Example() {
       />
       <div className="mt-4 text-sm text-muted-foreground">
         Selected: {selectedItems.length > 0 ? selectedItems.join(', ') : 'None'}
-        </ClientOnly>
-</div>
-      </ClientOnly>
-</div>
+      </div>
+    </div>
   )
 }
 ```
@@ -342,10 +328,8 @@ return (
       checked={childStates.child3}
       onCheckedChange={checked => handleChildChange('child3', checked)}
     />
-    </ClientOnly>
-</div>
-  </ClientOnly>
-</div>
+    </div>
+  </div>
 ) }
 
 ```tsx
@@ -406,10 +390,8 @@ function Example() {
           checked={childStates.child3}
           onCheckedChange={checked => handleChildChange('child3', checked)}
         />
-        </ClientOnly>
-</div>
-      </ClientOnly>
-</div>
+      </div>
+    </div>
   )
 }
 ```
@@ -466,12 +448,9 @@ function Example() {
         <CheckboxDescription>
           This uses individual components for maximum flexibility.
         </CheckboxDescription>
-        </ClientOnly>
-</div>
-      </ClientOnly>
-</div>
+      </div>
+    </div>
   </CheckboxFieldRoot>
-  </ClientOnly>
 </div>
 
 ## API Reference
