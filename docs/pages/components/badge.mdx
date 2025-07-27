@@ -193,27 +193,28 @@ setTags([...tags, newTag])
 }
 
 return (
+
 <div className="space-y-4">
-<div className="flex flex-wrap gap-2">
-{tags.map(tag => (
-<InteractiveBadge
-key={tag}
-variant="secondary"
-removable
-onRemove={() => removeTag(tag)} >
-{tag}
-</InteractiveBadge>
-))}
-</div>
-<button
-        onClick={addTag}
-        className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
+  <div className="flex flex-wrap gap-2">
+    {tags.map(tag => (
+      <InteractiveBadge
+        key={tag}
+        variant="secondary"
+        removable
+        onRemove={() => removeTag(tag)}
       >
-Add Tag
-</button>
+        {tag}
+      </InteractiveBadge>
+    ))}
+  </div>
+  <button
+    onClick={addTag}
+    className="rounded bg-primary px-3 py-1 text-sm text-primary-foreground hover:bg-primary/90"
+  >
+    Add Tag
+  </button>
 </div>
-)
-}
+) }
 
 <div className="not-prose my-6">
   <div className="rounded-lg border border-border bg-background p-6">
