@@ -1,40 +1,30 @@
 {
-  "name": "@bao/ui",
-  "version": "0.0.1",
-  "description": "AI-native React component & logic system built on @mui/base-ui primitives",
+  "name": "bao-ui-monorepo",
+  "version": "0.1.0",
+  "description": "AI-native React component & logic system built on Base UI primitives",
+  "private": true,
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./theme": {
-      "types": "./dist/theme/index.d.ts",
-      "import": "./dist/theme/index.js"
-    }
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+  "workspaces": [
+    "packages/*",
+    "examples/*"
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "tsc && vite build",
+    "build": "pnpm -r build",
     "build-storybook": "storybook build",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint src --ext ts,tsx --fix",
-    "type-check": "tsc --noEmit",
+    "lint": "eslint packages --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint packages --ext ts,tsx --fix",
+    "type-check": "pnpm -r type-check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "audit": "pnpm audit --prod",
     "chromatic": "chromatic --exit-zero-on-changes",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "keywords": [
     "react",
@@ -42,38 +32,25 @@
     "ui",
     "design-system",
     "tailwind",
-    "mui",
-    "ai-native"
+    "base-ui",
+    "ai-native",
+    "monorepo"
   ],
   "author": "Bao To",
   "license": "MIT",
-  "dependencies": {
-    "@mui/base": "^5.0.0-beta.58",
-    "@formkit/auto-animate": "^0.8.2",
-    "clsx": "^2.1.1",
-    "tailwind-variants": "^0.2.1",
-    "dompurify": "^3.0.8"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0",
-    "motion": "^10.18.0"
-  },
-  "peerDependenciesMeta": {
-    "motion": {
-      "optional": true
-    }
-  },
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.3.5",
-    "@storybook/addon-interactions": "^8.3.5",
-    "@storybook/addon-links": "^8.3.5",
-    "@storybook/blocks": "^8.3.5",
-    "@storybook/react": "^8.3.5",
-    "@storybook/react-vite": "^8.3.5",
-    "@storybook/test": "^8.3.5",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.1",
+    "@base-ui-components/react": "1.0.0-beta.1",
+    "@changesets/cli": "^2.27.1",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-links": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.56",
@@ -81,7 +58,10 @@
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.21",
     "chromatic": "^11.0.0",
+    "clsx": "^2.1.1",
+    "dompurify": "^3.2.6",
     "eslint": "^8.57.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
@@ -89,18 +69,23 @@
     "eslint-plugin-storybook": "^0.8.0",
     "framer-motion": "^11.0.6",
     "husky": "^9.0.11",
-    "jsdom": "^24.0.0",
+    "jsdom": "^24.1.3",
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "snyk": "^1.1291.0",
-    "storybook": "^8.3.5",
-    "tailwindcss": "^4.0.0",
+    "storybook": "^8.6.14",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss": "^4",
     "typescript": "^5.4.2",
     "vite": "^5.1.4",
     "vitest": "^1.3.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

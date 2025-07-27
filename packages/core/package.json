@@ -1,0 +1,48 @@
+{
+  "name": "@bao/core",
+  "version": "0.1.0-alpha.0",
+  "description": "Headless React primitives and hooks for UI components",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "dev": "vite build --watch"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "headless",
+    "primitives",
+    "base-ui"
+  ],
+  "author": "Bao To",
+  "license": "MIT",
+  "dependencies": {
+    "@base-ui-components/react": "^1.0.0-beta.1",
+    "@formkit/auto-animate": "^0.8.2"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.4"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "@bao/tokens",
+  "version": "0.1.0-alpha.0",
+  "description": "Design tokens and Tailwind CSS plugin for Bao UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tailwind": {
+      "types": "./dist/tailwind.d.ts",
+      "import": "./dist/tailwind.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "dev": "vite build --watch"
+  },
+  "keywords": [
+    "design-tokens",
+    "tailwind",
+    "css",
+    "theme",
+    "design-system"
+  ],
+  "author": "Bao To",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^4"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.2",
+    "vite": "^5.1.4"
+  }
+}

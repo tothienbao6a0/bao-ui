@@ -1,26 +1,35 @@
-# bao-ui v0.0.1
+# bao-ui v0.1.0
 
-> AI-native React component & logic system built on @mui/base-ui primitives
+> AI-native React component & logic system built on Base UI primitives
 
 ## 🚀 Value Proposition
 
 **bao-ui** is a production-ready component library that beats shadcn/ui on theming & packaging. Built with:
 
-- **@mui/base-ui** primitives for robust accessibility
+- **Base UI** primitives for robust accessibility
 - **Tailwind v4** with token-first design system
 - **Smooth animations** with prefers-reduced-motion support
 - **Optional Framer Motion** integration
 - **Secure defaults** with DOMPurify sanitization
-- **Future-ready** for Generative UI phases
+- **Monorepo architecture** for modularity
+
+## 📦 Packages
+
+| Package | Description | Version |
+|---------|-------------|---------|
+| `@bao/ui` | Styled React components | ![npm](https://img.shields.io/npm/v/@bao/ui) |
+| `@bao/core` | Headless primitives & hooks | ![npm](https://img.shields.io/npm/v/@bao/core) |
+| `@bao/tokens` | Design tokens & Tailwind plugin | ![npm](https://img.shields.io/npm/v/@bao/tokens) |
+| `@bao/cli` | Component scaffolding CLI | ![npm](https://img.shields.io/npm/v/@bao/cli) |
 
 ## ⚡ Quick Start
 
 ```bash
-# Install the package
-npm install @bao/ui
+# Install the packages
+pnpm add @bao/ui @bao/tokens
 
-# Peer dependencies
-npm install react react-dom tailwindcss
+# Or with CLI
+npx @bao/cli add button
 ```
 
 ### Setup
@@ -28,18 +37,11 @@ npm install react react-dom tailwindcss
 1. **Configure Tailwind** - Add to your `tailwind.config.js`:
 
 ```ts
-import { tokens } from '@bao/ui/theme'
+import { plugin } from '@bao/tokens/tailwind'
 
 export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {
-      colors: tokens.colors,
-      spacing: tokens.spacing,
-      borderRadius: tokens.radius,
-    },
-  },
-  plugins: [tokens.plugin],
+  plugins: [plugin],
 }
 ```
 
@@ -52,43 +54,23 @@ import '@bao/ui/styles.css'
 ## 📖 Usage Example
 
 ```tsx
-import { Button, Dialog, DialogBackdrop, DialogPopup, Tooltip } from '@bao/ui'
+import { Button, DialogRoot, DialogBackdrop, DialogPopup, TooltipRoot } from '@bao/ui'
 
 function App() {
   return (
     <div className="p-8">
-      <Tooltip>
+      <TooltipRoot>
         <TooltipTrigger>
           <Button variant="outline" size="lg">
             Click me
           </Button>
         </TooltipTrigger>
         <TooltipPopup content="Hello from bao-ui!" />
-      </Tooltip>
+      </TooltipRoot>
     </div>
   )
 }
 ```
-
-## 🗺️ Roadmap
-
-### Phase 0: Foundation ✅
-- Core components (Button, Dialog, Tooltip)
-- Token-based theming system
-- Storybook documentation
-- CLI scaffolder (`npx bao add ComponentName`)
-
-### Phase 1: Generative UI 🔄
-- Schema-driven component generation
-- Prompt-to-UI conversion
-- AI-assisted component variations
-- Real-time design token extraction
-
-### Phase 2: Advanced Features 🚧
-- Form components with validation
-- Data visualization components
-- Animation presets
-- Advanced accessibility patterns
 
 ## 🛠️ Development
 
@@ -102,61 +84,52 @@ pnpm install
 pnpm dev          # Start Storybook
 pnpm test         # Run tests
 pnpm lint         # Lint code
-pnpm build        # Build library
+pnpm build        # Build all packages
 
 # Add new component
-npx bao add MyComponent
+npx @bao/cli add MyComponent
 ```
 
 ## 🎨 Components
 
 | Component | Description | Status |
 |-----------|-------------|---------|
-| Button | Multi-variant button with MUI Base | ✅ |
-| Dialog | Modal dialog with backdrop | ✅ |
+| Button | Multi-variant button with Tailwind styling | ✅ |
+| Dialog | Modal dialog with Base UI primitives | ✅ |
 | Tooltip | Content tooltip with XSS protection | ✅ |
 
-## 🤝 Contributing
+## 🗺️ Roadmap
 
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
+### Phase 0: Foundation ✅
+- Monorepo with 4 publishable packages
+- Core components (Button, Dialog, Tooltip)
+- Token-based theming system
+- Storybook documentation
 
-### Code Standards
+### Phase 1: CLI & Templates 🔄
+- Enhanced CLI with templates
+- Component scaffolding
+- Auto peer-dependency management
 
-- Use **TypeScript** for all code
-- Follow **Prettier** formatting (run `pnpm format`)
-- Write **tests** for new components
-- Update **Storybook** documentation
-- Ensure **accessibility** compliance
+### Phase 2: Advanced Features 🚧
+- Form components with validation
+- Data visualization components
+- Animation presets
+- Next.js example app
 
-## 🔒 Security
+## 🔄 Release Process
 
-We take security seriously. Please see [SECURITY.md](./SECURITY.md) for:
-
-- Vulnerability reporting process
-- Security best practices
-- CSP configuration guidance
-
-## 📦 Deployment
-
-### Storybook (Chromatic)
-
-Storybook is automatically deployed on push via Chromatic:
+We use [Changesets](https://github.com/changesets/changesets) for version management:
 
 ```bash
-pnpm chromatic --project-token YOUR_TOKEN
-```
+# Add a changeset
+pnpm changeset
 
-### Package (Vercel)
+# Version packages
+pnpm version-packages
 
-The library demo is deployed to Vercel:
-
-```bash
-pnpm build-storybook
-# Deploy storybook-static/ directory
+# Release
+pnpm release
 ```
 
 ## 📄 License
