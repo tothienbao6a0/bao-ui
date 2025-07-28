@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
 import {
-  DialogRoot,
-  DialogBackdrop,
-  DialogPopup,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
   DialogTitle,
-  DialogClose,
-} from './Dialog'
-import { Button } from './Button'
+  DialogTrigger,
+} from '../../../../registry/base-ui-v4/ui/dialog'
+import { Button } from '../../../../registry/base-ui-v4/ui/button'
 
-const meta: Meta<typeof DialogRoot> = {
-  title: 'Components/Dialog',
-  component: DialogRoot,
+const meta: Meta<typeof Dialog> = {
+  title: 'Registry/Dialog',
+  component: Dialog,
   parameters: {
     layout: 'centered',
   },
@@ -21,32 +21,21 @@ const meta: Meta<typeof DialogRoot> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const DialogExample = () => {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open Dialog</Button>
-      <DialogRoot open={open} onOpenChange={setOpen}>
-        <DialogBackdrop />
-        <DialogPopup>
-          <DialogTitle>Dialog Title</DialogTitle>
-          <DialogClose onClick={() => setOpen(false)}>×</DialogClose>
-          <p className="mt-4 text-sm text-slate-600">
-            This is a dialog example with a backdrop and popup content.
-          </p>
-          <div className="mt-4 flex gap-2">
-            <Button onClick={() => setOpen(false)}>Close</Button>
-            <Button variant="outline" onClick={() => setOpen(false)}>
-              Cancel
-            </Button>
-          </div>
-        </DialogPopup>
-      </DialogRoot>
-    </>
-  )
-}
-
 export const Default: Story = {
-  render: () => <DialogExample />,
+  render: () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Open Dialog</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  ),
 }

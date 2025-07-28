@@ -1,6 +1,6 @@
 {
   "name": "@bao-ui/react",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Styled React components built on Base UI primitives",
   "type": "module",
   "main": "./dist/index.js",
@@ -18,7 +18,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && cp -r dist-types/packages/ui/src/* dist/ && rm -rf dist-types",
     "type-check": "tsc --noEmit",
     "test": "vitest",
     "dev": "vite build --watch"
@@ -33,19 +33,17 @@
   "author": "Bao To",
   "license": "MIT",
   "dependencies": {
-    "@bao-ui/core": "^1.0.0",
-    "@bao-ui/tokens": "^1.0.0",
     "@base-ui-components/react": "^1.0.0-beta.1",
     "clsx": "^2.1.1",
     "dompurify": "^3.0.8",
-    "tailwind-variants": "^0.2.1"
+    "tailwind-variants": "^2.0.0"
   },
   "peerDependencies": {
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "framer-motion": "^11.0.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "peerDependenciesMeta": {
     "framer-motion": {

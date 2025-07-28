@@ -1,114 +1,27 @@
-export { Button, type ButtonProps } from './Button'
+export { Button, buttonVariants, type ButtonProps } from './Button'
+export { Badge, badgeVariants, type BadgeProps } from './Badge'
+export { Input, type InputProps } from './Input'
+export { Checkbox } from './Checkbox'
+export { RadioGroup, RadioGroupItem } from './Radio'
+export {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from './Select'
+export { Switch } from './Switch'
 export {
   Dialog,
-  DialogRoot,
-  DialogBackdrop,
-  DialogPopup,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
   DialogTitle,
-  DialogClose,
-  type DialogRootProps,
-  type DialogBackdropProps,
-  type DialogPopupProps,
-  type DialogTitleProps,
-  type DialogCloseProps,
+  DialogTrigger,
 } from './Dialog'
 export {
   Tooltip,
-  TooltipRoot,
+  TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
-  TooltipPopup,
-  TooltipArrow,
-  type TooltipRootProps,
-  type TooltipTriggerProps,
-  type TooltipPopupProps,
-  type TooltipArrowProps,
 } from './Tooltip'
-export {
-  Select,
-  SelectRoot,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectLabel,
-  SelectSeparator,
-  type SelectRootProps,
-  type SelectTriggerProps,
-  type SelectContentProps,
-  type SelectItemProps,
-  type SelectLabelProps,
-  type SelectSeparatorProps,
-  type SelectOption,
-} from './Select'
-export {
-  Input,
-  InputRoot,
-  InputLabel,
-  InputField,
-  InputDescription,
-  InputError,
-  type InputProps,
-  type InputRootProps,
-  type InputLabelProps,
-  type InputFieldProps,
-  type InputDescriptionProps,
-  type InputErrorProps,
-} from './Input'
-export {
-  Checkbox,
-  CheckboxField,
-  CheckboxRoot,
-  CheckboxIndicator,
-  CheckboxFieldRoot,
-  CheckboxLabel,
-  CheckboxDescription,
-  CheckboxIndeterminate,
-  type CheckboxProps,
-  type CheckboxRootProps,
-  type CheckboxIndicatorProps,
-  type CheckboxFieldRootProps,
-  type CheckboxLabelProps,
-  type CheckboxDescriptionProps,
-} from './Checkbox'
-export {
-  RadioGroup,
-  RadioGroupField,
-  RadioGroupRoot,
-  RadioRoot,
-  RadioIndicator,
-  RadioItem,
-  RadioFieldRoot,
-  RadioFieldLabel,
-  RadioFieldDescription,
-  type RadioGroupProps,
-  type RadioGroupRootProps,
-  type RadioRootProps,
-  type RadioIndicatorProps,
-  type RadioItemProps,
-  type RadioFieldRootProps,
-  type RadioFieldLabelProps,
-  type RadioFieldDescriptionProps,
-} from './Radio'
-export {
-  Switch,
-  SwitchRoot,
-  SwitchThumb,
-  SwitchFieldRoot,
-  SwitchLabel,
-  SwitchDescription,
-  type SwitchProps,
-  type SwitchRootProps,
-  type SwitchThumbProps,
-  type SwitchFieldRootProps,
-  type SwitchLabelProps,
-  type SwitchDescriptionProps,
-} from './Switch'
-export {
-  Badge,
-  StatusBadge,
-  NotificationBadge,
-  InteractiveBadge,
-  type BadgeProps,
-  type StatusBadgeProps,
-  type NotificationBadgeProps,
-  type InteractiveBadgeProps,
-} from './Badge'

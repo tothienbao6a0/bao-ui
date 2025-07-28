@@ -9,23 +9,30 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
       '@/components': resolve(__dirname, './src/components'),
       '@/hooks': resolve(__dirname, './src/hooks'),
-      '@/theme': resolve(__dirname, './src/theme'),
+      '@/lib': resolve(__dirname, './registry/base-ui-v4/lib'),
+      '@/registry': resolve(__dirname, './registry'),
     },
   },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'BaoUI',
-      formats: ['es'],
-      fileName: 'index',
+      formats: ['es', 'umd'],
+      fileName: format => `bao-ui.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'motion'],
+      external: [
+        'react',
+        'react-dom',
+        'framer-motion',
+        '@base-ui-components/react',
+      ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          motion: 'Motion',
+          'framer-motion': 'Motion',
+          '@base-ui-components/react': 'BaseUI',
         },
       },
     },

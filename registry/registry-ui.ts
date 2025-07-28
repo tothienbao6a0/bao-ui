@@ -1,0 +1,176 @@
+import { type Registry } from './schema'
+
+export const ui: Registry['items'] = [
+  {
+    name: 'button',
+    type: 'registry:ui',
+    description: 'Displays a button or a component that looks like a button.',
+    dependencies: ['@radix-ui/react-slot'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/button.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: [],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'utils',
+    type: 'registry:lib',
+    description: 'Utility functions for class merging and common operations.',
+    dependencies: ['clsx', 'tailwind-merge'],
+    files: [
+      {
+        path: 'lib/utils.ts',
+        type: 'registry:lib',
+      },
+    ],
+  },
+  {
+    name: 'badge',
+    type: 'registry:ui',
+    description: 'Displays a badge or a component that looks like a badge.',
+    dependencies: [],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/badge.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: [],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'input',
+    type: 'registry:ui',
+    description:
+      'Displays a form input or a component that functions as an input.',
+    dependencies: ['@base-ui-components/react'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/input.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: ['Input'],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'checkbox',
+    type: 'registry:ui',
+    description:
+      'A control that allows the user to toggle between checked and not checked.',
+    dependencies: ['@base-ui-components/react', '@radix-ui/react-icons'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/checkbox.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: ['Checkbox'],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'radio-group',
+    type: 'registry:ui',
+    description:
+      'A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.',
+    dependencies: ['@base-ui-components/react'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/radio.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: ['RadioGroup', 'Radio'],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'select',
+    type: 'registry:ui',
+    description:
+      'Displays a list of options for the user to pick from—triggered by a button.',
+    dependencies: ['@base-ui-components/react', '@radix-ui/react-icons'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/select.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: ['Select'],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'switch',
+    type: 'registry:ui',
+    description:
+      'A control that allows the user to toggle between checked and not checked.',
+    dependencies: ['@base-ui-components/react'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/switch.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: ['Switch'],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'dialog',
+    type: 'registry:ui',
+    description:
+      'A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.',
+    dependencies: ['@base-ui-components/react', '@radix-ui/react-icons'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/dialog.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: ['Dialog'],
+      version: '1.0.0-beta.1',
+    },
+  },
+  {
+    name: 'tooltip',
+    type: 'registry:ui',
+    description:
+      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
+    dependencies: ['@base-ui-components/react'],
+    registryDependencies: ['utils'],
+    files: [
+      {
+        path: 'ui/tooltip.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    baseUI: {
+      components: ['Tooltip'],
+      version: '1.0.0-beta.1',
+    },
+  },
+]
