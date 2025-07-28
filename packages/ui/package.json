@@ -18,7 +18,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc && vite build && cp -r dist-types/packages/ui/src/* dist/ && cp -r dist-types/registry dist/ && rm -rf dist-types",
+    "build": "tsc && vite build && cp -r dist-types/packages/ui/src/* dist/ && cp -r dist-types/registry dist/ && cp src/styles.css dist/ && rm -rf dist-types",
     "type-check": "tsc --noEmit",
     "test": "vitest",
     "dev": "vite build --watch"

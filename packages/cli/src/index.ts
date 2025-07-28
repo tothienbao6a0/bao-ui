@@ -30,129 +30,113 @@ const LOCAL_REGISTRY_PATH = '../../../registry/base-ui-v4'
 
 async function fetchRegistry(): Promise<Registry> {
   try {
-    // In development, read from local registry
-    const registryPath = join(__dirname, LOCAL_REGISTRY_PATH)
-    if (existsSync(registryPath)) {
-      console.log(chalk.dim('Using local registry...'))
-      // For now, return a hardcoded registry based on our structure
-      return {
-        items: [
-          {
-            name: 'button',
-            type: 'registry:ui',
-            description:
-              'Displays a button or a component that looks like a button.',
-            dependencies: ['@radix-ui/react-slot', 'class-variance-authority'],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/button.tsx', type: 'registry:ui' }],
-            baseUI: { components: [], version: '1.0.0-beta.1' },
+    // Always use hardcoded local registry for now (development mode)
+    console.log(chalk.dim('Using local registry...'))
+    // Return a hardcoded registry based on our structure
+    return {
+      items: [
+        {
+          name: 'button',
+          type: 'registry:ui',
+          description:
+            'Displays a button or a component that looks like a button.',
+          dependencies: ['@radix-ui/react-slot', 'class-variance-authority'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/button.tsx', type: 'registry:ui' }],
+          baseUI: { components: [], version: '1.0.0-beta.1' },
+        },
+        {
+          name: 'utils',
+          type: 'registry:lib',
+          description:
+            'Utility functions for class merging and common operations.',
+          dependencies: ['clsx', 'tailwind-merge'],
+          files: [{ path: 'lib/utils.ts', type: 'registry:lib' }],
+        },
+        {
+          name: 'badge',
+          type: 'registry:ui',
+          description:
+            'Displays a badge or a component that looks like a badge.',
+          dependencies: ['class-variance-authority'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/badge.tsx', type: 'registry:ui' }],
+          baseUI: { components: [], version: '1.0.0-beta.1' },
+        },
+        {
+          name: 'input',
+          type: 'registry:ui',
+          description: 'Displays an input field.',
+          dependencies: ['@base-ui-components/react'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/input.tsx', type: 'registry:ui' }],
+          baseUI: { components: ['input'], version: '1.0.0-beta.1' },
+        },
+        {
+          name: 'checkbox',
+          type: 'registry:ui',
+          description:
+            'A control that allows the user to toggle between checked and not checked.',
+          dependencies: ['@base-ui-components/react', '@radix-ui/react-icons'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/checkbox.tsx', type: 'registry:ui' }],
+          baseUI: { components: ['checkbox'], version: '1.0.0-beta.1' },
+        },
+        {
+          name: 'radio-group',
+          type: 'registry:ui',
+          description:
+            'A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.',
+          dependencies: ['@base-ui-components/react'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/radio.tsx', type: 'registry:ui' }],
+          baseUI: {
+            components: ['radio-group', 'radio'],
+            version: '1.0.0-beta.1',
           },
-          {
-            name: 'utils',
-            type: 'registry:lib',
-            description:
-              'Utility functions for class merging and common operations.',
-            dependencies: ['clsx', 'tailwind-merge'],
-            files: [{ path: 'lib/utils.ts', type: 'registry:lib' }],
-          },
-          {
-            name: 'badge',
-            type: 'registry:ui',
-            description:
-              'Displays a badge or a component that looks like a badge.',
-            dependencies: ['class-variance-authority'],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/badge.tsx', type: 'registry:ui' }],
-            baseUI: { components: [], version: '1.0.0-beta.1' },
-          },
-          {
-            name: 'input',
-            type: 'registry:ui',
-            description: 'Displays an input field.',
-            dependencies: ['@base-ui-components/react'],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/input.tsx', type: 'registry:ui' }],
-            baseUI: { components: ['input'], version: '1.0.0-beta.1' },
-          },
-          {
-            name: 'checkbox',
-            type: 'registry:ui',
-            description:
-              'A control that allows the user to toggle between checked and not checked.',
-            dependencies: [
-              '@base-ui-components/react',
-              '@radix-ui/react-icons',
-            ],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/checkbox.tsx', type: 'registry:ui' }],
-            baseUI: { components: ['checkbox'], version: '1.0.0-beta.1' },
-          },
-          {
-            name: 'radio-group',
-            type: 'registry:ui',
-            description:
-              'A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.',
-            dependencies: ['@base-ui-components/react'],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/radio.tsx', type: 'registry:ui' }],
-            baseUI: {
-              components: ['radio-group', 'radio'],
-              version: '1.0.0-beta.1',
-            },
-          },
-          {
-            name: 'select',
-            type: 'registry:ui',
-            description:
-              'Displays a list of options for the user to pick from—triggered by a button.',
-            dependencies: [
-              '@base-ui-components/react',
-              '@radix-ui/react-icons',
-            ],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/select.tsx', type: 'registry:ui' }],
-            baseUI: { components: ['select'], version: '1.0.0-beta.1' },
-          },
-          {
-            name: 'switch',
-            type: 'registry:ui',
-            description:
-              'A control that allows the user to toggle between checked and not checked.',
-            dependencies: ['@base-ui-components/react'],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/switch.tsx', type: 'registry:ui' }],
-            baseUI: { components: ['switch'], version: '1.0.0-beta.1' },
-          },
-          {
-            name: 'dialog',
-            type: 'registry:ui',
-            description:
-              'A window overlaid on either the primary window or another dialog window.',
-            dependencies: [
-              '@base-ui-components/react',
-              '@radix-ui/react-icons',
-            ],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/dialog.tsx', type: 'registry:ui' }],
-            baseUI: { components: ['dialog'], version: '1.0.0-beta.1' },
-          },
-          {
-            name: 'tooltip',
-            type: 'registry:ui',
-            description:
-              'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
-            dependencies: ['@base-ui-components/react'],
-            registryDependencies: ['utils'],
-            files: [{ path: 'ui/tooltip.tsx', type: 'registry:ui' }],
-            baseUI: { components: ['tooltip'], version: '1.0.0-beta.1' },
-          },
-        ],
-      }
+        },
+        {
+          name: 'select',
+          type: 'registry:ui',
+          description:
+            'Displays a list of options for the user to pick from—triggered by a button.',
+          dependencies: ['@base-ui-components/react', '@radix-ui/react-icons'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/select.tsx', type: 'registry:ui' }],
+          baseUI: { components: ['select'], version: '1.0.0-beta.1' },
+        },
+        {
+          name: 'switch',
+          type: 'registry:ui',
+          description:
+            'A control that allows the user to toggle between checked and not checked.',
+          dependencies: ['@base-ui-components/react'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/switch.tsx', type: 'registry:ui' }],
+          baseUI: { components: ['switch'], version: '1.0.0-beta.1' },
+        },
+        {
+          name: 'dialog',
+          type: 'registry:ui',
+          description:
+            'A window overlaid on either the primary window or another dialog window.',
+          dependencies: ['@base-ui-components/react', '@radix-ui/react-icons'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/dialog.tsx', type: 'registry:ui' }],
+          baseUI: { components: ['dialog'], version: '1.0.0-beta.1' },
+        },
+        {
+          name: 'tooltip',
+          type: 'registry:ui',
+          description:
+            'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
+          dependencies: ['@base-ui-components/react'],
+          registryDependencies: ['utils'],
+          files: [{ path: 'ui/tooltip.tsx', type: 'registry:ui' }],
+          baseUI: { components: ['tooltip'], version: '1.0.0-beta.1' },
+        },
+      ],
     }
-
-    // In production, fetch from remote registry
-    const response = await fetch(`${REGISTRY_URL}/index.json`)
-    return await response.json()
   } catch (error) {
     console.error(chalk.red('Failed to fetch registry:'), error)
     process.exit(1)
@@ -173,7 +157,7 @@ async function fetchComponent(name: string): Promise<string> {
 
     // In production, fetch from remote
     const response = await fetch(`${REGISTRY_URL}/${name}.json`)
-    const data = await response.json()
+    const data = (await response.json()) as { files: { content: string }[] }
     return data.files[0].content
   } catch (error) {
     console.error(chalk.red(`Failed to fetch component ${name}:`), error)

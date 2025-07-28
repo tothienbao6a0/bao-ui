@@ -1,6 +1,6 @@
 {
   "name": "@bao-ui/cli",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "CLI for adding Bao UI components from the registry to your project",
   "type": "module",
   "main": "./dist/index.js",

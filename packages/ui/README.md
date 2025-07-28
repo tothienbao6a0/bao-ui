@@ -10,7 +10,7 @@ npm install @bao-ui/react
 
 ## Usage
 
-Import the components you need and include the CSS file:
+Import the components you need and include the styles:
 
 ```tsx
 import { Button, Dialog, DialogTrigger, DialogContent } from '@bao-ui/react'
