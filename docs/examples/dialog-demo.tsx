@@ -5,8 +5,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  Button,
-} from '@bao-ui/react'
+} from '../../packages/ui/src/components/Dialog'
+import { Button } from '../../packages/ui/src/components/Button'
 
 export default function DialogDemo() {
   return (

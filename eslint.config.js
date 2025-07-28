@@ -4,7 +4,8 @@ import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import reactPlugin from 'eslint-plugin-react'
 
-export default [
+/** @type {import('eslint').Linter.FlatConfig[]} */
+const config = [
   {
     ignores: [
       '**/dist/**',
@@ -34,22 +35,22 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      'react': reactPlugin,
+      react: reactPlugin,
     },
-          rules: {
-        ...tseslint.configs.recommended.rules,
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          { argsIgnorePattern: '^_' },
-        ],
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/no-explicit-any': 'warn',
-        'react/react-in-jsx-scope': 'off', // Not needed with new JSX transform
-        'react/prop-types': 'off', // Using TypeScript for props
-        'react/no-unescaped-entities': 'off', // Allow quotes in JSX
-        'no-undef': 'off', // TypeScript handles this
-      },
+    rules: {
+      ...tseslint.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'react/react-in-jsx-scope': 'off', // Not needed with new JSX transform
+      'react/prop-types': 'off', // Using TypeScript for props
+      'react/no-unescaped-entities': 'off', // Allow quotes in JSX
+      'no-undef': 'off', // TypeScript handles this
+    },
     settings: {
       react: {
         version: 'detect',
@@ -65,3 +66,5 @@ export default [
     },
   },
 ]
+
+export default config

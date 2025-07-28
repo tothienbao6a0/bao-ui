@@ -3,8 +3,8 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  Button,
-} from '@bao-ui/react'
+} from '../../packages/ui/src/components/Tooltip'
+import { Button } from '../../packages/ui/src/components/Button'
 
 export default function TooltipDemo() {
   return (

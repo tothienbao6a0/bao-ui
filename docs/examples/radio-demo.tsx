@@ -1,4 +1,7 @@
-import { RadioGroup, RadioGroupItem } from '@bao-ui/react'
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from '../../packages/ui/src/components/Radio'
 
 export default function RadioDemo() {
   return (

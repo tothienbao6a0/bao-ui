@@ -1,4 +1,4 @@
-import { Checkbox } from '@bao-ui/react'
+import { Checkbox } from '../../packages/ui/src/components/Checkbox'
 
 export default function CheckboxDemo() {
   return (

@@ -1,4 +1,4 @@
-import { Switch } from '@bao-ui/react'
+import { Switch } from '../../packages/ui/src/components/Switch'
 
 export default function SwitchDemo() {
   return (

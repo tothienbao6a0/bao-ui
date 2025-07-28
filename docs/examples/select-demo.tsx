@@ -4,7 +4,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@bao-ui/react'
+} from '../../packages/ui/src/components/Select'
 
 export default function SelectDemo() {
   return (

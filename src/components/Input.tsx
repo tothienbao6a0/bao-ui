@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
+import * as React from 'react'
 import { Field } from '@base-ui-components/react/field'
-import { Input } from '@base-ui-components/react/input'
+import { Input as BaseInput } from '@base-ui-components/react/input'
 import { clsx } from 'clsx'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -83,7 +84,7 @@ export const InputLabel = forwardRef<HTMLLabelElement, InputLabelProps>(
 InputLabel.displayName = 'InputLabel'
 
 export interface InputFieldProps
-  extends React.ComponentProps<typeof Input>,
+  extends Omit<React.ComponentProps<typeof BaseInput>, 'size'>,
     VariantProps<typeof inputVariants> {
   className?: string
 }
@@ -92,7 +93,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
   ({ className, variant, size, type = 'text', ...props }, ref) => {
     return (
       <Field.Control>
-        <Input
+        <BaseInput
           ref={ref}
           type={type}
           className={clsx(inputVariants({ variant, size }), className)}

@@ -14,4 +14,5 @@ export default withNextra({
     unoptimized: true,
   },
   reactStrictMode: true,
+  transpilePackages: ['@bao-ui/react', '@bao-ui/core', '@bao-ui/tokens'],
 })
