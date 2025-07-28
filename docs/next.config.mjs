@@ -31,6 +31,14 @@ export default withNextra({
       ],
     })
     
+    // Add resolve paths for external packages
+    config.resolve.modules = [
+      ...(config.resolve.modules || []),
+      'node_modules',
+      '../packages/ui/node_modules',
+      '../node_modules',
+    ]
+    
     return config
   },
 })
