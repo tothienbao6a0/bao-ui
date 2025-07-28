@@ -120,15 +120,12 @@ export function ControlledInput() {
 export function CustomCompositionInput() {
   return (
     <div className="w-80 space-y-2">
-      <label className="text-sm font-medium">Custom Composed Input</label>
       <Input
+        label="Custom Composed Input"
         placeholder="This uses individual components"
+        description="This input is composed using individual components for maximum flexibility."
         className="bg-slate-50"
       />
-      <p className="text-xs text-muted-foreground">
-        This input is composed using individual components for maximum
-        flexibility.
-      </p>
     </div>
   )
 }
