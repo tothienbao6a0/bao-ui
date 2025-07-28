@@ -1,5 +1,4 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "rootDirectory": "docs"
+  "outputDirectory": ".next"
 }
