@@ -17,7 +17,7 @@ export default withNextra({
     externalDir: true,
   },
   reactStrictMode: true,
-  webpack: (config) => {
+  webpack: config => {
     // Allow importing .stories.tsx files
     config.module.rules.push({
       test: /\.stories\.(js|jsx|ts|tsx)$/,
@@ -30,7 +30,7 @@ export default withNextra({
         },
       ],
     })
-    
+
     // Add resolve paths for external packages
     config.resolve.modules = [
       ...(config.resolve.modules || []),
@@ -38,7 +38,7 @@ export default withNextra({
       '../packages/ui/node_modules',
       '../node_modules',
     ]
-    
+
     return config
   },
 })

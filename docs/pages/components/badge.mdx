@@ -1,4 +1,9 @@
-import { Badge, StatusBadge, NotificationBadge, InteractiveBadge } from '@bao-ui/react'
+import {
+  Badge,
+  StatusBadge,
+  NotificationBadge,
+  InteractiveBadge,
+} from '@bao-ui/react'
 import { ComponentPreview } from '../../components/ComponentPreview'
 import { useState } from 'react'
 
@@ -113,9 +118,15 @@ Status badges are perfect for displaying status information with optional dot in
       <div>
         <h3 className="mb-3 text-sm font-medium">With dot indicator</h3>
         <div className="flex flex-wrap gap-2">
-          <StatusBadge status="success" showDot>Online</StatusBadge>
-          <StatusBadge status="warning" showDot>Away</StatusBadge>
-          <StatusBadge status="destructive" showDot>Offline</StatusBadge>
+          <StatusBadge status="success" showDot>
+            Online
+          </StatusBadge>
+          <StatusBadge status="warning" showDot>
+            Away
+          </StatusBadge>
+          <StatusBadge status="destructive" showDot>
+            Offline
+          </StatusBadge>
         </div>
       </div>
     </div>
@@ -147,11 +158,19 @@ Notification badges are designed for displaying counts, with automatic overflow 
       </div>
       <div className="relative">
         <div className="h-8 w-8 rounded bg-muted"></div>
-        <NotificationBadge count={150} max={99} className="absolute -right-1 -top-1" />
+        <NotificationBadge
+          count={150}
+          max={99}
+          className="absolute -right-1 -top-1"
+        />
       </div>
       <div className="relative">
         <div className="h-8 w-8 rounded bg-muted"></div>
-        <NotificationBadge count={0} showZero className="absolute -right-1 -top-1" />
+        <NotificationBadge
+          count={0}
+          showZero
+          className="absolute -right-1 -top-1"
+        />
       </div>
     </div>
   </ComponentPreview>
@@ -239,9 +258,15 @@ export function TagList() {
       <div>
         <h3 className="mb-3 text-sm font-medium">Status Indicators</h3>
         <div className="flex flex-wrap gap-2">
-          <StatusBadge status="success" showDot>Online</StatusBadge>
-          <StatusBadge status="warning" showDot>Away</StatusBadge>
-          <StatusBadge status="destructive" showDot>Offline</StatusBadge>
+          <StatusBadge status="success" showDot>
+            Online
+          </StatusBadge>
+          <StatusBadge status="warning" showDot>
+            Away
+          </StatusBadge>
+          <StatusBadge status="destructive" showDot>
+            Offline
+          </StatusBadge>
         </div>
       </div>
     </div>
