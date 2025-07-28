@@ -4,5 +4,6 @@
   "devCommand": "pnpm storybook",
   "installCommand": "pnpm install",
   "outputDirectory": "storybook-static",
+  "rootDirectory": ".",
   "framework": null
 }
