@@ -11,6 +11,15 @@ const REGISTRY_EXAMPLES: Record<string, React.ComponentType> = {
   'button-variants': lazy(() => import('../examples/button-variants')),
   'button-sizes': lazy(() => import('../examples/button-sizes')),
   'button-states': lazy(() => import('../examples/button-states')),
+  'badge-demo': lazy(() => import('../examples/badge-demo')),
+  'badge-variants': lazy(() => import('../examples/badge-variants')),
+  'input-demo': lazy(() => import('../examples/input-demo')),
+  'checkbox-demo': lazy(() => import('../examples/checkbox-demo')),
+  'radio-demo': lazy(() => import('../examples/radio-demo')),
+  'select-demo': lazy(() => import('../examples/select-demo')),
+  'switch-demo': lazy(() => import('../examples/switch-demo')),
+  'dialog-demo': lazy(() => import('../examples/dialog-demo')),
+  'tooltip-demo': lazy(() => import('../examples/tooltip-demo')),
 }
 
 // Registry source code mapping

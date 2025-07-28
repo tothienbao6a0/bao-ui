@@ -5,7 +5,13 @@ import tsParser from '@typescript-eslint/parser'
 
 export default [
   {
-    ignores: ['**/dist/**', '**/node_modules/**', '**/.storybook/**', '**/storybook-static/**', '.storybook/**']
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      '**/.storybook/**',
+      '**/storybook-static/**',
+      '.storybook/**',
+    ],
   },
   js.configs.recommended,
   {
