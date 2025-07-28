@@ -1,12 +1,6 @@
-import {
-  Default,
-  WithLabel,
-  WithSeparator,
-  Disabled,
-  Sizes,
-  Controlled,
-} from '../../../packages/ui/src/components/Select.stories'
+import { SelectRoot, SelectTrigger, SelectContent, SelectItem } from '@bao-ui/react'
 import { ComponentPreview } from '../../components/ComponentPreview'
+import { useState } from 'react'
 
 # Select
 
@@ -64,7 +58,18 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Default} />
+  <ComponentPreview>
+    <div className="w-[200px]">
+      <SelectRoot placeholder="Select a fruit...">
+        <SelectTrigger />
+        <SelectContent>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+          <SelectItem value="orange">Orange</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### With Labels and Groups
@@ -121,7 +126,19 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={WithSeparator} />
+  <ComponentPreview>
+    <div className="w-[200px]">
+      <SelectRoot placeholder="Select food...">
+        <SelectTrigger />
+        <SelectContent>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+          <SelectItem value="carrot">Carrot</SelectItem>
+          <SelectItem value="broccoli">Broccoli</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Sizes
@@ -188,7 +205,40 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Sizes} />
+  <ComponentPreview>
+    <div className="space-y-4">
+      <div className="w-[200px]">
+        <p className="mb-2 text-sm font-medium">Small</p>
+        <SelectRoot placeholder="Small select">
+          <SelectTrigger size="sm" />
+          <SelectContent>
+            <SelectItem value="option1">Option 1</SelectItem>
+            <SelectItem value="option2">Option 2</SelectItem>
+          </SelectContent>
+        </SelectRoot>
+      </div>
+      <div className="w-[200px]">
+        <p className="mb-2 text-sm font-medium">Default</p>
+        <SelectRoot placeholder="Default select">
+          <SelectTrigger />
+          <SelectContent>
+            <SelectItem value="option1">Option 1</SelectItem>
+            <SelectItem value="option2">Option 2</SelectItem>
+          </SelectContent>
+        </SelectRoot>
+      </div>
+      <div className="w-[200px]">
+        <p className="mb-2 text-sm font-medium">Large</p>
+        <SelectRoot placeholder="Large select">
+          <SelectTrigger size="lg" />
+          <SelectContent>
+            <SelectItem value="option1">Option 1</SelectItem>
+            <SelectItem value="option2">Option 2</SelectItem>
+          </SelectContent>
+        </SelectRoot>
+      </div>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Controlled Select
@@ -246,7 +296,22 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Controlled} />
+  <ComponentPreview>
+    <div className="space-y-4">
+      <div className="w-[200px]">
+        <SelectRoot placeholder="Choose framework...">
+          <SelectTrigger />
+          <SelectContent>
+            <SelectItem value="react">React</SelectItem>
+            <SelectItem value="vue">Vue</SelectItem>
+            <SelectItem value="angular">Angular</SelectItem>
+            <SelectItem value="svelte">Svelte</SelectItem>
+          </SelectContent>
+        </SelectRoot>
+      </div>
+      <p className="text-sm text-muted-foreground">Controlled example</p>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Disabled State
@@ -282,7 +347,17 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Disabled} />
+  <ComponentPreview>
+    <div className="w-[200px]">
+      <SelectRoot placeholder="Disabled select..." disabled>
+        <SelectTrigger />
+        <SelectContent>
+          <SelectItem value="option1">Option 1</SelectItem>
+          <SelectItem value="option2">Option 2</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    </div>
+  </ComponentPreview>
 </div>
 
 ## API Reference

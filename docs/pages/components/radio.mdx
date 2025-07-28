@@ -1,15 +1,6 @@
-import {
-  Default,
-  WithDescription,
-  WithItemDescriptions,
-  Disabled,
-  Sizes,
-  Controlled,
-  MixedStates,
-  CustomComposition,
-  FormExample
-} from '../../../packages/ui/src/components/Radio.stories'
+import { RadioGroup } from '@bao-ui/react'
 import { ComponentPreview } from '../../components/ComponentPreview'
+import { useState } from 'react'
 
 # Radio
 
@@ -55,7 +46,17 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Default} />
+  <ComponentPreview>
+    <RadioGroup
+      label="Notifications"
+      items={[
+        { value: 'all', label: 'All notifications' },
+        { value: 'mentions', label: 'Direct messages and mentions' },
+        { value: 'none', label: 'Nothing' },
+      ]}
+      defaultValue="all"
+    />
+  </ComponentPreview>
 </div>
 
 ### With Description
@@ -82,7 +83,18 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={WithDescription} />
+  <ComponentPreview>
+    <RadioGroup
+      label="Email notifications"
+      description="Choose what notifications you want to receive via email."
+      items={[
+        { value: 'all', label: 'All notifications' },
+        { value: 'mentions', label: 'Direct messages and mentions' },
+        { value: 'none', label: 'Nothing' },
+      ]}
+      defaultValue="mentions"
+    />
+  </ComponentPreview>
 </div>
 
 ### With Item Descriptions
@@ -121,7 +133,30 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={WithItemDescriptions} />
+  <ComponentPreview>
+    <RadioGroup
+      label="Payment Method"
+      description="Choose your preferred payment method."
+      items={[
+        {
+          value: 'card',
+          label: 'Credit Card',
+          description: 'Pay with your credit or debit card',
+        },
+        {
+          value: 'paypal',
+          label: 'PayPal',
+          description: 'Pay with your PayPal account',
+        },
+        {
+          value: 'apple',
+          label: 'Apple Pay',
+          description: 'Pay with Touch ID or Face ID',
+        },
+      ]}
+      defaultValue="card"
+    />
+  </ComponentPreview>
 </div>
 
 ### Sizes
@@ -159,7 +194,40 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Sizes} />
+  <ComponentPreview>
+    <div className="space-y-6">
+      <div>
+        <h3 className="mb-3 text-sm font-medium">Small</h3>
+        <RadioGroup
+          items={[
+            { value: 'option1', label: 'Small radio' },
+            { value: 'option2', label: 'Another option' },
+          ]}
+          defaultValue="option1"
+        />
+      </div>
+      <div>
+        <h3 className="mb-3 text-sm font-medium">Default</h3>
+        <RadioGroup
+          items={[
+            { value: 'option1', label: 'Default radio' },
+            { value: 'option2', label: 'Another option' },
+          ]}
+          defaultValue="option1"
+        />
+      </div>
+      <div>
+        <h3 className="mb-3 text-sm font-medium">Large</h3>
+        <RadioGroup
+          items={[
+            { value: 'option1', label: 'Large radio' },
+            { value: 'option2', label: 'Another option' },
+          ]}
+          defaultValue="option1"
+        />
+      </div>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Controlled Radio Group
@@ -207,7 +275,35 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Controlled} />
+  <ComponentPreview>
+    <div className="space-y-4">
+      <RadioGroup
+        label="Payment Method"
+        description="Select your preferred payment method."
+        items={[
+          {
+            value: 'card',
+            label: 'Credit Card',
+            description: 'Pay with your credit or debit card',
+          },
+          {
+            value: 'paypal',
+            label: 'PayPal',
+            description: 'Pay with your PayPal account',
+          },
+          {
+            value: 'apple',
+            label: 'Apple Pay',
+            description: 'Pay with Touch ID or Face ID',
+          },
+        ]}
+        defaultValue="card"
+      />
+      <div className="text-sm text-muted-foreground">
+        Controlled example - selected value updates parent state
+      </div>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Disabled Options
@@ -235,7 +331,19 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={MixedStates} />
+  <ComponentPreview>
+    <RadioGroup
+      label="Mixed States"
+      description="Some options are disabled."
+      items={[
+        { value: 'enabled1', label: 'Enabled option 1' },
+        { value: 'enabled2', label: 'Enabled option 2' },
+        { value: 'disabled1', label: 'Disabled option 1', disabled: true },
+        { value: 'disabled2', label: 'Disabled option 2', disabled: true },
+      ]}
+      defaultValue="enabled1"
+    />
+  </ComponentPreview>
 </div>
 
 ### Custom Composition
@@ -293,7 +401,29 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={CustomComposition} />
+  <ComponentPreview>
+    <div className="space-y-4">
+      <h3 className="text-sm font-medium">Custom Composed Radio Group</h3>
+      <p className="text-xs text-muted-foreground">
+        This uses individual components for maximum flexibility.
+      </p>
+      <RadioGroup
+        items={[
+          {
+            value: 'custom1',
+            label: 'Custom Option 1',
+            description: 'With custom layout and styling',
+          },
+          {
+            value: 'custom2',
+            label: 'Custom Option 2',
+            description: 'Another custom option',
+          },
+        ]}
+        defaultValue="custom1"
+      />
+    </div>
+  </ComponentPreview>
 </div>
 
 ## API Reference

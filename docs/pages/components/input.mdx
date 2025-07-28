@@ -1,14 +1,6 @@
-import { 
-  Default,
-  WithLabel,
-  WithDescription,
-  ValidationStates,
-  Sizes,
-  InputTypes,
-  Controlled,
-  CustomComposition
-} from '../../../packages/ui/src/components/Input.stories'
+import { Input } from '@bao-ui/react'
 import { ComponentPreview } from '../../components/ComponentPreview'
+import { useState } from 'react'
 
 # Input
 
@@ -42,7 +34,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Default} />
+  <ComponentPreview>
+    <Input placeholder="Enter text..." />
+  </ComponentPreview>
 </div>
 
 ### With Label
@@ -56,7 +50,9 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={WithLabel} />
+  <ComponentPreview>
+    <Input placeholder="Enter text..." />
+  </ComponentPreview>
 </div>
 
 ### With Description
@@ -76,7 +72,12 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={WithDescription} />
+  <ComponentPreview>
+    <div className="space-y-2 w-full max-w-sm">
+      <Input placeholder="Enter text..." />
+      <p className="text-xs text-muted-foreground">This is a helpful description.</p>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Validation States
@@ -109,7 +110,13 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={ValidationStates} />
+  <ComponentPreview>
+    <div className="space-y-4 w-full max-w-sm">
+      <Input placeholder="Valid input" />
+      <Input placeholder="Invalid input" invalid />
+      <Input placeholder="Disabled input" disabled />
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Sizes
@@ -129,7 +136,13 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Sizes} />
+  <ComponentPreview>
+    <div className="space-y-4 w-full max-w-sm">
+      <Input size="sm" placeholder="Small input" />
+      <Input size="default" placeholder="Default input" />
+      <Input size="lg" placeholder="Large input" />
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Input Types
@@ -151,7 +164,14 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={InputTypes} />
+  <ComponentPreview>
+    <div className="space-y-4 w-full max-w-sm">
+      <Input type="text" placeholder="Text input" />
+      <Input type="email" placeholder="Email input" />
+      <Input type="password" placeholder="Password input" />
+      <Input type="number" placeholder="Number input" />
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Controlled Input
@@ -189,7 +209,12 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={Controlled} />
+  <ComponentPreview>
+    <div className="space-y-4 w-full max-w-sm">
+      <Input placeholder="Controlled input" defaultValue="Controlled value" />
+      <p className="text-sm text-muted-foreground">This input is controlled by React state</p>
+    </div>
+  </ComponentPreview>
 </div>
 
 ### Custom Composition
@@ -222,7 +247,13 @@ function Example() {
 ```
 
 <div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview story={CustomComposition} />
+  <ComponentPreview>
+    <div className="space-y-2 w-full max-w-sm">
+      <label className="text-sm font-medium">Custom composed input</label>
+      <Input placeholder="Custom layout..." />
+      <p className="text-xs text-muted-foreground">Using individual components for flexibility</p>
+    </div>
+  </ComponentPreview>
 </div>
 
 ## API Reference
