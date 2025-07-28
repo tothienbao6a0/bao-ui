@@ -31,6 +31,7 @@ export function StoryRenderer({
   // Render the story based on its structure
   if (story.render) {
     // Story has a custom render function
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return <>{story.render(story.args || {}, {} as any)}</>
   } else if (story.args) {
     // Story has args but no render function - this would need the component
