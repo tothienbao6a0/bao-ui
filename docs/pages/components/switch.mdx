@@ -11,7 +11,7 @@ import {
   CustomComposition,
   FormIntegration
 } from '../../../packages/ui/src/components/Switch.stories'
-import { StoryWrapper } from '../../components/StoryWrapper'
+import { ComponentPreview } from '../../components/ComponentPreview'
 
 # Switch
 
@@ -31,10 +31,8 @@ The Switch component is included in the `@bao-ui/react` package.
 
 ## Basic Usage
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Default />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Default} />
 </div>
 
 ```tsx
@@ -47,10 +45,8 @@ export function BasicSwitch() {
 
 ## With Description
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <WithDescription />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={WithDescription} />
 </div>
 
 ```tsx
@@ -62,10 +58,8 @@ export function BasicSwitch() {
 
 ## Sizes
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Sizes />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Sizes} />
 </div>
 
 ```tsx
@@ -76,15 +70,15 @@ export function BasicSwitch() {
 
 ## States
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={{render: () => (
     <div className="space-y-4">
-      <Default />
-      <Checked />
-      <Disabled />
-      <DisabledChecked />
+      {Default.render ? Default.render(Default.args || {}) : null}
+      {Checked.render ? Checked.render(Checked.args || {}) : null}
+      {Disabled.render ? Disabled.render(Disabled.args || {}) : null}
+      {DisabledChecked.render ? DisabledChecked.render(DisabledChecked.args || {}) : null}
     </div>
-  </StoryWrapper>
+  )}} />
 </div>
 
 ```tsx
@@ -96,10 +90,8 @@ export function BasicSwitch() {
 
 ## Controlled
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Controlled />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Controlled} />
 </div>
 
 ```tsx
@@ -126,20 +118,16 @@ export function ControlledExample() {
 
 ## Settings Panel Example
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <SettingsPanel />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={SettingsPanel} />
 </div>
 
 ## Custom Composition
 
 For advanced use cases, you can compose the switch using individual components:
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <CustomComposition />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={CustomComposition} />
 </div>
 
 ```tsx

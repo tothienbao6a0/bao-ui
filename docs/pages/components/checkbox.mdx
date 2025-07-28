@@ -11,7 +11,7 @@ import {
   CustomComposition,
   CustomIcon
 } from '../../../packages/ui/src/components/Checkbox.stories'
-import { StoryWrapper } from '../../components/StoryWrapper'
+import { ComponentPreview } from '../../components/ComponentPreview'
 
 # Checkbox
 
@@ -44,10 +44,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Default />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Default} />
 </div>
 
 ### With Description
@@ -65,10 +63,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <WithDescription />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={WithDescription} />
 </div>
 
 ### Controlled Checkbox
@@ -99,10 +95,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <CheckboxGroup />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={CheckboxGroup} />
 </div>
 
 ### Sizes
@@ -121,10 +115,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Sizes />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Sizes} />
 </div>
 
 ### States
@@ -145,8 +137,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={
     <div className="space-y-4">
       <Default />
       <Checked />
@@ -154,7 +146,7 @@ function Example() {
       <Disabled />
       <DisabledChecked />
     </div>
-  </StoryWrapper>
+  } />
 </div>
 
 ### Checkbox Group
@@ -203,10 +195,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <CheckboxGroup />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={CheckboxGroup} />
 </div>
 
 ### Parent-Child Checkboxes
@@ -275,10 +265,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <ParentChildCheckboxes />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={ParentChildCheckboxes} />
 </div>
 
 ### Custom Composition
@@ -313,10 +301,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <CustomComposition />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={CustomComposition} />
 </div>
 
 ## API Reference

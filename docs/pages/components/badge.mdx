@@ -9,7 +9,7 @@ import {
   StatusIndicators,
   Playground
 } from '../../../packages/ui/src/components/Badge.stories'
-import { StoryWrapper } from '../../components/StoryWrapper'
+import { ComponentPreview } from '../../components/ComponentPreview'
 
 # Badge
 
@@ -31,10 +31,8 @@ The Badge component is included in the `@bao-ui/react` package.
 
 ## Basic Usage
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Default />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Default} />
 </div>
 
 ```tsx
@@ -47,10 +45,8 @@ export function BasicBadge() {
 
 ## Variants
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Variants />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Variants} />
 </div>
 
 ```tsx
@@ -65,10 +61,8 @@ export function BasicBadge() {
 
 ## Sizes
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Sizes />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Sizes} />
 </div>
 
 ```tsx
@@ -81,10 +75,8 @@ export function BasicBadge() {
 
 Status badges are perfect for displaying status information with optional dot indicators.
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <StatusBadges />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={StatusBadges} />
 </div>
 
 ```tsx
@@ -103,10 +95,8 @@ Status badges are perfect for displaying status information with optional dot in
 
 Notification badges are designed for displaying counts, with automatic overflow handling.
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <NotificationBadges />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={NotificationBadges} />
 </div>
 
 ```tsx
@@ -130,10 +120,8 @@ Notification badges are designed for displaying counts, with automatic overflow 
 
 Interactive badges support removal functionality, perfect for tags and filters.
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <InteractiveBadges />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={InteractiveBadges} />
 </div>
 
 ```tsx
@@ -166,10 +154,8 @@ export function TagList() {
 
 ## Use Cases
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <UseCases />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={UseCases} />
 </div>
 
 ## API Reference

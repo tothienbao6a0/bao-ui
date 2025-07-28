@@ -9,7 +9,7 @@ import {
   CustomComposition,
   FormExample
 } from '../../../packages/ui/src/components/Radio.stories'
-import { StoryWrapper } from '../../components/StoryWrapper'
+import { ComponentPreview } from '../../components/ComponentPreview'
 
 # Radio
 
@@ -54,10 +54,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Default />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Default} />
 </div>
 
 ### With Description
@@ -83,10 +81,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <WithDescription />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={WithDescription} />
 </div>
 
 ### With Item Descriptions
@@ -124,10 +120,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <WithItemDescriptions />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={WithItemDescriptions} />
 </div>
 
 ### Sizes
@@ -164,10 +158,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Sizes />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Sizes} />
 </div>
 
 ### Controlled Radio Group
@@ -214,10 +206,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <Controlled />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={Controlled} />
 </div>
 
 ### Disabled Options
@@ -244,10 +234,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <MixedStates />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={MixedStates} />
 </div>
 
 ### Custom Composition
@@ -304,10 +292,8 @@ function Example() {
 }
 ```
 
-<div className="my-6 rounded-lg border border-border bg-background p-6">
-  <StoryWrapper>
-    <CustomComposition />
-  </StoryWrapper>
+<div className="my-6 rounded-lg border border-border bg-background">
+  <ComponentPreview story={CustomComposition} />
 </div>
 
 ## API Reference
