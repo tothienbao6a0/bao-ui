@@ -49,6 +49,10 @@ declare module '@bao-ui/react' {
 
   // Input Components
   export interface InputProps {
+    label?: string
+    description?: string
+    error?: string
+    variant?: 'default' | 'error' | 'success'
     size?: 'sm' | 'default' | 'lg'
     invalid?: boolean
     disabled?: boolean

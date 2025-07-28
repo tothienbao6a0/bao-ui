@@ -1,11 +1,5 @@
 import { useState } from 'react'
-import {
-  Input,
-  InputRoot,
-  InputLabel,
-  InputField,
-  InputDescription,
-} from '../../../packages/ui/src/components'
+import { Input } from '@bao-ui/react'
 
 export function DefaultInput() {
   return <Input placeholder="Enter your name..." />
@@ -125,18 +119,16 @@ export function ControlledInput() {
 
 export function CustomCompositionInput() {
   return (
-    <div className="w-80">
-      <InputRoot>
-        <InputLabel>Custom Composed Input</InputLabel>
-        <InputField
-          placeholder="This uses individual components"
-          className="bg-slate-50"
-        />
-        <InputDescription>
-          This input is composed using individual components for maximum
-          flexibility.
-        </InputDescription>
-      </InputRoot>
+    <div className="w-80 space-y-2">
+      <label className="text-sm font-medium">Custom Composed Input</label>
+      <Input
+        placeholder="This uses individual components"
+        className="bg-slate-50"
+      />
+      <p className="text-xs text-muted-foreground">
+        This input is composed using individual components for maximum
+        flexibility.
+      </p>
     </div>
   )
 }

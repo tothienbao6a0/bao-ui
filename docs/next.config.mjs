@@ -13,32 +13,5 @@ export default withNextra({
   images: {
     unoptimized: true,
   },
-  experimental: {
-    externalDir: true,
-  },
   reactStrictMode: true,
-  webpack: config => {
-    // Allow importing .stories.tsx files
-    config.module.rules.push({
-      test: /\.stories\.(js|jsx|ts|tsx)$/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: ['next/babel'],
-          },
-        },
-      ],
-    })
-
-    // Add resolve paths for external packages
-    config.resolve.modules = [
-      ...(config.resolve.modules || []),
-      'node_modules',
-      '../packages/ui/node_modules',
-      '../node_modules',
-    ]
-
-    return config
-  },
 })
