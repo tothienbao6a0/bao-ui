@@ -1,4 +1,4 @@
-import { Button } from '../../packages/ui/src/components/Button'
+import { Button } from '@bao-ui/react'
 
 export default function ButtonStates() {
   return (
