@@ -65,6 +65,146 @@ export default function ButtonStates() {
     </div>
   )
 }`,
+  'badge-demo': `import { Badge } from '@bao-ui/react'
+
+export default function BadgeDemo() {
+  return <Badge>Badge</Badge>
+}`,
+  'badge-variants': `import { Badge } from '@bao-ui/react'
+
+export default function BadgeVariants() {
+  return (
+    <div className="flex items-center space-x-2">
+      <Badge variant="default">Default</Badge>
+      <Badge variant="secondary">Secondary</Badge>
+      <Badge variant="destructive">Destructive</Badge>
+      <Badge variant="outline">Outline</Badge>
+    </div>
+  )
+}`,
+  'input-demo': `import { Input } from '@bao-ui/react'
+
+export default function InputDemo() {
+  return <Input type="email" placeholder="Email" />
+}`,
+  'checkbox-demo': `import { Checkbox } from '@bao-ui/react'
+
+export default function CheckboxDemo() {
+  return (
+    <div className="flex items-center space-x-2">
+      <Checkbox />
+      <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+        Accept terms and conditions
+      </label>
+    </div>
+  )
+}`,
+  'radio-demo': `import {
+  RadioGroup,
+  RadioGroupItem,
+} from '@bao-ui/react'
+
+export default function RadioDemo() {
+  return (
+    <RadioGroup defaultValue="comfortable">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="default" />
+        <label className="text-sm font-medium">Default</label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="comfortable" />
+        <label className="text-sm font-medium">Comfortable</label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="compact" />
+        <label className="text-sm font-medium">Compact</label>
+      </div>
+    </RadioGroup>
+  )
+}`,
+  'select-demo': `import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@bao-ui/react'
+
+export default function SelectDemo() {
+  return (
+    <Select>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue>Select a fruit</SelectValue>
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectItem value="banana">Banana</SelectItem>
+        <SelectItem value="blueberry">Blueberry</SelectItem>
+        <SelectItem value="grapes">Grapes</SelectItem>
+        <SelectItem value="pineapple">Pineapple</SelectItem>
+      </SelectContent>
+    </Select>
+  )
+}`,
+  'switch-demo': `import { Switch } from '@bao-ui/react'
+
+export default function SwitchDemo() {
+  return (
+    <div className="flex items-center space-x-2">
+      <Switch />
+      <label className="text-sm font-medium">Airplane Mode</label>
+    </div>
+  )
+}`,
+  'dialog-demo': `import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@bao-ui/react'
+import { Button } from '@bao-ui/react'
+
+export default function DialogDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger>
+        <Button variant="outline">Edit Profile</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  )
+}`,
+  'tooltip-demo': `import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@bao-ui/react'
+import { Button } from '@bao-ui/react'
+
+export default function TooltipDemo() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button variant="outline">Hover me</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Add to library</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  )
+}`,
 }
 
 interface ComponentPreviewProps {

@@ -1,11 +1,5 @@
-import {
-  Badge,
-  StatusBadge,
-  NotificationBadge,
-  InteractiveBadge,
-} from '@bao-ui/react'
+import { Badge } from '@bao-ui/react'
 import { ComponentPreview } from '../../components/ComponentPreview'
-import { useState } from 'react'
 
 # Badge
 
@@ -27,11 +21,7 @@ The Badge component is included in the `@bao-ui/react` package.
 
 ## Basic Usage
 
-<div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview>
-    <Badge>Badge</Badge>
-  </ComponentPreview>
-</div>
+<ComponentPreview name="badge-demo" />
 
 ```tsx
 import { Badge } from '@bao-ui/react'
@@ -43,19 +33,7 @@ export function BasicBadge() {
 
 ## Variants
 
-<div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview>
-    <div className="flex flex-wrap gap-2">
-      <Badge variant="default">Default</Badge>
-      <Badge variant="secondary">Secondary</Badge>
-      <Badge variant="destructive">Destructive</Badge>
-      <Badge variant="success">Success</Badge>
-      <Badge variant="warning">Warning</Badge>
-      <Badge variant="outline">Outline</Badge>
-      <Badge variant="ghost">Ghost</Badge>
-    </div>
-  </ComponentPreview>
-</div>
+<ComponentPreview name="badge-variants" />
 
 ```tsx
 <Badge variant="default">Default</Badge>
@@ -69,30 +47,7 @@ export function BasicBadge() {
 
 ## Sizes
 
-<div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview>
-    <div className="flex items-center gap-4">
-      <div className="text-center">
-        <div className="mb-2">
-          <Badge size="sm">Small</Badge>
-        </div>
-        <p className="text-xs text-muted-foreground">Small</p>
-      </div>
-      <div className="text-center">
-        <div className="mb-2">
-          <Badge size="default">Default</Badge>
-        </div>
-        <p className="text-xs text-muted-foreground">Default</p>
-      </div>
-      <div className="text-center">
-        <div className="mb-2">
-          <Badge size="lg">Large</Badge>
-        </div>
-        <p className="text-xs text-muted-foreground">Large</p>
-      </div>
-    </div>
-  </ComponentPreview>
-</div>
+Use different sizes for your badges.
 
 ```tsx
 <Badge size="sm">Small</Badge>
@@ -104,174 +59,30 @@ export function BasicBadge() {
 
 Status badges are perfect for displaying status information with optional dot indicators.
 
-<div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview>
-    <div className="space-y-4">
-      <div>
-        <h3 className="mb-3 text-sm font-medium">Without dot indicator</h3>
-        <div className="flex flex-wrap gap-2">
-          <StatusBadge status="success">Active</StatusBadge>
-          <StatusBadge status="warning">Pending</StatusBadge>
-          <StatusBadge status="destructive">Error</StatusBadge>
-        </div>
-      </div>
-      <div>
-        <h3 className="mb-3 text-sm font-medium">With dot indicator</h3>
-        <div className="flex flex-wrap gap-2">
-          <StatusBadge status="success" showDot>
-            Online
-          </StatusBadge>
-          <StatusBadge status="warning" showDot>
-            Away
-          </StatusBadge>
-          <StatusBadge status="destructive" showDot>
-            Offline
-          </StatusBadge>
-        </div>
-      </div>
-    </div>
-  </ComponentPreview>
-</div>
-
-```tsx
-// Without dot indicator
-<StatusBadge status="success">Active</StatusBadge>
-<StatusBadge status="warning">Pending</StatusBadge>
-<StatusBadge status="destructive">Error</StatusBadge>
-
-// With dot indicator
-<StatusBadge status="success" showDot>Online</StatusBadge>
-<StatusBadge status="warning" showDot>Away</StatusBadge>
-<StatusBadge status="destructive" showDot>Offline</StatusBadge>
-```
+_Note: StatusBadge component will be available in a future release._
 
 ## Notification Badges
 
 Notification badges are designed for displaying counts, with automatic overflow handling.
 
-<div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview>
-    <div className="flex items-center gap-6">
-      <div className="relative">
-        <div className="h-8 w-8 rounded bg-muted"></div>
-        <NotificationBadge count={3} className="absolute -right-1 -top-1" />
-      </div>
-      <div className="relative">
-        <div className="h-8 w-8 rounded bg-muted"></div>
-        <NotificationBadge
-          count={150}
-          max={99}
-          className="absolute -right-1 -top-1"
-        />
-      </div>
-      <div className="relative">
-        <div className="h-8 w-8 rounded bg-muted"></div>
-        <NotificationBadge
-          count={0}
-          showZero
-          className="absolute -right-1 -top-1"
-        />
-      </div>
-    </div>
-  </ComponentPreview>
-</div>
-
-```tsx
-// Basic notification badge
-<NotificationBadge count={3} />
-
-// With max limit (shows "99+" when count > 99)
-<NotificationBadge count={150} max={99} />
-
-// Show zero (hidden by default)
-<NotificationBadge count={0} showZero />
-
-// Positioned on an element
-<div className="relative">
-  <div className="h-8 w-8 rounded bg-muted"></div>
-  <NotificationBadge count={5} className="absolute -right-1 -top-1" />
-</div>
-```
+_Note: NotificationBadge component will be available in a future release._
 
 ## Interactive Badges
 
 Interactive badges support removal functionality, perfect for tags and filters.
 
-<div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview>
-    <div className="flex flex-wrap gap-2">
-      <InteractiveBadge variant="secondary" removable>
-        React
-      </InteractiveBadge>
-      <InteractiveBadge variant="secondary" removable>
-        TypeScript
-      </InteractiveBadge>
-      <InteractiveBadge variant="secondary" removable>
-        CSS
-      </InteractiveBadge>
-    </div>
-  </ComponentPreview>
-</div>
+_Note: InteractiveBadge component will be available in a future release._
 
-```tsx
-import { useState } from 'react'
-import { InteractiveBadge } from '@bao-ui/react'
-
-export function TagList() {
-  const [tags, setTags] = useState(['React', 'TypeScript', 'CSS'])
-
-  const removeTag = tagToRemove => {
-    setTags(tags.filter(tag => tag !== tagToRemove))
-  }
-
-  return (
-    <div className="flex flex-wrap gap-2">
-      {tags.map(tag => (
-        <InteractiveBadge
-          key={tag}
-          variant="secondary"
-          removable
-          onRemove={() => removeTag(tag)}
-        >
-          {tag}
-        </InteractiveBadge>
-      ))}
-    </div>
-  )
-}
-```
+````
 
 ## Use Cases
 
-<div className="my-6 rounded-lg border border-border bg-background">
-  <ComponentPreview>
-    <div className="space-y-6">
-      <div>
-        <h3 className="mb-3 text-sm font-medium">E-commerce Product Tags</h3>
-        <div className="flex flex-wrap gap-2">
-          <Badge variant="success">Free Shipping</Badge>
-          <Badge variant="warning">Limited Stock</Badge>
-          <Badge variant="outline">New Arrival</Badge>
-          <Badge variant="secondary">Best Seller</Badge>
-        </div>
-      </div>
-      <div>
-        <h3 className="mb-3 text-sm font-medium">Status Indicators</h3>
-        <div className="flex flex-wrap gap-2">
-          <StatusBadge status="success" showDot>
-            Online
-          </StatusBadge>
-          <StatusBadge status="warning" showDot>
-            Away
-          </StatusBadge>
-          <StatusBadge status="destructive" showDot>
-            Offline
-          </StatusBadge>
-        </div>
-      </div>
-    </div>
-  </ComponentPreview>
-</div>
+Badges are commonly used for:
+- Status indicators (online, offline, pending)
+- Category labels and tags
+- Notification counts
+- Product labels (new, sale, featured)
+- User roles and permissions
 
 ## API Reference
 
@@ -286,41 +97,7 @@ The base badge component with multiple variants and sizes.
 | `className` | `string`                                                                                      | -           | Additional CSS classes      |
 | `children`  | `ReactNode`                                                                                   | -           | Content of the badge        |
 
-### StatusBadge
-
-Badge component specifically designed for status indicators.
-
-| Prop        | Type                                                                  | Default     | Description                     |
-| ----------- | --------------------------------------------------------------------- | ----------- | ------------------------------- |
-| `status`    | `'success' \| 'warning' \| 'destructive' \| 'default' \| 'secondary'` | -           | Status type                     |
-| `showDot`   | `boolean`                                                             | `false`     | Whether to show a dot indicator |
-| `size`      | `'sm' \| 'default' \| 'lg'`                                           | `'default'` | Size of the badge               |
-| `className` | `string`                                                              | -           | Additional CSS classes          |
-| `children`  | `ReactNode`                                                           | -           | Content of the badge            |
-
-### NotificationBadge
-
-Badge component for displaying notification counts.
-
-| Prop        | Type      | Default | Description                               |
-| ----------- | --------- | ------- | ----------------------------------------- |
-| `count`     | `number`  | -       | Number to display                         |
-| `max`       | `number`  | `99`    | Maximum number before showing "+"         |
-| `showZero`  | `boolean` | `false` | Whether to show the badge when count is 0 |
-| `className` | `string`  | -       | Additional CSS classes                    |
-
-### InteractiveBadge
-
-Badge component with removal functionality.
-
-| Prop        | Type                                                                                          | Default     | Description                            |
-| ----------- | --------------------------------------------------------------------------------------------- | ----------- | -------------------------------------- |
-| `removable` | `boolean`                                                                                     | `false`     | Whether the badge can be removed       |
-| `onRemove`  | `() => void`                                                                                  | -           | Callback when remove button is clicked |
-| `variant`   | `'default' \| 'secondary' \| 'destructive' \| 'success' \| 'warning' \| 'outline' \| 'ghost'` | `'default'` | Visual variant of the badge            |
-| `size`      | `'sm' \| 'default' \| 'lg'`                                                                   | `'default'` | Size of the badge                      |
-| `className` | `string`                                                                                      | -           | Additional CSS classes                 |
-| `children`  | `ReactNode`                                                                                   | -           | Content of the badge                   |
+*Additional badge variants (StatusBadge, NotificationBadge, InteractiveBadge) will be available in future releases.*
 
 ## Accessibility
 
@@ -343,44 +120,8 @@ The Badge components follow accessibility best practices:
   <Badge variant="outline">New Arrival</Badge>
   <Badge variant="secondary">Best Seller</Badge>
 </div>
-```
+````
 
-### Form Validation
+### More Examples
 
-```tsx
-<div className="space-y-2">
-  <div className="flex items-center gap-2">
-    <input type="email" className="..." />
-    <StatusBadge status="success" showDot>
-      Valid
-    </StatusBadge>
-  </div>
-  <div className="flex items-center gap-2">
-    <input type="password" className="..." />
-    <StatusBadge status="destructive" showDot>
-      Invalid
-    </StatusBadge>
-  </div>
-</div>
-```
-
-### Filter Tags
-
-```tsx
-const [filters, setFilters] = useState(['React', 'TypeScript'])
-
-return (
-  <div className="flex flex-wrap gap-2">
-    {filters.map(filter => (
-      <InteractiveBadge
-        key={filter}
-        variant="outline"
-        removable
-        onRemove={() => removeFilter(filter)}
-      >
-        {filter}
-      </InteractiveBadge>
-    ))}
-  </div>
-)
-```
+Additional examples using StatusBadge and InteractiveBadge components will be available in future releases.
